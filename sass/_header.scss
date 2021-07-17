@@ -1,0 +1,21 @@
+.site-header {
+  display: flex;
+  justify-content: space-between;
+}
+.artemis-logo {
+  mix-blend-mode: difference;
+}
+.artemis-logo path {
+  fill: #FFF;
+}
+.menu-toggle {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+}
+.menu-hamburger-icon {
+  width: 100%;
+  height: auto;
+}

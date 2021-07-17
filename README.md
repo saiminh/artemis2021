@@ -1,0 +1,3 @@
+Artemis WordPress Theme
+-----------------------
+
