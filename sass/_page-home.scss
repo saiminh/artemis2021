@@ -1,0 +1,90 @@
+@use 'mq';
+
+.home-canvas {
+  top: 0;
+  z-index: 0;
+}
+.home-hero {
+  width: 100%;
+  overflow: hidden;
+}
+.home-hero-headline {
+  display: inline-block;
+  font-size: 12.5vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #FFF;
+  mix-blend-mode: difference;
+  white-space: nowrap;
+  margin: 0;
+  line-height: 1;
+  width: auto;
+  max-width: none;
+  position: relative;
+  z-index: 1;
+}
+.home-content,
+.home-navigation {
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 38px;
+  margin: auto;
+  @include mq.for-tablet-portrait-up {
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 55px;
+    line-height: 1;
+    letter-spacing: 0;
+    max-width: 22em;
+  }
+}
+.home-navigation {
+  counter-reset: homeBtnCounter 0;
+  position: relative;
+  left: -1.333em;
+}
+.home-navigation .wp-block-buttons .wp-block-button {
+  flex-basis: calc(50% - .5em);
+  position: relative;
+  perspective: 750px;
+  transform-style: preserve-3d;
+  background-color: #FFF;
+}
+.home-navigation .wp-block-button__link {
+  counter-increment: homeBtnCounter 1;
+}
+.home-navigation .wp-block-button__link:after,
+.home-navigation .wp-block-button__link-clone:after {
+  content: "0" counter(homeBtnCounter) ;
+  font-size: .5em;
+  margin-left: .125em;
+}
+.home-navigation .wp-block-button__link {
+  background-color: transparent;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+.homeBtn-bgshape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.homeBtn-bgshapeImg {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: url('./img/artemis-bg.png');
+  background-position: 0% 0%;
+}

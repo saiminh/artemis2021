@@ -1,21 +1,63 @@
+@use 'mq';
+
 .site-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-}
-.artemis-logo {
+  z-index: 4;
   mix-blend-mode: difference;
+}
+.site-header > * {
+  flex-basis: 33.333%;
+}
+.site-header-branding a {
+  display: inline-block;
+  padding: 20px;
+}
+.site-header-branding svg{
+  width: 78px;
+  height: 12px;
+  @include mq.for-tablet-landscape-up {
+    width: 95px;
+    height: 16px;
+  }
 }
 .artemis-logo path {
   fill: #FFF;
 }
-.menu-toggle {
+.site-header-current-page-title {
+  text-align: center;
+  padding: 20px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #FFF;
+  display: none;
+  font-size: 18px;
+  @include mq.for-tablet-portrait-up {
+    display: block;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 20px;
+  }
+}
+.site-header-main-navigation {
+  padding: 0 20px;
+}
+.site-header-main-navigation .menu-toggle {
+  display: block;
+  margin: 0 0 0 auto;
   border: none;
   background-color: transparent;
-  padding: 0;
+  padding: 20px 0;
   width: 50px;
-  height: 50px;
+  //height: 50px;
 }
 .menu-hamburger-icon {
   width: 100%;
   height: auto;
+}
+.menu-hamburger-icon line {
+  stroke: #FFF;
 }

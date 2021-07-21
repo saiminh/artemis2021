@@ -1,2 +1,15 @@
 @use 'wp-head';
 @use 'header';
+@use 'buttons';
+@use 'page-home';
+
+#page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0);
+  width: 100vw;
+}
+main {
+  background-color: #FFF;
+}

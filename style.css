@@ -387,7 +387,7 @@ input,
 select,
 optgroup,
 textarea {
-  color: #404040;
+  color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -630,19 +630,19 @@ textarea {
 --------------------------------------------------------------*/
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
+.site-header-main-navigation {
   display: block;
   width: 100%;
 }
 
-.main-navigation ul {
+.site-header-main-navigation ul {
   display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
 
-.main-navigation ul ul {
+.site-header-main-navigation ul ul {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   float: left;
   position: absolute;
@@ -651,38 +651,38 @@ textarea {
   z-index: 99999;
 }
 
-.main-navigation ul ul ul {
+.site-header-main-navigation ul ul ul {
   left: -999em;
   top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.site-header-main-navigation ul ul li:hover > ul,
+.site-header-main-navigation ul ul li.focus > ul {
   display: block;
   left: auto;
 }
 
-.main-navigation ul ul a {
+.site-header-main-navigation ul ul a {
   width: 200px;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.site-header-main-navigation ul li:hover > ul,
+.site-header-main-navigation ul li.focus > ul {
   left: auto;
 }
 
-.main-navigation li {
+.site-header-main-navigation li {
   position: relative;
 }
 
-.main-navigation a {
+.site-header-main-navigation a {
   display: block;
   text-decoration: none;
 }
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.site-header-main-navigation.toggled ul {
   display: block;
 }
 
@@ -724,17 +724,6 @@ textarea {
 
 .updated:not(.published) {
   display: none;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-  margin: 1.5em 0 0;
-}
-
-.page-links {
-  clear: both;
-  margin: 0 0 1.5em;
 }
 
 /* Comments
@@ -931,29 +920,202 @@ textarea {
 }
 
 .site-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  z-index: 4;
+  mix-blend-mode: difference;
 }
 
-.artemis-logo {
-  mix-blend-mode: difference;
+.site-header > * {
+  flex-basis: 33.333%;
+}
+
+.site-header-branding a {
+  display: inline-block;
+  padding: 20px;
+}
+
+.site-header-branding svg {
+  width: 78px;
+  height: 12px;
+}
+@media (min-width: 900px) {
+  .site-header-branding svg {
+    width: 95px;
+    height: 16px;
+  }
 }
 
 .artemis-logo path {
   fill: #FFF;
 }
 
-.menu-toggle {
+.site-header-current-page-title {
+  text-align: center;
+  padding: 20px;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #FFF;
+  display: none;
+  font-size: 18px;
+}
+@media (min-width: 600px) {
+  .site-header-current-page-title {
+    display: block;
+  }
+}
+@media (min-width: 900px) {
+  .site-header-current-page-title {
+    font-size: 20px;
+  }
+}
+
+.site-header-main-navigation {
+  padding: 0 20px;
+}
+
+.site-header-main-navigation .menu-toggle {
+  display: block;
+  margin: 0 0 0 auto;
   border: none;
   background-color: transparent;
-  padding: 0;
+  padding: 20px 0;
   width: 50px;
-  height: 50px;
 }
 
 .menu-hamburger-icon {
   width: 100%;
   height: auto;
+}
+
+.menu-hamburger-icon line {
+  stroke: #FFF;
+}
+
+.wp-block-button__link {
+  text-transform: uppercase;
+  border-radius: 15px;
+  background-color: #000;
+}
+
+.home-canvas {
+  top: 0;
+  z-index: 0;
+}
+
+.home-hero {
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-hero-headline {
+  display: inline-block;
+  font-size: 12.5vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #FFF;
+  mix-blend-mode: difference;
+  white-space: nowrap;
+  margin: 0;
+  line-height: 1;
+  width: auto;
+  max-width: none;
+  position: relative;
+  z-index: 1;
+}
+
+.home-content,
+.home-navigation {
+  padding: 20px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 38px;
+  margin: auto;
+}
+@media (min-width: 600px) {
+  .home-content,
+.home-navigation {
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0.02em;
+  }
+}
+@media (min-width: 900px) {
+  .home-content,
+.home-navigation {
+    font-size: 55px;
+    line-height: 1;
+    letter-spacing: 0;
+    max-width: 22em;
+  }
+}
+
+.home-navigation {
+  counter-reset: homeBtnCounter 0;
+  position: relative;
+  left: -1.333em;
+}
+
+.home-navigation .wp-block-buttons .wp-block-button {
+  flex-basis: calc(50% - .5em);
+  position: relative;
+  perspective: 750px;
+  transform-style: preserve-3d;
+  background-color: #FFF;
+}
+
+.home-navigation .wp-block-button__link {
+  counter-increment: homeBtnCounter 1;
+}
+
+.home-navigation .wp-block-button__link:after,
+.home-navigation .wp-block-button__link-clone:after {
+  content: "0" counter(homeBtnCounter);
+  font-size: 0.5em;
+  margin-left: 0.125em;
+}
+
+.home-navigation .wp-block-button__link {
+  background-color: transparent;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+.homeBtn-bgshape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.homeBtn-bgshapeImg {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: url("./img/artemis-bg.png");
+  background-position: 0% 0%;
+}
+
+#page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0);
+  width: 100vw;
+}
+
+main {
+  background-color: #FFF;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article>
 
 	<?php artemis2021_post_thumbnail(); ?>
 

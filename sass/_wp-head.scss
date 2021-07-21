@@ -402,7 +402,7 @@ input,
 select,
 optgroup,
 textarea {
-  color: #404040;
+  color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
@@ -647,19 +647,19 @@ textarea {
 
 /* Navigation
 --------------------------------------------- */
-.main-navigation {
+.site-header-main-navigation {
   display: block;
   width: 100%;
 }
 
-.main-navigation ul {
+.site-header-main-navigation ul {
   display: none;
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
 
-.main-navigation ul ul {
+.site-header-main-navigation ul ul {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
   float: left;
   position: absolute;
@@ -668,38 +668,38 @@ textarea {
   z-index: 99999;
 }
 
-.main-navigation ul ul ul {
+.site-header-main-navigation ul ul ul {
   left: -999em;
   top: 0;
 }
 
-.main-navigation ul ul li:hover > ul,
-.main-navigation ul ul li.focus > ul {
+.site-header-main-navigation ul ul li:hover > ul,
+.site-header-main-navigation ul ul li.focus > ul {
   display: block;
   left: auto;
 }
 
-.main-navigation ul ul a {
+.site-header-main-navigation ul ul a {
   width: 200px;
 }
 
-.main-navigation ul li:hover > ul,
-.main-navigation ul li.focus > ul {
+.site-header-main-navigation ul li:hover > ul,
+.site-header-main-navigation ul li.focus > ul {
   left: auto;
 }
 
-.main-navigation li {
+.site-header-main-navigation li {
   position: relative;
 }
 
-.main-navigation a {
+.site-header-main-navigation a {
   display: block;
   text-decoration: none;
 }
 
 /* Small menu. */
 .menu-toggle,
-.main-navigation.toggled ul {
+.site-header-main-navigation.toggled ul {
   display: block;
 }
 
@@ -743,17 +743,6 @@ textarea {
 
 .updated:not(.published) {
   display: none;
-}
-
-.page-content,
-.entry-content,
-.entry-summary {
-  margin: 1.5em 0 0;
-}
-
-.page-links {
-  clear: both;
-  margin: 0 0 1.5em;
 }
 
 /* Comments

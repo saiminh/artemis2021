@@ -71,35 +71,21 @@ if ( ! function_exists( 'artemis2021_setup' ) ) :
 			)
 		);
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'artemis2021_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
-		);
+		// // Set up the WordPress core custom background feature.
+		// add_theme_support(
+		// 	'custom-background',
+		// 	apply_filters(
+		// 		'artemis2021_custom_background_args',
+		// 		array(
+		// 			'default-color' => 'ffffff',
+		// 			'default-image' => '',
+		// 		)
+		// 	)
+		// );
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
-
-		/**
-		 * Add support for core custom logo.
-		 *
-		 * @link https://codex.wordpress.org/Theme_Logo
-		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
-		);
+		// add_theme_support( 'customize-selective-refresh-widgets' );
+		
 	}
 endif;
 add_action( 'after_setup_theme', 'artemis2021_setup' );
@@ -121,33 +107,53 @@ add_action( 'after_setup_theme', 'artemis2021_content_width', 0 );
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function artemis2021_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Sidebar', 'artemis2021' ),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__( 'Add widgets here.', 'artemis2021' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-}
-add_action( 'widgets_init', 'artemis2021_widgets_init' );
+// function artemis2021_widgets_init() {
+// 	register_sidebar(
+// 		array(
+// 			'name'          => esc_html__( 'Sidebar', 'artemis2021' ),
+// 			'id'            => 'sidebar-1',
+// 			'description'   => esc_html__( 'Add widgets here.', 'artemis2021' ),
+// 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+// 			'after_widget'  => '</section>',
+// 			'before_title'  => '<h2 class="widget-title">',
+// 			'after_title'   => '</h2>',
+// 		)
+// 	);
+// }
+// add_action( 'widgets_init', 'artemis2021_widgets_init' );
+
+/**
+ * Clean up some WP defaults
+ */
+
+// Backwcomp for emojis
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+// This is required to publish with 3rd party tool:
+remove_action ('wp_head', 'rsd_link');
+// Manifest link for Window
+remove_action( 'wp_head', 'wlwmanifest_link');
+// Disable REST API link tag
+remove_action('wp_head', 'rest_output_link_wp_head', 10);
+// Disable REST API link in HTTP headers
+remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+// Generator version
+function remove_generator_version() { return ''; }
+add_filter('the_generator', 'remove_generator_version');
 
 /**
  * Enqueue scripts and styles.
  */
+
 function artemis2021_scripts() {
 	wp_enqueue_style( 'artemis2021-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'artemis2021-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'artemis2021-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	// wp_style_add_data( 'artemis2021-style', 'rtl', 'replace' );
+	// wp_enqueue_script( 'artemis2021-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'artemis2021-main', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true );
+	// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	// 	wp_enqueue_script( 'comment-reply' );
+	// }
 }
 add_action( 'wp_enqueue_scripts', 'artemis2021_scripts' );
 
