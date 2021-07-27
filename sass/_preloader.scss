@@ -1,0 +1,37 @@
+.artemis-preloader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+.artemis-preloader-logos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform-origin: 50% 50%;
+  transform: scale(3);
+}
+.artemis-preloader svg {
+  width: 100px;
+  height: 16px;
+}
+.artemis-preloader svg path {
+  fill: #FFF;
+}
+.artemis-preloader svg:nth-child(2) path {
+  opacity: 0;
+}
+.artemis-preloader svg:first-child, 
+.artemis-preloader svg:last-child {
+  transform: scaleX(-1);
+}

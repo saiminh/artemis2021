@@ -1,0 +1,67 @@
+@use 'mq';
+
+.site-footer {
+  background: #F9F8F6;
+  padding: 3em 2em 1em 2em;
+  margin-top: 3em;
+  @include mq.for-tablet-portrait-up {
+    margin-top: 6em;
+    padding-top: 6em;
+  }
+}
+.site-footer-nav-col-logo-link,
+.site-footer-nav-col-logo-link:visited {
+  display: block;
+  padding: 4px 0;
+}
+.site-footer .artemis-logo {
+  height: 7px;
+  width: auto;
+  & path {
+    fill: #000;
+  }
+  @include mq.for-tablet-portrait-up {
+    height: 15px;
+  }
+}
+.site-footer-nav-col-title {
+  margin: 0;
+}
+.site-footer-nav-col-link,
+.site-footer-nav-col-link:visited {
+  color: #808B90;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+  @include mq.for-tablet-portrait-up {
+    font-size: 18px;
+    display: block;
+  }
+}
+.site-footer-nav-col-link:hover {
+  color: #000;
+}
+.site-footer-nav-col-title a,
+.site-footer-nav-col-title a:visited {
+  display: block;
+  color: #000;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 10px;
+  margin-top: 1em;
+  @include mq.for-tablet-portrait-up {
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+}
+.site-footer-copyright {
+  font-size: 12px;
+  color: #808B90;
+  margin: 5em 0 1em 0;
+  @include mq.for-tablet-portrait-up {
+    margin-top: 8em;
+    text-align: center;
+  }
+}

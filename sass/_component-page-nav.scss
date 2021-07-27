@@ -1,0 +1,41 @@
+@use 'layout';
+@use 'mq';
+
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  @include layout.full;
+  margin-top: 6em;
+  margin-bottom: 6em;
+}
+.page-nav .artemis-logo {
+  height: .9em;
+  width: auto;
+}
+.page-nav .artemis-logo path {
+  fill: #000;
+}
+.page-nav-prev, .page-nav-next, .page-nav-prev:visited, .page-nav-next:visited {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: 5.8vw;
+  @include mq.for-tablet-portrait-up {
+    font-size: 4.1vw;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 3.8vw;
+  }
+}
+.page-nav-btn {
+  height: .9em;
+  width: .9em;
+  margin: 0 0 0 1em;
+}
+.page-nav-btn-prev {
+  margin: 0 1em 0 0;
+  transform: scale(-1);
+}

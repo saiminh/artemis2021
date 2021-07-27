@@ -11,19 +11,8 @@
 
 <article>
 
-	<?php artemis2021_post_thumbnail(); ?>
-
 	<div class="entry-content">
-		<?php
-		the_content();
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'artemis2021' ),
-				'after'  => '</div>',
-			)
-		);
-		?>
+		<?php the_content(); ?>
 	</div><!-- .entry-content -->
 
 	<?php if ( get_edit_post_link() ) : ?>

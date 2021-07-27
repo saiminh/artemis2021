@@ -1,5 +1,8 @@
 @use 'mq';
 
+.site.home .site-header{
+  display: none;
+}
 .home-canvas {
   top: 0;
   z-index: 0;
@@ -52,7 +55,6 @@
   flex-basis: calc(50% - .5em);
   position: relative;
   perspective: 750px;
-  transform-style: preserve-3d;
   background-color: #FFF;
 }
 .home-navigation .wp-block-button__link {
@@ -68,6 +70,8 @@
   background-color: transparent;
   color: #fff;
   mix-blend-mode: difference;
+  position: relative;
+  z-index: 2;
 }
 .homeBtn-bgshape {
   position: absolute;
@@ -75,9 +79,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: 1;
   border-radius: 20px;
   overflow: hidden;
+  transform: translateZ(-150px);
 }
 .homeBtn-bgshapeImg {
   position: absolute;
@@ -87,4 +92,5 @@
   bottom: -50%;
   background: url('./img/artemis-bg.png');
   background-position: 0% 0%;
+  z-index: 1;
 }

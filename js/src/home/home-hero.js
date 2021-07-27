@@ -39,9 +39,16 @@ function homeHero() {
   app.renderer = PIXI.autoDetectRenderer({antialias: true, backgroundColor: 0xFFFFFF });
   app.renderer.view.style.position = "absolute";
   app.renderer.view.style.display = "block";
+  app.renderer.view.style.transformOrigin = "50% 50%";
+  app.renderer.view.style.transform = "scale(0)";
   app.renderer.view.className = "home-canvas";
   app.renderer.autoResize = true;
   app.renderer.resize(window.innerWidth, window.innerHeight);
+
+  // window.addEventListener('resize', () => {
+  //   app.renderer.resize(window.innerWidth, window.innerHeight);
+    
+  // })
   
   loader
     .add("./wp-content/themes/artemis2021/img/artemis-bg.png")
@@ -64,15 +71,11 @@ function homeHero() {
       let centerY = window.innerHeight /2;
       
       let container = new PIXI.Container();
-      // container.width = window.innerWidth * 2;
-      // container.height = window.innerHeight * 2;
       container.pivot.x = centerX;
       container.pivot.y = centerY;
       container.x = centerX + 7;
       container.y = centerY + 7;
-      // container.filters = [new PIXI.filters.FXAA()];
       app.stage.addChild(container);
-      // app.stage.filters = [new FXAAFilter()];
   
       container.addChild(sprite);
       roundBox = new PIXI.Graphics();    
@@ -111,11 +114,11 @@ function homeHero() {
         //mouse in in upper left corner
         if ( mouseX <= centerX && mouseY <= centerY ) {
           gsap.to(newPolyPoints[2], {
-            x: () => origPolyPoints[2].x - (roundBoxW/2 - mouseX),
+            x: () => origPolyPoints[2].x - (roundBoxW - mouseX)/2.5,
             ease: "power2.out"
           })
           gsap.to(newPolyPoints[2], {
-            y: () => origPolyPoints[2].y - (roundBoxH/2 - mouseY),
+            y: () => origPolyPoints[2].y - (roundBoxH - mouseY)/2.5,
             ease: "power2.out"
           })
         } else {
@@ -129,11 +132,11 @@ function homeHero() {
         //mouse in in upper right corner
         if ( mouseX > centerX && mouseY <= centerY ) {
           gsap.to(newPolyPoints[3], {
-            x: () => origPolyPoints[3].x + mouseX/2,
+            x: () => origPolyPoints[3].x + mouseX/2.5,
             ease: "power2.out"
           })
           gsap.to(newPolyPoints[3], {
-            y: () => origPolyPoints[3].y - (roundBoxH - mouseY)/2,
+            y: () => origPolyPoints[3].y - (roundBoxH - mouseY)/2.5,
             ease: "power2.out"
           })
         } else {
@@ -147,11 +150,11 @@ function homeHero() {
         //mouse in in lower right corner
         if ( mouseX > centerX && mouseY > centerY ) {
           gsap.to(newPolyPoints[0], {
-            x: () => origPolyPoints[0].x +  mouseX/2,
+            x: () => origPolyPoints[0].x +  mouseX/2.5,
             ease: "power2.out"
           })
           gsap.to(newPolyPoints[0], {
-            y: () => origPolyPoints[0].y + mouseY/2,
+            y: () => origPolyPoints[0].y + mouseY/2.5,
             ease: "power2.out"
           })
         } else {
@@ -165,11 +168,11 @@ function homeHero() {
         //mouse in in lower left corner
         if ( mouseX <= centerX && mouseY > centerY ) {
           gsap.to(newPolyPoints[1], {
-            x: () => origPolyPoints[1].x  - (roundBoxW - mouseX)/2,
+            x: () => origPolyPoints[1].x  - (roundBoxW - mouseX)/2.5,
             ease: "power2.out"
           })
           gsap.to(newPolyPoints[1], {
-            y: () => origPolyPoints[1].y + mouseY/2,
+            y: () => origPolyPoints[1].y + mouseY/2.5,
             ease: "power2.out"
           })
         } else {
@@ -180,19 +183,6 @@ function homeHero() {
             y: origPolyPoints[1].y
           } )
         }
-  
-        
-  
-        // newPolyPoints.forEach((point, i) => {
-        //   gsap.to(point, {
-        //     x: () => origPolyPoints[i].x + mouseX, 
-        //     ease: 'none'
-        //   });
-        //   gsap.to(point, {
-        //     y: () => origPolyPoints[i].y + mouseY, 
-        //     ease: 'none'
-        //   });
-        // })
       })
   
       function drawAnimatePolygon(){

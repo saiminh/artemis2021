@@ -154,6 +154,9 @@ function artemis2021_scripts() {
 	// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 	// 	wp_enqueue_script( 'comment-reply' );
 	// }
+  // Maybe for the future dequeue the default styles?
+  //wp_dequeue_style( 'wp-block-library' );
+
 }
 add_action( 'wp_enqueue_scripts', 'artemis2021_scripts' );
 
@@ -177,3 +180,57 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+/**
+ * latest news shortcode
+ */
+//Shortcode for displaying Team members
+function display_latest_news() {
+  echo '<div class="latest-news">
+          <h2 class="latest-news-title triple-headline">
+            News and updates
+          </h2>
+          <div class="latest-news-scroller">';
+  $args = array(  
+    'post_type' => 'post',
+    'post_status' => 'publish',
+    'posts_per_page' => -1, 
+    'orderby' => 'date'
+  );
+  $loop = new WP_Query( $args ); 
+        
+  while ( $loop->have_posts() ) { 
+    $loop->the_post();
+            echo '<div class="latest-news-item">
+              <div class="latest-news-item-image">';
+                the_post_thumbnail();
+        echo '</div>
+              <div class="latest-news-item-text">
+                <h3 class="latest-news-item-title">';
+                  print the_title(); 
+          echo '</h3>
+                <div class="latest-news-item-subtitle">';
+                  the_excerpt(); 
+          echo '</div> 
+                <div class="latest-news-item-taglist">';
+                  the_tags('', ' | ', '');
+          echo '</div>
+              </div>
+            </div>';
+  }
+  wp_reset_postdata(); 
+  echo '</div>';
+  echo '<div class="latest-news-scroller-nav">
+          <button aria-label="back" class="latest-news-scroller-nav-scrollPrev">
+            Back
+          </button>
+          <button aria-label="next" class="latest-news-scroller-nav-scrollNext">
+            Next
+          </button>
+        </div>';
+}
+function outputbuffer_latest_news(){
+    ob_start();             // turn on output buffering
+    display_latest_news(); // put the output to the buffer
+    return ob_get_clean();  // capture and return the buffer
+}
+add_shortcode( 'latestNews', 'outputbuffer_latest_news' ); 

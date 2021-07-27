@@ -1,15 +1,27 @@
 @use 'wp-head';
+@use 'preloader';
 @use 'header';
 @use 'buttons';
+@use 'component-latest-news';
+@use 'component-page-nav';
 @use 'page-home';
+@use 'page-company';
+@use 'page-portfolio';
+@use 'page-team';
+@use 'footer';
 
-#page {
+.site {
   position: absolute;
   top: 0;
   left: 0;
-  transform: translate(0);
-  width: 100vw;
+  right: 0;
 }
 main {
   background-color: #FFF;
+}
+.edit-link {
+  display: none;
+}
+.wp-block-button__link {
+  padding: calc(.667em + 2px) calc(2.333em + 2px);
 }
