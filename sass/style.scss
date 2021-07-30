@@ -13,7 +13,7 @@
 @use 'footer';
 
 body {
-  opacity: 0;
+  opacity: 0; // To avoid flickering on initial load, js removes this on first window.load
 }
 .site {
   position: absolute;

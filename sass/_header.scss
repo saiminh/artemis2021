@@ -1,27 +1,37 @@
 @use 'mq';
+@use 'layout' as vars;
 
 .site-header {
   position: fixed;
   top: 0;
   width: 100vw;
-  display: flex;
-  justify-content: space-between;
   z-index: 4;
   mix-blend-mode: difference;
+  font-size: 2.3vw;
+  @include mq.for-tablet-landscape-up {
+    font-size: 1.4vw;
+  }
 }
 .site-header > * {
-  flex-basis: 33.333%;
+  position: absolute;
+  top: vars.$header-height / 2;
+  transform: translateY( -50% );
+}
+.site-header-branding {
+  z-index: 2;
 }
 .site-header-branding a {
   display: inline-block;
   padding: 20px;
 }
 .site-header-branding svg{
-  width: 78px;
+  width: auto;
   height: 12px;
   @include mq.for-tablet-landscape-up {
-    width: 95px;
-    height: 16px;
+    height: 1.5vw;
+  }
+  @include mq.for-tablet-landscape-up {
+    height: 1.1vw;
   }
 }
 .artemis-logo path {
@@ -29,30 +39,51 @@
 }
 .site-header-current-page-title {
   text-align: center;
+  left: 50%;
+  transform: translate( -50%, -50% );
   padding: 20px;
   text-transform: uppercase;
+  text-decoration: underline;
   line-height: .6;
   color: #FFF;
   display: none;
-  font-size: 18px;
+  font-size: 1em;
+  // transition: opacity .1s linear;
+  opacity: 1;
   @include mq.for-tablet-portrait-up {
     display: block;
   }
-  @include mq.for-tablet-landscape-up {
-    font-size: 20px;
-  }
+}
+#masthead.toggled .site-header-current-page-title {
+  opacity: 0;
 }
 .site-header-main-navigation {
   padding: 0 20px;
+  right: 0;
+  // left: 40%;
+  // width: 60%;
+  display: flex;
+  flex-direction: row-reverse;
 }
 .site-header-main-navigation .menu-toggle {
   display: block;
-  margin: 0 0 0 auto;
+  margin: 0 0 0 2.5em;
   border: none;
   background-color: transparent;
   padding: 20px 0;
   width: 50px;
   //height: 50px;
+}
+#masthead.toggled .site-header-main-navigation ul {
+  display: flex;
+  gap: 2.5em;
+  position: relative;
+  height: 100%;
+  align-items: center;
+}
+.site-header-main-navigation a, .site-header-main-navigation a:visited {
+  color: #FFF;
+  text-transform: uppercase;
 }
 .menu-hamburger-icon {
   width: 100%;

@@ -967,18 +967,42 @@ textarea {
   transform: scaleX(-1);
 }
 
+.entry-content > .wp-block-group {
+  margin-bottom: 65px;
+}
+@media (min-width: 600px) {
+  .entry-content > .wp-block-group {
+    margin-bottom: 95px;
+  }
+}
+@media (min-width: 900px) {
+  .entry-content > .wp-block-group {
+    margin-bottom: 160px;
+  }
+}
+
 .site-header {
   position: fixed;
   top: 0;
   width: 100vw;
-  display: flex;
-  justify-content: space-between;
   z-index: 4;
   mix-blend-mode: difference;
+  font-size: 2.3vw;
+}
+@media (min-width: 900px) {
+  .site-header {
+    font-size: 1.4vw;
+  }
 }
 
 .site-header > * {
-  flex-basis: 33.333%;
+  position: absolute;
+  top: 30px;
+  transform: translateY(-50%);
+}
+
+.site-header-branding {
+  z-index: 2;
 }
 
 .site-header-branding a {
@@ -987,13 +1011,17 @@ textarea {
 }
 
 .site-header-branding svg {
-  width: 78px;
+  width: auto;
   height: 12px;
 }
 @media (min-width: 900px) {
   .site-header-branding svg {
-    width: 95px;
-    height: 16px;
+    height: 1.5vw;
+  }
+}
+@media (min-width: 900px) {
+  .site-header-branding svg {
+    height: 1.1vw;
   }
 }
 
@@ -1003,35 +1031,54 @@ textarea {
 
 .site-header-current-page-title {
   text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 20px;
   text-transform: uppercase;
+  text-decoration: underline;
   line-height: 0.6;
   color: #FFF;
   display: none;
-  font-size: 18px;
+  font-size: 1em;
+  opacity: 1;
 }
 @media (min-width: 600px) {
   .site-header-current-page-title {
     display: block;
   }
 }
-@media (min-width: 900px) {
-  .site-header-current-page-title {
-    font-size: 20px;
-  }
+
+#masthead.toggled .site-header-current-page-title {
+  opacity: 0;
 }
 
 .site-header-main-navigation {
   padding: 0 20px;
+  right: 0;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .site-header-main-navigation .menu-toggle {
   display: block;
-  margin: 0 0 0 auto;
+  margin: 0 0 0 2.5em;
   border: none;
   background-color: transparent;
   padding: 20px 0;
   width: 50px;
+}
+
+#masthead.toggled .site-header-main-navigation ul {
+  display: flex;
+  gap: 2.5em;
+  position: relative;
+  height: 100%;
+  align-items: center;
+}
+
+.site-header-main-navigation a, .site-header-main-navigation a:visited {
+  color: #FFF;
+  text-transform: uppercase;
 }
 
 .menu-hamburger-icon {
@@ -1047,19 +1094,17 @@ textarea {
   text-transform: uppercase;
   border-radius: 15px;
   background-color: #000;
-}
-
-.entry-content > .wp-block-group {
-  margin-bottom: 65px;
+  line-height: 110%;
+  font-size: 3.2vw;
 }
 @media (min-width: 600px) {
-  .entry-content > .wp-block-group {
-    margin-bottom: 95px;
+  .wp-block-button__link {
+    font-size: 1.5vw;
   }
 }
 @media (min-width: 900px) {
-  .entry-content > .wp-block-group {
-    margin-bottom: 160px;
+  .wp-block-button__link {
+    font-size: 1.7vw;
   }
 }
 
@@ -1272,25 +1317,26 @@ textarea {
 
 .home-content,
 .home-navigation {
-  padding: 20px;
+  width: calc( 100% - 2rem );
+  margin-left: auto;
+  margin-right: auto;
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 32px;
-  line-height: 38px;
-  margin: auto;
+  font-size: 8.5vw;
+  line-height: 1.1;
 }
 @media (min-width: 600px) {
   .home-content,
 .home-navigation {
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 3.2vw;
+    line-height: 1.2;
     letter-spacing: 0.02em;
   }
 }
 @media (min-width: 900px) {
   .home-content,
 .home-navigation {
-    font-size: 55px;
+    font-size: 3.8vw;
     line-height: 1;
     letter-spacing: 0;
     max-width: 22em;
@@ -1811,6 +1857,7 @@ textarea {
 }
 
 .portfolio-section p {
+  line-height: 110%;
   font-size: 3.2vw;
 }
 @media (min-width: 600px) {

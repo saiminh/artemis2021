@@ -1,5 +1,8 @@
+@use 'type';
+
 .wp-block-button__link {
   text-transform: uppercase;
   border-radius: 15px;
   background-color: #000;
+  @include type.artemis-body;
 }

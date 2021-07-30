@@ -10,6 +10,16 @@
     font-size: 1.7vw;
   }
 }
+@mixin artemis-body-small {
+  line-height: 110%;
+  font-size: 3.2vw;
+  @include mq.for-tablet-portrait-up {
+    font-size: 1.5vw;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 1.4vw;
+  }
+}
 @mixin artemis-hs {
   text-transform: uppercase;
 }

@@ -66,7 +66,7 @@ function homeHero() {
       sprite.height = window.innerHeight;
       sprite.position.set(0, 0);
   
-      let margins = 28;
+      let margins = 16;
       let centerX = window.innerWidth / 2;
       let centerY = window.innerHeight /2;
       

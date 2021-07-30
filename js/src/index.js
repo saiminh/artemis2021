@@ -90,6 +90,7 @@ barba.init({
     {
       namespace: 'home',
       beforeEnter() {
+        window.scrollTo(0, 0);
         homeIntro();
         homeHero();
         homeButtons();
@@ -129,5 +130,7 @@ barba.hooks.after( (data) => {
 navigation();
 tripleHeadlines();
 window.addEventListener('load', () => {
-  document.body.style.opacity = 1;
+  gsap.to('body', {
+    opacity: 1
+  })
 })
