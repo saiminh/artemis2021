@@ -1,0 +1,64 @@
+@use 'mq';
+
+@mixin artemis-body {
+  line-height: 110%;
+  font-size: 3.2vw;
+  @include mq.for-tablet-portrait-up {
+    font-size: 1.5vw ;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 1.7vw;
+  }
+}
+@mixin artemis-hs {
+  text-transform: uppercase;
+}
+@mixin artemis-h4 {
+  @include artemis-hs;
+  font-size: 55px;
+  line-height: 95%;
+} 
+@mixin artemis-h3 {
+  @include artemis-hs;
+  font-size: 70px;
+  line-height: 100%;
+}
+@mixin artemis-h2 {
+  @include artemis-hs;
+  line-height: 95%;
+  font-size: 14.6vw;
+  @include mq.for-tablet-portrait-up {
+    font-size: 7.1vw ;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 8.3vw;
+  }
+}
+@mixin artemis-h1 {
+  @include artemis-hs;
+  font-size: 175px;
+  line-height: 95%;
+}
+@mixin artemis-subhead3 {
+  @include artemis-hs;
+  font-size: 5.3vw;
+  line-height: 1.2;
+  @include mq.for-tablet-portrait-up {
+    font-size: 2.6vw ;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 1.7vw;
+  }
+}
+@mixin artemis-subhead2 {
+  @include artemis-hs;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  font-size: 5.3vw;
+  @include mq.for-tablet-portrait-up {
+    font-size: 2.6vw ;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 1.7vw;
+  }
+}

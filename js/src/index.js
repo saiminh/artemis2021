@@ -6,12 +6,11 @@ import { homeHero } from './home/home-hero.js';
 import { homeButtons } from './home/home-buttons.js';
 import { homeIntro } from './home/home-intro.js';
 import { company } from './company.js';
+import { news } from './news.js';
 import { navigation } from './navigation.js';
 import { portfolioModelViewers } from './portfolio/portfolio-modelViewer.js';
 import { portfolioNav } from './portfolio/portfolio-nav.js';
 import { tripleHeadlines } from './tripleheadlines.js';
-import smoothscroll from 'smoothscroll-polyfill';
-import smoothscrollAnchorPolyfill from 'smoothscroll-anchor-polyfill';
 gsap.registerPlugin(ScrollTrigger);
 
 // barba.use(barbaPrefetch);
@@ -24,6 +23,11 @@ barba.init({
         let tl = gsap.timeline()
         .to(current.container.querySelector('.site-header'), {
           yPercent: -100,
+          duration: 1,
+          ease: 'expo.out',
+        }, 0 )
+        .to(current.container.querySelector('.site-footer'), {
+          yPercent: 100,
           duration: 1,
           ease: 'expo.out',
         }, 0 )
@@ -41,8 +45,14 @@ barba.init({
             duration: 1,
             ease: "expo.out"
           }, 0 )
+          .from(next.container.querySelector('.site-footer'), {
+            yPercent: 100,
+            duration: 1,
+            ease: 'expo.out',
+          }, 0 )
           .from(next.container.querySelector('.site-main'), {
-            y: window.innerHeight,
+            //y: window.innerHeight,
+            autoAlpha: 0,
             duration: .4,
             ease:'"sin.inOut'
           }, 0 );
@@ -94,25 +104,30 @@ barba.init({
       }
     },
     {
-      namespace: 'portfolio',
+      namespace: 'news',
       afterEnter(data) {
+        news(data.next);        
+      }
+    },
+    {
+      namespace: 'portfolio',
+      beforeEnter(data) {
         portfolioModelViewers(data.next);
-        portfolioNav();
+        // portfolioNav();
       }
     }
   ]
 })
 barba.hooks.enter( (data) => {
-  window.scrollTo(0, 0, auto);
+  window.scrollTo(0, 0);
 })
 barba.hooks.after( (data) => {
   navigation();
-  smoothscroll.polyfill();
-  smoothscrollAnchorPolyfill.polyfill();
   tripleHeadlines();
 })
 // first page only:
 navigation();
-smoothscroll.polyfill();
-smoothscrollAnchorPolyfill.polyfill();
 tripleHeadlines();
+window.addEventListener('load', () => {
+  document.body.style.opacity = 1;
+})

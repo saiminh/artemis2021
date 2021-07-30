@@ -1,5 +1,6 @@
 @use 'layout';
 @use 'mq';
+@use 'type';
 
 .team-hero {
   @include layout.full;
@@ -179,14 +180,15 @@
   }
 }
 .team-what-we-look-for p {
-  font-size: 3.2vw;
   margin-bottom: .5em;
-  @include mq.for-tablet-portrait-up {
-    font-size: 1.5vw ;
-  }
-  @include mq.for-tablet-landscape-up {
-    font-size: 1.3vw;
-  }
+  // font-size: 3.2vw;
+  // @include mq.for-tablet-portrait-up {
+  //   font-size: 1.5vw ;
+  // }
+  // @include mq.for-tablet-landscape-up {
+  //   font-size: 1.7vw;
+  // }
+  @include type.artemis-body;
 }
 .team-what-we-look-for .wp-block-buttons {
   margin-top: 1.5em;

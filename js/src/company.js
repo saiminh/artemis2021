@@ -49,7 +49,7 @@ function company(data) {
       toggleActions: 'play pause reverse pause'
     },
   });
-  latestNewsScroller();
+  latestNewsScroller(data);
 }
 
 export { company };

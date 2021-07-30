@@ -51,7 +51,17 @@
     </svg>
   </div>
 </div>
-  <div id="page" class="page site <?php $theslug = get_post()->post_name; echo $theslug; ?>" data-barba="container" data-barba-namespace="<?php echo $theslug; ?>">
+  <?php 
+    $thetitle = wp_title( '', false );//get_post()->post_name; 
+    if ( is_front_page() ) {
+      $theslug = 'home';
+    } elseif ( is_single() ){
+      $theslug = 'single-post';
+    } else {
+      $theslug = str_replace( ' ', '', strtolower($thetitle) );
+    }
+  ?>
+  <div id="page" class="page site <?php echo $theslug; ?>" data-barba="container" data-barba-namespace="<?php echo $theslug; ?>">
   <?php wp_body_open(); ?>
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'artemis2021' ); ?></a>
 
@@ -71,7 +81,7 @@
 		</div><!-- .site-branding -->
 
     <div class="site-header-current-page-title">
-      <?php the_title(); ?>
+      <?php echo $thetitle; ?>
     </div>
 
 		<nav id="site-navigation" class="site-header-main-navigation">

@@ -16,3 +16,18 @@
     width: calc( 80% );
   }
 }
+
+$header-height: 60px;
+$v-spacing-desktop: 160px;
+$v-spacing-tablet: 95px;
+$v-spacing-mobile: 65px;
+
+.entry-content > .wp-block-group {
+  margin-bottom: $v-spacing-mobile;
+  @include mq.for-tablet-portrait-up {
+    margin-bottom: $v-spacing-tablet;
+  }
+  @include mq.for-tablet-landscape-up {
+    margin-bottom: $v-spacing-desktop;
+  }
+}

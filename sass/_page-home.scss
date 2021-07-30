@@ -59,6 +59,7 @@
 }
 .home-navigation .wp-block-button__link {
   counter-increment: homeBtnCounter 1;
+  padding: calc(.667em + 2px) calc(1.333em + 2px);
 }
 .home-navigation .wp-block-button__link:after,
 .home-navigation .wp-block-button__link-clone:after {

@@ -201,16 +201,12 @@ function display_latest_news() {
   while ( $loop->have_posts() ) { 
     $loop->the_post();
             echo '<div class="latest-news-item">
-              <div class="latest-news-item-image">';
-                the_post_thumbnail();
+              <div class="latest-news-item-image">
+                <a href="'.get_the_permalink().'">'.get_the_post_thumbnail().'</a>';
         echo '</div>
               <div class="latest-news-item-text">
-                <h3 class="latest-news-item-title">';
-                  print the_title(); 
-          echo '</h3>
-                <div class="latest-news-item-subtitle">';
-                  the_excerpt(); 
-          echo '</div> 
+                <h3 class="latest-news-item-title"><a href="'.get_the_permalink().'">'.get_the_title().'</a></h3>
+                <div class="latest-news-item-subtitle"><a href="'.get_the_permalink().'">'.get_the_excerpt().'</a></div> 
                 <div class="latest-news-item-taglist">';
                   the_tags('', ' | ', '');
           echo '</div>
@@ -234,3 +230,52 @@ function outputbuffer_latest_news(){
     return ob_get_clean();  // capture and return the buffer
 }
 add_shortcode( 'latestNews', 'outputbuffer_latest_news' ); 
+
+function custom_search_form( $form, $value = "Search", $post_type = 'post' ) {
+    $form_value = (isset($value)) ? $value : attribute_escape(apply_filters('the_search_query', get_search_query()));
+    $form = '<form method="get" id="searchform" action="' . get_option('home') . '/" >
+    <div>
+        <input type="hidden" name="post_type" value="'.$post_type.'" />
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 20.5L14.4118 14.9118M16.6471 9.32353C16.6471 13.6443 13.1443 17.1471 8.82353 17.1471C4.50271 17.1471 1 13.6443 1 9.32353C1 5.00271 4.50271 1.5 8.82353 1.5C13.1443 1.5 16.6471 5.00271 16.6471 9.32353Z" stroke="black" stroke-width="1.5" stroke-linecap="square"/>
+        </svg>
+        <input type="text" value="' . $form_value . '" placeholder="' . $form_value . '" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="'.attribute_escape(__('Search')).'" />
+    </div>
+    </form>';
+    return $form;
+}
+function latest_sticky_post() { 
+  /* Get all sticky posts */
+  $sticky = get_option( 'sticky_posts' );
+  /* Sort the stickies with the newest ones at the top */
+  rsort( $sticky );
+  /* Get the 5 newest stickies (change 5 for a different number) */
+  $sticky = array_slice( $sticky, 0, 1 );
+  /* Query sticky posts */
+  $the_query = new WP_Query( array( 'post__in' => $sticky, 'ignore_sticky_posts' => 1 ) );
+  // The Loop
+  if ( $the_query->have_posts() ) {
+      $return .= '<div class="latest-sticky-post">';
+      while ( $the_query->have_posts() ) {
+          $the_query->the_post();
+          $return .= '<figure class="latest-sticky-post-image"><a href="' .get_permalink(). '" title="'  . get_the_title() . '">'.get_the_post_thumbnail().'</a><div class="latest-sticky-post-tags">'.get_the_tag_list().'</div></figure><h2 class="latest-sticky-post-title"><a href="' .get_permalink(). '" title="'  . get_the_title() . '">' . get_the_title() . '</a></h2><div class="latest-sticky-post-excerpt"><a href="' .get_permalink(). '" title="'  . get_the_title() . '">' . get_the_excerpt(). '</a></div>';
+      }
+      $return .= '</div>';
+  } else {
+      // no posts found
+  }
+  /* Restore original Post Data */
+  wp_reset_postdata();
+  return $return; 
+  } 
+  add_shortcode('latest_stickies', 'latest_sticky_post');
+
+  function the_social_links() {
+    echo '
+      <a href="">Facebook</a> 
+      <a href="">Twitter</a> 
+      <a href="">LinkedIn</a> 
+      <a href="">Xing</a>
+    ';
+  }

@@ -8,8 +8,13 @@
 @use 'page-company';
 @use 'page-portfolio';
 @use 'page-team';
+@use 'page-news';
+@use 'page-singlePost';
 @use 'footer';
 
+body {
+  opacity: 0;
+}
 .site {
   position: absolute;
   top: 0;
