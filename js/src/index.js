@@ -78,7 +78,7 @@ barba.init({
             ease: "expo.out"
           }, 0 )
           .from(next.container.querySelector('.site-main'), {
-            y: window.innerHeight,
+            autoAlpha: 0,
             duration: .4,
             ease:'"sin.inOut'
           }, 0 );
