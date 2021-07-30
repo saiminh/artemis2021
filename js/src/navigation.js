@@ -6,6 +6,7 @@
  */
 function navigation() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
+  const masthead = document.getElementById( 'masthead' );
 
 	// Return early if the navigation don't exist.
 	if ( ! siteNavigation ) {
@@ -34,7 +35,7 @@ function navigation() {
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
-    document.getElementById('masthead').classList.toggle( 'nav-toggled' );
+    masthead.classList.toggle( 'nav-toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
@@ -49,7 +50,7 @@ function navigation() {
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
-      document.getElementById('masthead').classList.remove( 'nav-toggled' );
+      masthead.classList.remove( 'nav-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );
