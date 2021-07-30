@@ -1374,6 +1374,7 @@ textarea {
   mix-blend-mode: difference;
   position: relative;
   z-index: 2;
+  font-size: 1em;
 }
 
 .homeBtn-bgshape {
