@@ -33,7 +33,8 @@ function navigation() {
 
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
-		document.getElementById('masthead').classList.toggle( 'toggled' );
+		siteNavigation.classList.toggle( 'toggled' );
+    document.getElementById('masthead').classList.toggle( 'nav-toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
@@ -47,7 +48,8 @@ function navigation() {
 		const isClickInside = siteNavigation.contains( event.target );
 
 		if ( ! isClickInside ) {
-      document.getElementById('masthead').classList.remove( 'toggled' );
+			siteNavigation.classList.remove( 'toggled' );
+      document.getElementById('masthead').classList.remove( 'nav-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );

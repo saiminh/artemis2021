@@ -985,6 +985,7 @@ textarea {
   position: fixed;
   top: 0;
   width: 100vw;
+  height: 60px;
   z-index: 4;
   mix-blend-mode: difference;
   font-size: 2.3vw;
@@ -1048,7 +1049,7 @@ textarea {
   }
 }
 
-#masthead.toggled .site-header-current-page-title {
+#masthead.nav-toggled .site-header-current-page-title {
   opacity: 0;
 }
 
@@ -1068,7 +1069,7 @@ textarea {
   width: 50px;
 }
 
-#masthead.toggled .site-header-main-navigation ul {
+#masthead.nav-toggled .site-header-main-navigation ul {
   display: flex;
   gap: 2.5em;
   position: relative;
