@@ -5,14 +5,8 @@
 
 .news-headline {
   @include layout.full;
-  font-size: 21vw;
   margin-top: vars.$header-height;
-  @include mq.for-tablet-portrait-up {
-    font-size: 15vw;
-  }
-  @include mq.for-tablet-landscape-up {
-    font-size: 12vw;
-  }
+  @include type.artemis-h1;
 }
 .news-search {
   @include layout.full;
