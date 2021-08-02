@@ -2666,7 +2666,9 @@ textarea {
 }
 
 .site-footer-nav-col-link,
-.site-footer-nav-col-link:visited {
+.site-footer-nav-col-link:visited,
+.site-footer-nav-col-social a,
+.site-footer-nav-col-social a:visited {
   color: #808B90;
   text-decoration: none;
   font-size: 12px;
@@ -2674,13 +2676,16 @@ textarea {
 }
 @media (min-width: 600px) {
   .site-footer-nav-col-link,
-.site-footer-nav-col-link:visited {
+.site-footer-nav-col-link:visited,
+.site-footer-nav-col-social a,
+.site-footer-nav-col-social a:visited {
     font-size: 18px;
     display: block;
   }
 }
 
-.site-footer-nav-col-link:hover {
+.site-footer-nav-col-link:hover,
+.site-footer-nav-col-social a:hover {
   color: #000;
 }
 

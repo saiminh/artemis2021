@@ -53,14 +53,11 @@
         <a class="site-footer-nav-col-link" href="/team#news">News</a>
         <a class="site-footer-nav-col-link" href="/team#locations">Locations</a>
       </div>
-      <div class="site-footer-nav-col wp-block-column">
+      <div class="site-footer-nav-col site-footer-nav-col-social wp-block-column">
         <h3 class="site-footer-nav-col-title">
           <a>Social</a>
         </h3>
-        <a class="site-footer-nav-col-link" href="/company#why-artemis">Why Artemis</a>
-        <a class="site-footer-nav-col-link" href="/company#our-vision">Our Vision</a>
-        <a class="site-footer-nav-col-link" href="/company#news">News</a>
-        <a class="site-footer-nav-col-link" href="/company#locations">Locations</a>
+        <?php the_social_links(); ?>
       </div>
       <div class="site-footer-nav-col wp-block-column">
         <h3 class="site-footer-nav-col-title">
