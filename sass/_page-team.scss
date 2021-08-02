@@ -10,6 +10,9 @@
 .team-hero-img-columns {
   flex-wrap: nowrap;
 }
+.team-hero-img-columns .wp-block-column:not(:only-child) {
+  flex-basis: calc(50% - .5em) !important;
+}
 .team-hero-img-columns .wp-block-column:not(:first-child) {
   margin-left: .5rem;
   @include mq.for-tablet-portrait-up {

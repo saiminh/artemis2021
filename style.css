@@ -981,6 +981,20 @@ textarea {
   }
 }
 
+.site-main {
+  opacity: 1;
+  transition: 0.3s opacity ease-in-out;
+}
+
+.nav-toggled .site-main {
+  opacity: 0;
+}
+@media (min-width: 900px) {
+  .nav-toggled .site-main {
+    opacity: 1;
+  }
+}
+
 .site-header {
   position: fixed;
   top: 0;
@@ -1049,7 +1063,7 @@ textarea {
   }
 }
 
-#masthead.nav-toggled .site-header-current-page-title {
+.nav-toggled .site-header-current-page-title {
   opacity: 0;
 }
 
@@ -1067,24 +1081,49 @@ textarea {
   background-color: transparent;
   padding: 20px 0;
   width: 50px;
+  position: relative;
+  z-index: 2;
 }
 
-#masthead.nav-toggled .site-header-main-navigation ul {
+.nav-toggled .site-header-main-navigation ul {
   display: flex;
   gap: 2.5em;
-  position: relative;
-  height: 100%;
+  width: 100%;
+  height: 100vh;
   align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 900px) {
+  .nav-toggled .site-header-main-navigation ul {
+    height: 100%;
+    position: relative;
+    flex-direction: row;
+  }
 }
 
 .site-header-main-navigation a, .site-header-main-navigation a:visited {
   color: #FFF;
   text-transform: uppercase;
+  font-size: 10.6vw;
+}
+@media (min-width: 900px) {
+  .site-header-main-navigation a, .site-header-main-navigation a:visited {
+    font-size: 1em;
+  }
+}
+
+.current_page_item a {
+  text-decoration: underline;
 }
 
 .menu-hamburger-icon {
   width: 100%;
   height: auto;
+  overflow: visible;
 }
 
 .menu-hamburger-icon line {
@@ -1252,7 +1291,7 @@ textarea {
 }
 
 .page-nav .artemis-logo {
-  height: 0.9em;
+  height: 0.75em;
   width: auto;
 }
 
@@ -1281,13 +1320,16 @@ textarea {
 }
 
 .page-nav-btn {
-  height: 0.9em;
-  width: 0.9em;
-  margin: 0 0 0 1em;
+  height: 0.75em;
+  width: 0.75em;
+  margin: 0 0 0 0.75em;
+}
+.page-nav-btn svg line {
+  stroke-width: 2;
 }
 
 .page-nav-btn-prev {
-  margin: 0 1em 0 0;
+  margin: 0 0.75em 0 0;
   transform: scale(-1);
 }
 
@@ -1919,6 +1961,10 @@ textarea {
 
 .team-hero-img-columns {
   flex-wrap: nowrap;
+}
+
+.team-hero-img-columns .wp-block-column:not(:only-child) {
+  flex-basis: calc(50% - .5em) !important;
 }
 
 .team-hero-img-columns .wp-block-column:not(:first-child) {

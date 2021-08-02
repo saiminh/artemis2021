@@ -130,6 +130,18 @@ barba.init({
         news(data.next);
       }
     },
+    {
+      namespace: 'archive',
+      beforeEnter(data) {
+        news(data.next);
+      }
+    },
+    {
+      namespace: 'search',
+      beforeEnter(data) {
+        news(data.next);
+      }
+    },
   ]
 })
 barba.hooks.enter( (data) => {

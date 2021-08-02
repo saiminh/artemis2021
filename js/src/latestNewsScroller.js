@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollToPlugin);
 function latestNewsScroller(data){
   let scroller = data.container.querySelector('.latest-news-scroller'), 
       nScrollItems = scroller.querySelectorAll('.latest-news-item').length, 
-      oneScrollW = scroller.querySelector('.latest-news-item').offsetWidth + 10, // + 10 is for the gap
+      oneScrollW = scroller.querySelector('.latest-news-item').offsetWidth, // + 10 is for the gap
       nextBtn = data.container.querySelector('.latest-news-scroller-nav-scrollNext'), 
       prevBtn = data.container.querySelector('.latest-news-scroller-nav-scrollPrev'), 
       maxScrollW = scroller.scrollWidth - scroller.offsetWidth, 

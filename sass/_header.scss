@@ -1,5 +1,17 @@
 @use 'mq';
+@use 'layout';
 @use 'layout' as vars;
+
+.site-main {
+  opacity: 1;
+  transition: .3s opacity ease-in-out;
+}
+.nav-toggled .site-main {
+  opacity: 0;
+  @include mq.for-tablet-landscape-up {
+    opacity: 1;
+  }
+}
 
 .site-header {
   position: fixed;
@@ -55,7 +67,7 @@
     display: block;
   }
 }
-#masthead.nav-toggled .site-header-current-page-title {
+.nav-toggled .site-header-current-page-title {
   opacity: 0;
 }
 .site-header-main-navigation {
@@ -66,30 +78,49 @@
   display: flex;
   flex-direction: row-reverse;
 }
-.site-header-main-navigation .menu-toggle {
-  display: block;
-  margin: 0 0 0 2.5em;
-  border: none;
-  background-color: transparent;
-  padding: 20px 0;
-  width: 50px;
-  //height: 50px;
-}
-#masthead.nav-toggled .site-header-main-navigation ul {
-  display: flex;
-  gap: 2.5em;
-  position: relative;
-  height: 100%;
-  align-items: center;
-}
-.site-header-main-navigation a, .site-header-main-navigation a:visited {
-  color: #FFF;
-  text-transform: uppercase;
-}
-.menu-hamburger-icon {
-  width: 100%;
-  height: auto;
-}
-.menu-hamburger-icon line {
-  stroke: #FFF;
-}
+  .site-header-main-navigation .menu-toggle {
+    display: block;
+    margin: 0 0 0 2.5em;
+    border: none;
+    background-color: transparent;
+    padding: 20px 0;
+    width: 50px;
+    position: relative;
+    z-index: 2;
+  }
+  .nav-toggled .site-header-main-navigation ul {
+    display: flex;
+    gap: 2.5em;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: center;
+    @include mq.for-tablet-landscape-up {
+      height: 100%;
+      position: relative;
+      flex-direction: row;
+    }
+  }
+  .site-header-main-navigation a, .site-header-main-navigation a:visited {
+    color: #FFF;
+    text-transform: uppercase;
+    font-size: 10.6vw;
+    @include mq.for-tablet-landscape-up {
+      font-size: 1em;
+    }
+  }
+  .current_page_item a {
+    text-decoration: underline;
+  }
+  .menu-hamburger-icon {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .menu-hamburger-icon line {
+    stroke: #FFF;
+  }

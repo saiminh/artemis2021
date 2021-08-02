@@ -1,3 +1,4 @@
+import {gsap} from 'gsap';
 /**
  * File navigation.js.
  *
@@ -6,7 +7,7 @@
  */
 function navigation() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
-  const masthead = document.getElementById( 'masthead' );
+  const docbody = document.body;
 
 	// Return early if the navigation don't exist.
 	if ( ! siteNavigation ) {
@@ -32,15 +33,53 @@ function navigation() {
 		menu.classList.add( 'nav-menu' );
 	}
 
+  gsap.set('.menu-hamburger-icon line', {
+    transformOrigin: "50% 50%",
+  });
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
 		siteNavigation.classList.toggle( 'toggled' );
-    masthead.classList.toggle( 'nav-toggled' );
+    docbody.classList.toggle( 'nav-toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
+      gsap.timeline({defaults: { duration: .3, ease: 'power3.out'}}).to('.menu-hamburger-icon line:first-child', {
+        attr: { x1: 0, y1: 0, x2: 51, y2: 0 }
+      }, 0)
+      .to('.menu-hamburger-icon line:last-child', {
+        attr: { x1: 0, y1: 15, x2: 51, y2: 15 }
+      }, 0)
+      .to('.site-header-main-navigation li', {
+        opacity: 1,
+        xPercent: 0
+      }, 0)
+      .to('.site-header-current-page-title', {
+        xPercent: "+=100",
+        opacity: 1
+      }, 0)
+      .to('.menu-hamburger-icon line:nth-child(2)', {
+        attr: { x1: 0, y1: 8, x2: 51, y2: 8 },
+      }, 0.3);
 		} else {
 			button.setAttribute( 'aria-expanded', 'true' );
+      gsap.timeline({defaults: { duration: .3, ease: 'power3.out'}}).to('.menu-hamburger-icon line:first-child', {
+        attr: { x1: 16, y1: 0, x2:33, y2: 15 }
+      }, 0)
+      .to('.menu-hamburger-icon line:last-child', {
+        attr: { x1: 16, y1: 15, x2: 33, y2: 0 }
+      }, 0)
+      .from('.site-header-main-navigation li', {
+        opacity: 0,
+        xPercent: 100,
+        stagger: .025
+      }, 0)
+      .to('.site-header-current-page-title', {
+        xPercent: "-=100",
+        opacity: 0
+      }, 0)
+      .to('.menu-hamburger-icon line:nth-child(2)', {
+        attr: { x1: 26, y1: 8, x2: 26, y2: 8 }
+      }, 0.3);
 		}
 	} );
 
@@ -50,7 +89,7 @@ function navigation() {
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
-      masthead.classList.remove( 'nav-toggled' );
+      docbody.classList.remove( 'nav-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
 	} );
