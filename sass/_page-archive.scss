@@ -2,7 +2,9 @@
 @use 'layout';
 @use 'type';
 @use 'layout' as vars;
+
 .archive .page-header {
+  @include layout.full;
   margin-top: vars.$header-height;
 }
 .archive .page-title {

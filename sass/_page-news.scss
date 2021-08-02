@@ -16,27 +16,6 @@
 }
 .news-search {
   @include layout.full;
-  & form {
-    border-bottom: 2px solid #000;
-    max-width: 500px;
-  }
-  & input[type="text"] {
-    border: none;
-    padding: .5em;
-    font-size: 3.2vw;
-    @include mq.for-tablet-portrait-up {
-      font-size: 1.6vw;
-    }
-    @include mq.for-tablet-landscape-up {
-      font-size: 1.4vw;
-    }
-  }
-  & input[type="text"]:focus {
-    outline: none;
-  }
-  & input[type="submit"] {
-    visibility: hidden;
-  }
 }
 .news-tags {
   @include layout.full;

@@ -2,9 +2,17 @@
 @use 'layout';
 @use 'type';
 @use 'layout' as vars;
+
 .search .page-header {
+  @include layout.full;
   margin-top: vars.$header-height;
 }
 .search .page-title {
   @include type.artemis-h2;
+}
+.no-results .page-content {
+  @include layout.centered;
+}
+.no-results p {
+  @include type.artemis-body;
 }

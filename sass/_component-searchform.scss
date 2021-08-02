@@ -1,0 +1,28 @@
+@use 'mq';
+
+.search-form {
+  border-bottom: 2px solid #000;
+  max-width: 500px;
+  &:before {
+    content: url(./img/magnifying-glass.svg);
+  }
+  & input[type="text"],
+  & input[type="search"] {
+    border: none;
+    padding: .5em;
+    font-size: 3.2vw;
+    @include mq.for-tablet-portrait-up {
+      font-size: 1.6vw;
+    }
+    @include mq.for-tablet-landscape-up {
+      font-size: 1.4vw;
+    }
+  }
+  & input[type="text"]:focus,
+  & input[type="search"]:focus {
+    outline: none;
+  }
+  & input[type="submit"] {
+    visibility: hidden;
+  }
+}

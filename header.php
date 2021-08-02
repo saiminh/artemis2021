@@ -88,6 +88,8 @@
       <?php
         if ( is_archive() ){
           echo 'Archive';
+        } elseif ( is_search() ) {
+          echo 'Search Results';
         } else {
           echo $thetitle; 
         } 

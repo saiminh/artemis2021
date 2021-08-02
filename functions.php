@@ -235,15 +235,10 @@ add_shortcode( 'latestNews', 'outputbuffer_latest_news' );
 
 function custom_search_form( $form, $value = "Search", $post_type = 'post' ) {
     $form_value = (isset($value)) ? $value : attribute_escape(apply_filters('the_search_query', get_search_query()));
-    $form = '<form method="get" id="searchform" action="' . get_option('home') . '/" >
-    <div>
-        <input type="hidden" name="post_type" value="'.$post_type.'" />
-        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 20.5L14.4118 14.9118M16.6471 9.32353C16.6471 13.6443 13.1443 17.1471 8.82353 17.1471C4.50271 17.1471 1 13.6443 1 9.32353C1 5.00271 4.50271 1.5 8.82353 1.5C13.1443 1.5 16.6471 5.00271 16.6471 9.32353Z" stroke="black" stroke-width="1.5" stroke-linecap="square"/>
-        </svg>
-        <input type="text" placeholder="' . $form_value . '" name="s" id="s" />
-        <input type="submit" id="searchsubmit" value="'.attribute_escape(__('Search')).'" />
-    </div>
+    $form = '<form method="get" class="search-form" id="searchform" action="' . get_option('home') . '/" >
+      <input type="hidden" name="post_type" value="'.$post_type.'" />
+      <input type="search" placeholder="' . $form_value . '" name="s" id="s" />
+      <input type="submit" id="searchsubmit" value="'.attribute_escape(__('Search')).'" />
     </form>';
     return $form;
 }

@@ -1195,6 +1195,7 @@ textarea {
 }
 
 .latest-news-item-taglist {
+  position: relative;
   text-align: right;
   mix-blend-mode: difference;
 }
@@ -1288,6 +1289,35 @@ textarea {
 .page-nav-btn-prev {
   margin: 0 1em 0 0;
   transform: scale(-1);
+}
+
+.search-form {
+  border-bottom: 2px solid #000;
+  max-width: 500px;
+}
+.search-form:before {
+  content: url(./img/magnifying-glass.svg);
+}
+.search-form input[type=text], .search-form input[type=search] {
+  border: none;
+  padding: 0.5em;
+  font-size: 3.2vw;
+}
+@media (min-width: 600px) {
+  .search-form input[type=text], .search-form input[type=search] {
+    font-size: 1.6vw;
+  }
+}
+@media (min-width: 900px) {
+  .search-form input[type=text], .search-form input[type=search] {
+    font-size: 1.4vw;
+  }
+}
+.search-form input[type=text]:focus, .search-form input[type=search]:focus {
+  outline: none;
+}
+.search-form input[type=submit] {
+  visibility: hidden;
 }
 
 .site.home .site-header {
@@ -2180,31 +2210,6 @@ textarea {
   margin-left: auto;
   margin-right: auto;
 }
-.news-search form {
-  border-bottom: 2px solid #000;
-  max-width: 500px;
-}
-.news-search input[type=text] {
-  border: none;
-  padding: 0.5em;
-  font-size: 3.2vw;
-}
-@media (min-width: 600px) {
-  .news-search input[type=text] {
-    font-size: 1.6vw;
-  }
-}
-@media (min-width: 900px) {
-  .news-search input[type=text] {
-    font-size: 1.4vw;
-  }
-}
-.news-search input[type=text]:focus {
-  outline: none;
-}
-.news-search input[type=submit] {
-  visibility: hidden;
-}
 
 .news-tags {
   width: calc( 100% - 2rem );
@@ -2545,6 +2550,9 @@ textarea {
 }
 
 .archive .page-header {
+  width: calc( 100% - 2rem );
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 60px;
 }
 
@@ -2565,6 +2573,9 @@ textarea {
 }
 
 .search .page-header {
+  width: calc( 100% - 2rem );
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 60px;
 }
 
@@ -2581,6 +2592,39 @@ textarea {
 @media (min-width: 900px) {
   .search .page-title {
     font-size: 8.3vw;
+  }
+}
+
+.no-results .page-content {
+  width: calc( 100% - 2rem );
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 600px) {
+  .no-results .page-content {
+    width: calc( 66.666% );
+  }
+}
+@media (min-width: 900px) {
+  .no-results .page-content {
+    width: calc( 80% );
+  }
+}
+
+.no-results p {
+  line-height: 1.1;
+  font-size: 3.2vw;
+  margin-top: 0;
+  margin-bottom: 0.75em;
+}
+@media (min-width: 600px) {
+  .no-results p {
+    font-size: 1.5vw;
+  }
+}
+@media (min-width: 900px) {
+  .no-results p {
+    font-size: 1.7vw;
   }
 }
 
