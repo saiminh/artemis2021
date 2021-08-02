@@ -31,6 +31,8 @@ get_header();
 			// endif;
 
 		endwhile; // End of the loop.
+    echo '<h2 class="triple-headline">More news</h2>';
+    display_latest_news();
 		?>
     <div class="page-nav">
       <a class="page-nav-prev" href="/team">

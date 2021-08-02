@@ -1095,8 +1095,12 @@ textarea {
   text-transform: uppercase;
   border-radius: 15px;
   background-color: #000;
-  line-height: 110%;
+  line-height: 1.1;
   font-size: 3.2vw;
+  margin-top: 0;
+  margin-bottom: 0.75em;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 @media (min-width: 600px) {
   .wp-block-button__link {
@@ -1318,6 +1322,8 @@ textarea {
 
 .home-content,
 .home-navigation {
+  position: relative;
+  z-index: 1;
   width: calc( 100% - 2rem );
   margin-left: auto;
   margin-right: auto;
@@ -2066,10 +2072,25 @@ textarea {
 .team-ourteam .blocks-gallery-grid .blocks-gallery-item figcaption, .team-ourteam .wp-block-gallery .blocks-gallery-item figcaption {
   position: static;
   flex-grow: 0;
-  color: #000;
+  color: #AAA;
   text-align: left;
   padding: 0.5rem 0;
   background: none;
+  line-height: 110%;
+  font-size: 3.2vw;
+}
+@media (min-width: 600px) {
+  .team-ourteam .blocks-gallery-grid .blocks-gallery-item figcaption, .team-ourteam .wp-block-gallery .blocks-gallery-item figcaption {
+    font-size: 1.5vw;
+  }
+}
+@media (min-width: 900px) {
+  .team-ourteam .blocks-gallery-grid .blocks-gallery-item figcaption, .team-ourteam .wp-block-gallery .blocks-gallery-item figcaption {
+    font-size: 1.4vw;
+  }
+}
+.team-ourteam .blocks-gallery-grid .blocks-gallery-item figcaption strong, .team-ourteam .wp-block-gallery .blocks-gallery-item figcaption strong {
+  color: #000;
 }
 
 @media (min-width: 600px) {
@@ -2116,8 +2137,10 @@ textarea {
 
 .team-what-we-look-for p {
   margin-bottom: 0.5em;
-  line-height: 110%;
+  line-height: 1.1;
   font-size: 3.2vw;
+  margin-top: 0;
+  margin-bottom: 0.75em;
 }
 @media (min-width: 600px) {
   .team-what-we-look-for p {
@@ -2282,8 +2305,10 @@ textarea {
 .latest-sticky-post-excerpt a,
 .latest-sticky-post-excerpt a:visited {
   color: #808B90;
-  line-height: 110%;
+  line-height: 1.1;
   font-size: 3.2vw;
+  margin-top: 0;
+  margin-bottom: 0.75em;
 }
 @media (min-width: 600px) {
   .latest-sticky-post-excerpt a,
@@ -2370,7 +2395,18 @@ textarea {
   width: calc( 100% - 2rem );
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 32.5px;
   margin-top: 60px;
+}
+@media (min-width: 600px) {
+  .single-post .entry-header {
+    margin-bottom: 47.5px;
+  }
+}
+@media (min-width: 900px) {
+  .single-post .entry-header {
+    margin-bottom: 80px;
+  }
 }
 
 .single-post .entry-header .post-thumbnail {
@@ -2404,6 +2440,7 @@ textarea {
   width: calc( 100% - 2rem );
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 65px;
 }
 @media (min-width: 600px) {
   .single-post .entry-content {
@@ -2413,6 +2450,94 @@ textarea {
 @media (min-width: 900px) {
   .single-post .entry-content {
     width: calc( 80% );
+  }
+}
+@media (min-width: 600px) {
+  .single-post .entry-content {
+    margin-bottom: 95px;
+  }
+}
+@media (min-width: 900px) {
+  .single-post .entry-content {
+    margin-bottom: 160px;
+  }
+}
+@media (min-width: 900px) {
+  .single-post .entry-content {
+    width: 72%;
+    margin-left: 20%;
+    margin-right: 8%;
+  }
+}
+
+.single-post .entry-meta a,
+.single-post .entry-meta a:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #808B90;
+  line-height: 110%;
+  font-size: 3.2vw;
+}
+@media (min-width: 600px) {
+  .single-post .entry-meta a,
+.single-post .entry-meta a:visited {
+    font-size: 1.5vw;
+  }
+}
+@media (min-width: 900px) {
+  .single-post .entry-meta a,
+.single-post .entry-meta a:visited {
+    font-size: 1.4vw;
+  }
+}
+
+.single-post .entry-content h2 {
+  text-transform: uppercase;
+  line-height: 95%;
+  font-size: 6.5vw;
+}
+@media (min-width: 600px) {
+  .single-post .entry-content h2 {
+    font-size: 3.6vw;
+  }
+}
+@media (min-width: 900px) {
+  .single-post .entry-content h2 {
+    font-size: 3.1vw;
+  }
+}
+
+.single-post .entry-content p {
+  line-height: 1.1;
+  font-size: 3.2vw;
+  margin-top: 0;
+  margin-bottom: 0.75em;
+}
+@media (min-width: 600px) {
+  .single-post .entry-content p {
+    font-size: 1.5vw;
+  }
+}
+@media (min-width: 900px) {
+  .single-post .entry-content p {
+    font-size: 1.7vw;
+  }
+}
+
+.single-post .entry-content blockquote p {
+  text-transform: uppercase;
+  line-height: 95%;
+  font-size: 10.6vw;
+  margin: 2em 0;
+}
+@media (min-width: 600px) {
+  .single-post .entry-content blockquote p {
+    font-size: 5.2vw;
+  }
+}
+@media (min-width: 900px) {
+  .single-post .entry-content blockquote p {
+    font-size: 4.8vw;
   }
 }
 

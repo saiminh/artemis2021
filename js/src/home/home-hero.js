@@ -106,7 +106,10 @@ function homeHero() {
       container.addChild(roundBox);
   
       const newPolyPoints = origPolyPoints.map(obj => ({...obj}));
-  
+      let scrollTop = 0;
+      document.body.addEventListener( 'scroll', () => {
+        scrollTop = window.scrollY;
+      })
       document.body.addEventListener( 'mousemove', (e) => {
         let mouseX = e.clientX;
         let mouseY = e.clientY;

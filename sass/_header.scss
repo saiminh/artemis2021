@@ -15,7 +15,7 @@
 }
 .site-header > * {
   position: absolute;
-  top: vars.$header-height / 2;
+  top: vars.$header-height * .5;
   transform: translateY( -50% );
 }
 .site-header-branding {

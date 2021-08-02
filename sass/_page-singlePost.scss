@@ -4,8 +4,9 @@
 @use 'layout' as vars;
 
 .single-post .entry-header {
- @include layout.full;
- margin-top: vars.$header-height; 
+  @include layout.full;
+  @include layout.v-space-after-half;
+  margin-top: vars.$header-height; 
 }
 .single-post .entry-header .post-thumbnail {
   width: 100%;
@@ -22,4 +23,27 @@
 }
 .single-post .entry-content {
   @include layout.centered;
+  @include layout.v-space-after;
+  @include mq.for-tablet-landscape-up {
+    width: 72%;
+    margin-left: 20%;
+    margin-right: 8%;
+  }
+}
+.single-post .entry-meta a,
+.single-post .entry-meta a:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #808B90;
+  @include type.artemis-body-small;
+}
+.single-post .entry-content h2 {
+  @include type.artemis-h4;
+}
+.single-post .entry-content p {
+  @include type.artemis-body;
+}
+.single-post .entry-content blockquote p {
+  @include type.artemis-h3;
+  margin: 2em 0;
 }

@@ -142,10 +142,14 @@
   & .wp-block-gallery .blocks-gallery-item figcaption {
     position: static;
     flex-grow: 0;
-    color: #000;
+    color: #AAA;
     text-align: left;
     padding: .5rem 0;
     background: none;
+    @include type.artemis-body-small;
+    & strong {
+      color: #000;
+    }
   }
 }
 .team-what-we-look-for > .wp-block-group__inner-container {

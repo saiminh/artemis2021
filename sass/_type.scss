@@ -1,8 +1,10 @@
 @use 'mq';
 
 @mixin artemis-body {
-  line-height: 110%;
+  line-height: 1.1;
   font-size: 3.2vw;
+  margin-top: 0;
+  margin-bottom: .75em;
   @include mq.for-tablet-portrait-up {
     font-size: 1.5vw ;
   }
@@ -25,13 +27,25 @@
 }
 @mixin artemis-h4 {
   @include artemis-hs;
-  font-size: 55px;
   line-height: 95%;
+  font-size: 6.5vw;
+  @include mq.for-tablet-portrait-up {
+    font-size: 3.6vw ;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 3.1vw;
+  }
 } 
 @mixin artemis-h3 {
   @include artemis-hs;
-  font-size: 70px;
-  line-height: 100%;
+  line-height: 95%;
+  font-size: 10.6vw;
+  @include mq.for-tablet-portrait-up {
+    font-size: 5.2vw ;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 4.8vw;
+  }
 }
 @mixin artemis-h2 {
   @include artemis-hs;
@@ -46,8 +60,14 @@
 }
 @mixin artemis-h1 {
   @include artemis-hs;
-  font-size: 175px;
+  font-size: 21.3vw;
   line-height: 95%;
+  @include mq.for-tablet-portrait-up {
+    font-size: 15.6vw ;
+  }
+  @include mq.for-tablet-landscape-up {
+    font-size: 12.1vw;
+  }
 }
 @mixin artemis-subhead3 {
   @include artemis-hs;

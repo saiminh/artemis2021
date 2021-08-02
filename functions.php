@@ -185,21 +185,22 @@ require get_template_directory() . '/inc/customizer.php';
  */
 //Shortcode for displaying Team members
 function display_latest_news() {
+  $thisone = get_the_ID();
   echo '<div class="latest-news">
-          <h2 class="latest-news-title triple-headline">
-            News and updates
-          </h2>
           <div class="latest-news-scroller">';
   $args = array(  
     'post_type' => 'post',
     'post_status' => 'publish',
     'posts_per_page' => -1, 
-    'orderby' => 'date'
+    'orderby' => 'date',
+    'offset' => 1,
+    'exclude' => $thisone,
   );
   $loop = new WP_Query( $args ); 
         
   while ( $loop->have_posts() ) { 
     $loop->the_post();
+      if ( $thisone !== get_the_ID() ):
             echo '<div class="latest-news-item">
               <div class="latest-news-item-image">
                 <a href="'.get_the_permalink().'">'.get_the_post_thumbnail().'</a>';
@@ -212,6 +213,7 @@ function display_latest_news() {
           echo '</div>
               </div>
             </div>';
+      endif;
   }
   wp_reset_postdata(); 
   echo '</div>';
@@ -239,7 +241,7 @@ function custom_search_form( $form, $value = "Search", $post_type = 'post' ) {
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 20.5L14.4118 14.9118M16.6471 9.32353C16.6471 13.6443 13.1443 17.1471 8.82353 17.1471C4.50271 17.1471 1 13.6443 1 9.32353C1 5.00271 4.50271 1.5 8.82353 1.5C13.1443 1.5 16.6471 5.00271 16.6471 9.32353Z" stroke="black" stroke-width="1.5" stroke-linecap="square"/>
         </svg>
-        <input type="text" value="' . $form_value . '" placeholder="' . $form_value . '" name="s" id="s" />
+        <input type="text" placeholder="' . $form_value . '" name="s" id="s" />
         <input type="submit" id="searchsubmit" value="'.attribute_escape(__('Search')).'" />
     </div>
     </form>';

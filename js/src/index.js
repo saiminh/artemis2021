@@ -7,6 +7,7 @@ import { homeButtons } from './home/home-buttons.js';
 import { homeIntro } from './home/home-intro.js';
 import { company } from './company.js';
 import { news } from './news.js';
+import { test } from './test.js';
 import { navigation } from './navigation.js';
 import { portfolioModelViewers } from './portfolio/portfolio-modelViewer.js';
 import { portfolioNav } from './portfolio/portfolio-nav.js';
@@ -116,7 +117,19 @@ barba.init({
         portfolioModelViewers(data.next);
         // portfolioNav();
       }
-    }
+    },
+    {
+      namespace: 'test',
+      beforeEnter(data) {
+        test(data);
+      }
+    },
+    {
+      namespace: 'single-post',
+      beforeEnter(data) {
+        news(data.next);
+      }
+    },
   ]
 })
 barba.hooks.enter( (data) => {

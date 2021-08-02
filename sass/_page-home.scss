@@ -29,6 +29,8 @@
 }
 .home-content,
 .home-navigation {
+  position: relative;
+  z-index: 1;
   @include layout.full;
   text-transform: uppercase;
   font-weight: 400;

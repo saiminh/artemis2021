@@ -22,6 +22,25 @@ $v-spacing-desktop: 160px;
 $v-spacing-tablet: 95px;
 $v-spacing-mobile: 65px;
 
+@mixin v-space-after {
+  margin-bottom: $v-spacing-mobile;
+  @include mq.for-tablet-portrait-up {
+    margin-bottom: $v-spacing-tablet;
+  }
+  @include mq.for-tablet-landscape-up {
+    margin-bottom: $v-spacing-desktop;
+  }
+}
+@mixin v-space-after-half {
+  margin-bottom: $v-spacing-mobile * 0.5;
+  @include mq.for-tablet-portrait-up {
+    margin-bottom: $v-spacing-tablet * 0.5;
+  }
+  @include mq.for-tablet-landscape-up {
+    margin-bottom: $v-spacing-desktop * 0.5;
+  }
+}
+
 .entry-content > .wp-block-group {
   margin-bottom: $v-spacing-mobile;
   @include mq.for-tablet-portrait-up {
