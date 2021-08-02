@@ -1,0 +1,10 @@
+@use 'mq';
+@use 'layout';
+@use 'type';
+@use 'layout' as vars;
+.archive .page-header {
+  margin-top: vars.$header-height;
+}
+.archive .page-title {
+  @include type.artemis-h2;
+}

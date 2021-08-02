@@ -2199,6 +2199,9 @@ textarea {
     font-size: 1.4vw;
   }
 }
+.news-search input[type=text]:focus {
+  outline: none;
+}
 .news-search input[type=submit] {
   visibility: hidden;
 }
@@ -2538,6 +2541,46 @@ textarea {
 @media (min-width: 900px) {
   .single-post .entry-content blockquote p {
     font-size: 4.8vw;
+  }
+}
+
+.archive .page-header {
+  margin-top: 60px;
+}
+
+.archive .page-title {
+  text-transform: uppercase;
+  line-height: 95%;
+  font-size: 14.6vw;
+}
+@media (min-width: 600px) {
+  .archive .page-title {
+    font-size: 7.1vw;
+  }
+}
+@media (min-width: 900px) {
+  .archive .page-title {
+    font-size: 8.3vw;
+  }
+}
+
+.search .page-header {
+  margin-top: 60px;
+}
+
+.search .page-title {
+  text-transform: uppercase;
+  line-height: 95%;
+  font-size: 14.6vw;
+}
+@media (min-width: 600px) {
+  .search .page-title {
+    font-size: 7.1vw;
+  }
+}
+@media (min-width: 900px) {
+  .search .page-title {
+    font-size: 8.3vw;
   }
 }
 

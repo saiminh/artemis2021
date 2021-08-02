@@ -57,6 +57,10 @@
       $theslug = 'home';
     } elseif ( is_single() ){
       $theslug = 'single-post';
+    } elseif ( is_archive() ) {
+      $theslug = 'archive';
+    } elseif ( is_search() ) {
+      $theslug = 'search';
     } else {
       $theslug = str_replace( ' ', '', strtolower($thetitle) );
     }
@@ -81,7 +85,13 @@
 		</div><!-- .site-branding -->
 
     <div class="site-header-current-page-title">
-      <?php echo $thetitle; ?>
+      <?php
+        if ( is_archive() ){
+          echo 'Archive';
+        } else {
+          echo $thetitle; 
+        } 
+        ?>
     </div>
 
 		<nav id="site-navigation" class="site-header-main-navigation">
