@@ -22,30 +22,16 @@ get_header();
 			</header><!-- .page-header -->
 
 			<?php
-      echo '<div class="latest-news">
-      <div class="latest-news-scroller">';
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				//get_template_part( 'template-parts/content', get_post_type() );
-
-        echo '<div class="latest-news-item">
-        <div class="latest-news-item-image">';
-          the_post_thumbnail();
-  echo '</div>
+    echo '<div class="latest-news">
+    <div class="latest-news-scroller">';
+  /* Start the Loop */
+  while ( have_posts() ) :
+    the_post();
+echo '<div class="latest-news-item">
+        <div class="latest-news-item-image"><a href="'.get_the_permalink().'">'.get_the_post_thumbnail().'</a></div>
         <div class="latest-news-item-text">
-          <h3 class="latest-news-item-title">';
-            print the_title(); 
-    echo '</h3>
-          <div class="latest-news-item-subtitle">';
-            the_excerpt(); 
-    echo '</div> 
+          <h3 class="latest-news-item-title"><a href="'.get_the_permalink().'">'.get_the_title().'</a></h3>
+          <div class="latest-news-item-subtitle"><a href="'.get_the_permalink().'">'.get_the_excerpt().'</a></div> 
           <div class="latest-news-item-taglist">';
             the_tags('', ' | ', '');
     echo '</div>
