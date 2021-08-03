@@ -2352,7 +2352,7 @@ textarea {
     font-size: 1.7vw;
   }
 }
-.latest-sticky-post-tags a {
+.latest-sticky-post-tags a, .latest-sticky-post-tags a:visited {
   color: #FFF;
   mix-blend-mode: difference;
 }

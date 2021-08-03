@@ -2,6 +2,18 @@ import { gsap } from "gsap";
 
 function homeIntro(){
 
+  function disableScroll() {
+    document.body.style.overflow = 'hidden';
+    document.body.style.height = '100%';
+  }
+  
+  function enableScroll() {
+    document.body.style.overflow = 'auto';
+    document.body.style.height = 'auto';
+  }
+  
+  disableScroll();
+
   //resetting elements
   gsap.set('.home-hero-headline', {
     y: window.innerHeight
@@ -43,7 +55,11 @@ function homeIntro(){
   });
   // curtainsup animation
   function curtainsUp() {
-    let tl = gsap.timeline()
+    let tl = gsap.timeline({
+      onComplete: () => {
+        enableScroll();
+      }
+    })
       .to('.artemis-preloader-logos', {
         scale: 1,
         ease: "expo.out",
