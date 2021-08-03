@@ -9,13 +9,14 @@ gsap.registerPlugin(SplitText);
 function company(data) {
 
   // Need to remove parent transforms after pagetransition to enable scroll animation:
+  data.container.querySelector('.company-hero').style.minHeight = window.innerHeight + "px";
   data.container.querySelector('.site-main').style.transform = "none";
   data.container.querySelector('.site-main > article').style.transform = "none";
 
   // Pin the Hero text
   ScrollTrigger.create({
     trigger: data.container.querySelector('.company-hero'),
-    start: "top top",
+    start: "bottom bottom",
     end: data.container.querySelector('.latest-news').offsetTop - data.container.querySelector('.company-hero').offsetHeight - 100 + "px top" ,
     pin: true,
     pinSpacing: false

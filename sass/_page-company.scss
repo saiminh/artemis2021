@@ -1,12 +1,12 @@
 @use 'mq';
 @use 'layout';
+@use 'type';
 
 .company-hero {
   background-color: #000;
   color: #FFF;
   margin: 0;
   overflow: auto;
-  height: 100vh;
 }
 .company-hero > * {
   @include layout.full;
@@ -25,10 +25,7 @@
   }
 }
 .company-hero p {
-  font-size: 18px;
-  @include mq.for-tablet-portrait-up {
-    font-size: 25px;
-  }
+  @include type.artemis-body;
 }
 .company-manifesto {
   position: relative;
