@@ -83,9 +83,12 @@
 }
 .news-stay-up-to-date {
   @include layout.full;
-  display: flex;
-  align-items: center;
-  gap: 10em;
+  @include mq.for-tablet-portrait-up {
+    display: flex;
+    align-items: center;
+    gap: 10em;
+
+  }
 }
 .news-stay-up-to-date-title {
   @include type.artemis-h2;

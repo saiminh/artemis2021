@@ -2396,9 +2396,13 @@ textarea {
   width: calc( 100% - 2rem );
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  align-items: center;
-  gap: 10em;
+}
+@media (min-width: 600px) {
+  .news-stay-up-to-date {
+    display: flex;
+    align-items: center;
+    gap: 10em;
+  }
 }
 
 .news-stay-up-to-date-title {
