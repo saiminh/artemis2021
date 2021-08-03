@@ -7,7 +7,7 @@ import {gsap} from 'gsap';
  */
 function navigation() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
-  const docbody = document.body;
+  let page = document.getElementById('page');
 
 	// Return early if the navigation don't exist.
 	if ( ! siteNavigation ) {
@@ -33,53 +33,46 @@ function navigation() {
 		menu.classList.add( 'nav-menu' );
 	}
 
-  gsap.set('.menu-hamburger-icon line', {
+  
+  let buttonAnimation = gsap.timeline({ paused: true, defaults: { duration: .3} })
+  .set('.menu-hamburger-icon line', {
     transformOrigin: "50% 50%",
-  });
+  })
+  .to('.menu-hamburger-icon line:first-child', {
+    attr: { x1: 16, y1: 0, x2:33, y2: 15 }
+  }, 0)
+  .to('.menu-hamburger-icon line:last-child', {
+    attr: { x1: 16, y1: 15, x2: 33, y2: 0 }
+  }, 0)
+  .from('.site-header-main-navigation li', {
+    opacity: 0,
+    xPercent: 100,
+    stagger: .025
+  }, 0)
+  .fromTo('.site-header-current-page-title', {
+    xPercent: "-=0",
+    opacity: 1
+  }, {
+    xPercent: "-=150",
+    opacity: 0
+  }, 0)
+  .to('.menu-hamburger-icon line:nth-child(2)', {
+    attr: { x1: 26, y1: 8, x2: 26, y2: 8 }
+  }, 0.3);
+
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
+    // document.querySelector('.site-main').style.transform = null;
+    // document.querySelector('.site-main > article').style.transform = null;
 		siteNavigation.classList.toggle( 'toggled' );
-    docbody.classList.toggle( 'nav-toggled' );
+    page.classList.toggle( 'nav-toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
-      gsap.timeline({defaults: { duration: .3, ease: 'power3.out'}}).to('.menu-hamburger-icon line:first-child', {
-        attr: { x1: 0, y1: 0, x2: 51, y2: 0 }
-      }, 0)
-      .to('.menu-hamburger-icon line:last-child', {
-        attr: { x1: 0, y1: 15, x2: 51, y2: 15 }
-      }, 0)
-      .to('.site-header-main-navigation li', {
-        opacity: 1,
-        xPercent: 0
-      }, 0)
-      .to('.site-header-current-page-title', {
-        xPercent: "+=100",
-        opacity: 1
-      }, 0)
-      .to('.menu-hamburger-icon line:nth-child(2)', {
-        attr: { x1: 0, y1: 8, x2: 51, y2: 8 },
-      }, 0.3);
+      buttonAnimation.reverse();
 		} else {
-			button.setAttribute( 'aria-expanded', 'true' );
-      gsap.timeline({defaults: { duration: .3, ease: 'power3.out'}}).to('.menu-hamburger-icon line:first-child', {
-        attr: { x1: 16, y1: 0, x2:33, y2: 15 }
-      }, 0)
-      .to('.menu-hamburger-icon line:last-child', {
-        attr: { x1: 16, y1: 15, x2: 33, y2: 0 }
-      }, 0)
-      .from('.site-header-main-navigation li', {
-        opacity: 0,
-        xPercent: 100,
-        stagger: .025
-      }, 0)
-      .to('.site-header-current-page-title', {
-        xPercent: "-=100",
-        opacity: 0
-      }, 0)
-      .to('.menu-hamburger-icon line:nth-child(2)', {
-        attr: { x1: 26, y1: 8, x2: 26, y2: 8 }
-      }, 0.3);
+      button.setAttribute( 'aria-expanded', 'true' );
+      buttonAnimation.play(0);
 		}
 	} );
 
@@ -89,8 +82,9 @@ function navigation() {
 
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
-      docbody.classList.remove( 'nav-toggled' );
+      page.classList.remove( 'nav-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
+      buttonAnimation.reverse();
 		}
 	} );
 
@@ -104,6 +98,13 @@ function navigation() {
 	for ( const link of links ) {
 		link.addEventListener( 'focus', toggleFocus, true );
 		link.addEventListener( 'blur', toggleFocus, true );
+    link.addEventListener( 'click', () => {
+      gsap.to('.site-header-main-navigation li', {
+        opacity: 0,
+        yPercent: -100,
+        stagger: .1
+      })
+    } )
 	}
 
 	// Toggle focus each time a menu link with children receive a touch event.

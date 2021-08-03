@@ -8,8 +8,9 @@ gsap.registerPlugin(SplitText);
 
 function company(data) {
 
-  data.container.querySelector('.site-main').style.transform = null;
-  // data.container.querySelector('.company-hero').style.height = window.innerHeight;
+  // Need to remove parent transforms after pagetransition to enable scroll animation:
+  data.container.querySelector('.site-main').style.transform = "none";
+  data.container.querySelector('.site-main > article').style.transform = "none";
 
   // Pin the Hero text
   ScrollTrigger.create({

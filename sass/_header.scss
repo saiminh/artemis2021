@@ -2,14 +2,16 @@
 @use 'layout';
 @use 'layout' as vars;
 
-.site-main {
-  opacity: 1;
-  transition: .3s opacity ease-in-out;
+.site-main > * ,
+.site-footer{
+  transform: none;
+  transition: .2s all ease-in-out;
 }
-.nav-toggled .site-main {
-  opacity: 0;
+.nav-toggled .site-main > *,
+.nav-toggled .site-footer {
+  transform: translateX(-100vw);
   @include mq.for-tablet-landscape-up {
-    opacity: 1;
+    transform: none;
   }
 }
 
@@ -61,14 +63,14 @@
   color: #FFF;
   display: none;
   font-size: 1em;
-  // transition: opacity .1s linear;
+  transition: opacity .3s linear;
   opacity: 1;
   @include mq.for-tablet-portrait-up {
     display: block;
   }
 }
 .nav-toggled .site-header-current-page-title {
-  opacity: 0;
+   opacity: 0;
 }
 .site-header-main-navigation {
   padding: 0 20px;
@@ -87,10 +89,11 @@
     width: 50px;
     position: relative;
     z-index: 2;
+    cursor: pointer;
   }
-  .nav-toggled .site-header-main-navigation ul {
+  .site-header-main-navigation ul {
     display: flex;
-    gap: 2.5em;
+    gap: 2em;
     width: 100%;
     height: 100vh;
     align-items: center;
@@ -99,16 +102,24 @@
     left: 0;
     flex-direction: column;
     justify-content: center;
+    opacity: 0;
+    transition: .5s all ease-in;
+    pointer-events: none;
     @include mq.for-tablet-landscape-up {
+      gap: 2.5em;
       height: 100%;
       position: relative;
       flex-direction: row;
     }
   }
+  .nav-toggled .site-header-main-navigation ul {
+    pointer-events: all;
+    opacity: 1;
+  }
   .site-header-main-navigation a, .site-header-main-navigation a:visited {
     color: #FFF;
     text-transform: uppercase;
-    font-size: 10.6vw;
+    font-size: clamp(16px, 10.6vw, 60px);
     @include mq.for-tablet-landscape-up {
       font-size: 1em;
     }

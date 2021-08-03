@@ -19,45 +19,55 @@ barba.init({
   debug: true,
   transitions: [
     {
+      // sync: true,
       name: 'default-transition',
-      leave({current}) {
-        let tl = gsap.timeline()
-        .to(current.container.querySelector('.site-header'), {
-          yPercent: -100,
+      leave(data) {
+        return gsap.timeline()
+        .to(data.current.container.querySelector('.site-header'), {
+          yPercent: "-=100",
           duration: 1,
           ease: 'expo.out',
         }, 0 )
-        .to(current.container.querySelector('.site-footer'), {
-          yPercent: 100,
+        .to(data.current.container.querySelector('.site-footer'), {
+          yPercent: "+=100",
           duration: 1,
           ease: 'expo.out',
         }, 0 )
-        .to(current.container.querySelector('.site-main'), {
+        .to(data.current.container.querySelector('.site-main'), {
+          x: "-=100",
+          y: "+=100",
+          // rotationY: 27,
+          // rotationX: 27,
+          // transformOrigin: "50% 0%",
+          // scale: .9,
           autoAlpha: 0,
-          duration: 1,
+          duration: .5,
           ease: 'expo.out',
-        }, 0 )
-        return tl;
+        }, 0 );
       },
-      enter({next}) {
-        let tl = gsap.timeline({paused: false})
-          .from(next.container.querySelector('.site-header'), {
-            yPercent: -100,
+      enter(data) {
+        return gsap.timeline()
+          .from(data.next.container.querySelector('.site-header'), {
+            yPercent: "-=100",
             duration: 1,
             ease: "expo.out"
           }, 0 )
-          .from(next.container.querySelector('.site-footer'), {
-            yPercent: 100,
+          .from(data.next.container.querySelector('.site-footer'), {
+            yPercent: "+=100",
             duration: 1,
             ease: 'expo.out',
           }, 0 )
-          .from(next.container.querySelector('.site-main'), {
-            //y: window.innerHeight,
+          .from(data.next.container.querySelector('.site-main'), {
+            x: "+=100",
+            y: "+=100",
+            // rotationY: -90,
+            // rotationX: 20,
+            // transformOrigin: "50% 0%",
+            // scale: .9,
             autoAlpha: 0,
-            duration: .4,
-            ease:'"sin.inOut'
+            duration: 1,
+            ease:'circ.out'
           }, 0 );
-        return tl
       }
     }, {
       name: 'home-transition',
