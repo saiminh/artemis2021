@@ -5,13 +5,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { homeHero } from './home/home-hero.js';
 import { homeButtons } from './home/home-buttons.js';
 import { homeIntro } from './home/home-intro.js';
-import { company } from './company.js';
+import { companyBefore } from './company/company-before.js';
+import { companyAfter } from './company/company-after.js';
 import { news } from './news.js';
 import { test } from './test.js';
 import { navigation } from './navigation.js';
 import { portfolioModelViewers } from './portfolio/portfolio-modelViewer.js';
 import { portfolioNav } from './portfolio/portfolio-nav.js';
 import { tripleHeadlines } from './tripleheadlines.js';
+import { latestNewsScroller } from './latestNewsScroller.js';
 gsap.registerPlugin(ScrollTrigger);
 
 // barba.use(barbaPrefetch);
@@ -117,10 +119,11 @@ barba.init({
     {
       namespace: 'company',
       beforeEnter(data) {
-        data.next.container.querySelector('.company-hero').style.minHeight = window.innerHeight + "px";        
+        companyBefore(data.next);   
       },
       afterEnter(data) {
-        company(data.next);        
+        companyAfter(data.next);   
+        latestNewsScroller(data.next);     
       }
     },
     {

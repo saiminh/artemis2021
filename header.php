@@ -98,10 +98,10 @@
 
 		<nav id="site-navigation" class="site-header-main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-        <svg class="menu-hamburger-icon" width="51" height="15" viewBox="0 0 51 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="0" x2="51" y2="0" stroke="black" stroke-width="2"/>
-          <line x1="0" y1="8" x2="51" y2="8" stroke="black" stroke-width="2"/>
-          <line x1="0" y1="15" x2="51" y2="15" stroke="black" stroke-width="2"/>
+        <svg class="menu-hamburger-icon" width="50" height="16" viewBox="0 0 50 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="0" x2="50" y2="0" stroke="black" stroke-width="2"/>
+          <line x1="0" y1="8" x2="50" y2="8" stroke="black" stroke-width="2"/>
+          <line x1="0" y1="16" x2="50" y2="16" stroke="black" stroke-width="2"/>
         </svg>
       </button>
 			<?php
