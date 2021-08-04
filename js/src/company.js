@@ -9,7 +9,6 @@ gsap.registerPlugin(SplitText);
 function company(data) {
 
   // Need to remove parent transforms after pagetransition to enable scroll animation:
-  data.container.querySelector('.company-hero').style.minHeight = window.innerHeight + "px";
   data.container.querySelector('.site-main').style.transform = "none";
   data.container.querySelector('.site-main > article').style.transform = "none";
 

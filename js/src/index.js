@@ -7,7 +7,7 @@ import { homeButtons } from './home/home-buttons.js';
 import { homeIntro } from './home/home-intro.js';
 import { company } from './company.js';
 import { news } from './news.js';
-// import { test } from './test.js';
+import { test } from './test.js';
 import { navigation } from './navigation.js';
 import { portfolioModelViewers } from './portfolio/portfolio-modelViewer.js';
 import { portfolioNav } from './portfolio/portfolio-nav.js';
@@ -116,6 +116,9 @@ barba.init({
     },
     {
       namespace: 'company',
+      beforeEnter(data) {
+        data.next.container.querySelector('.company-hero').style.minHeight = window.innerHeight + "px";        
+      },
       afterEnter(data) {
         company(data.next);        
       }
@@ -133,12 +136,12 @@ barba.init({
         // portfolioNav();
       }
     },
-    // {
-    //   namespace: 'test',
-    //   beforeEnter(data) {
-    //     test(data);
-    //   }
-    // },
+    {
+      namespace: 'test',
+      beforeEnter(data) {
+        test(data);
+      }
+    },
     {
       namespace: 'single-post',
       beforeEnter(data) {

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 function test(data){
 
@@ -19,6 +20,8 @@ function test(data){
       const near = 0.1;
       const far = 5;
       const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+      // const controls = new OrbitControls( camera, renderer.domElement );
+      // controls.update();
       camera.position.set(0, 1, 2);
       camera.lookAt(0, 0, 0);
 
@@ -33,11 +36,25 @@ function test(data){
       return {scene, camera};
     }
 
+    // First element
     {
       const elem = document.querySelector('#box');
       const {scene, camera} = makeScene();
+      const loader = new THREE.TextureLoader();
+      const texture = loader.load(
+        '../wp-content/themes/artemis2021/assets/SIM_GRAD.jpg',
+        () => {
+          const rt = new THREE.WebGLCubeRenderTarget(texture.image.height);
+          rt.fromEquirectangularTexture(renderer, texture);
+          scene.background = rt.texture;
+        });
+      const cubeTexture = new THREE.TextureLoader().load("../wp-content/themes/artemis2021/assets/SIM_GRAD.jpg");
       const geometry = new THREE.BoxGeometry(1, 1, 1);
-      const material = new THREE.MeshPhongMaterial({color: 'red'});
+      const material = new THREE.MeshPhongMaterial({
+        color: 'red',
+        envMap: cubeTexture,
+        emissive: '#FFFFFF'
+      });
       const mesh = new THREE.Mesh(geometry, material);
       scene.add(mesh);
       addScene(elem, (time, rect) => {
@@ -46,21 +63,55 @@ function test(data){
         mesh.rotation.y = time * .1;
         renderer.render(scene, camera);
       });
+      // const controls = new OrbitControls( camera, renderer.domElement );
+      // controls.update();
+      const mouse = new THREE.Vector2();
+      const target = new THREE.Vector2();
+      let center = new THREE.Vector3();
+      const windowHalf = new THREE.Vector2( elem.offsetWidth / 2, elem.offsetHeight / 2 );
+      camera.up = new THREE.Vector3(0, 0, 1);
+      camera.position.x = 0;
+      elem.addEventListener( 'mousemove', (e) => {
+        // mouse.x = ( e.offsetX - windowHalf.x );
+        // mouse.y = ( e.offsetY - windowHalf.y );
+        // center = [ mouse.x, mouse.y, 1 ];
+        // target.x = ( 1 - mouse.x ) * 0.002;
+        // target.y = ( 1 - mouse.y ) * 0.002;
+        // camera.rotation.x += 0.05 * ( target.y - camera.rotation.x );
+        // camera.rotation.y += 0.05 * ( target.x - camera.rotation.y );
+        // camera.position.add(center);
+        // camera.lookAt(center)
+      } )
     }
-
+    //Second Element
     {
       const elem = document.querySelector('#pyramid');
       const {scene, camera} = makeScene();
       const radius = .8;
-      const widthSegments = 4;
-      const heightSegments = 2;
+      const widthSegments = 6;
+      const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+      const heightSegments = 4;
+      const loader = new THREE.TextureLoader();
+      const texture = loader.load(
+        '../wp-content/themes/artemis2021/assets/SIM_GRAD.jpg',
+        () => {
+          const rt = new THREE.WebGLCubeRenderTarget(texture.image.height);
+          rt.fromEquirectangularTexture(renderer, texture);
+          scene.background = rt.texture;
+        });
+      const sphereTexture = new THREE.TextureLoader().load("../wp-content/themes/artemis2021/assets/SIM_GRAD.jpg");
       const geometry = new THREE.SphereGeometry(radius, widthSegments, heightSegments);
       const material = new THREE.MeshPhongMaterial({
-        color: 'blue',
+        color: 'grey',
+        envMap: sphereTexture,
         flatShading: true,
+        emissive: "#FFFFFF",
+        emissiveIntensity: 1,
+        reflectivity: 1
       });
       const mesh = new THREE.Mesh(geometry, material);
       scene.add(mesh);
+      scene.add( light );
       addScene(elem, (time, rect) => {
         camera.aspect = rect.width / rect.height;
         camera.updateProjectionMatrix();
@@ -83,7 +134,6 @@ function test(data){
     const clearColor = new THREE.Color('#000');
     function render(time) {
       time *= 0.001;
-
       resizeRendererToDisplaySize(renderer);
 
       renderer.setScissorTest(false);
@@ -121,6 +171,7 @@ function test(data){
   }
 
   main();
+
 
 
 

@@ -14,35 +14,6 @@
 
 get_header();
 ?>
-<style>
-  .test {
-    margin: 200px 1rem 60px 1rem;
-
-  }
-  #c {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      z-index: -1;
-    }
-    .diagram {
-      display: inline-block;
-      width: 5em;
-      height: 3em;
-      border: 1px solid black;
-    }
-    .left {
-      float: left;
-      margin-right: .25em;
-    }
-    .right {
-      float: right;
-      margin-left: .25em;
-    }
-  </style>
 
 	<main id="primary" class="site-main">
     
@@ -52,19 +23,13 @@ get_header();
       <div class="entry-content">
         <div class="test">
           <canvas id="c"></canvas>
-          <p>
+          <div class="portnav">
             <span id="box" class="diagram left"></span>
-            I love boxes. Presents come in boxes.
-            When I find a new box I'm always excited to find out what's inside.
-          </p>
-          <p>
             <span id="pyramid" class="diagram right"></span>
-            When I was a kid I dreamed of going on an expedition inside a pyramid
-            and finding a undiscovered tomb full of mummies and treasure.
-          </p>
+          </div>
         </div>
 
-        <?php the_content(); ?>
+        <?php //the_content(); ?>
       </div><!-- .entry-content -->
     </article><!-- #post-<?php the_ID(); ?> -->
 
