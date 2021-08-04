@@ -1,5 +1,6 @@
 @use 'mq';
 @use 'layout';
+@use 'layout' as vars;
 
 .site.home .site-header{
   display: none;
@@ -84,7 +85,7 @@
   right: 0;
   bottom: 0;
   z-index: 1;
-  border-radius: 20px;
+  border-radius: vars.$border-radius;
   overflow: hidden;
   transform: translateZ(-150px);
 }

@@ -1,8 +1,9 @@
 @use 'type';
+@use 'layout' as vars;
 
 .wp-block-button__link {
   text-transform: uppercase;
-  border-radius: 15px;
+  border-radius: vars.$border-radius;
   background-color: #000;
   @include type.artemis-body;
   margin-bottom: 0;

@@ -63,12 +63,12 @@ function homeHero() {
       );
       sprite.anchor.set(0, 0);
       sprite.width = window.innerWidth;
-      sprite.height = window.innerHeight;
+      sprite.height = window.innerHeight*.9;
       sprite.position.set(0, 0);
   
       let margins = 16;
       let centerX = window.innerWidth / 2;
-      let centerY = window.innerHeight /2;
+      let centerY = window.innerHeight / 1.8;
       
       let container = new PIXI.Container();
       container.pivot.x = centerX;
@@ -80,8 +80,8 @@ function homeHero() {
       container.addChild(sprite);
       roundBox = new PIXI.Graphics();    
       let roundBoxW = window.innerWidth - margins * 2;
-      let roundBoxH = window.innerHeight - margins * 2;
-      roundBox.lineStyle( { width: 30, join: PIXI.LINE_JOIN.ROUND } );
+      let roundBoxH = window.innerHeight * .9 - margins * 2;
+      roundBox.lineStyle( { width: 20, join: PIXI.LINE_JOIN.ROUND } );
       roundBox.beginFill(0x000000);
       const origPolyPoints = [
         { x: margins, y: margins },
@@ -191,7 +191,7 @@ function homeHero() {
       function drawAnimatePolygon(){
         roundBox.clear();
         roundBox.beginFill(0x000000);
-        roundBox.lineStyle( { width: 30, join: PIXI.LINE_JOIN.ROUND } );
+        roundBox.lineStyle( { width: 20, join: PIXI.LINE_JOIN.ROUND } );
         roundBox.drawPolygon(newPolyPoints);
       }
       gsap.ticker.add(drawAnimatePolygon);

@@ -26,23 +26,26 @@ function homeButtons(){
       .to(homeBtn_bgshapeImg, {
         backgroundPosition: "0% 0%"
       });
-    gsap.set(homeBtn_bgshapeImg, {
+    gsap.set(homeBtn_bgshape, {
       scale: 0
     });
-    let homeBtn_bgshapeImg_scaletl = gsap.timeline({ paused: true })
-      .to(homeBtn_bgshapeImg, {
+    gsap.set(homeBtn_bgshapeImg, {
+      scale: 1
+    });
+    let homeBtn_bgshape_in_tl = gsap.timeline({ paused: true })
+      .to(homeBtn_bgshape, {
         scale: 1,
         duration: .3,
         ease: 'power2.inOut'
       });
     
     homeBtn.addEventListener('mouseover', (e) => {
-      homeBtn_bgshapeImg_scaletl.play();
+      homeBtn_bgshape_in_tl.play();
       homeBtn_bgshapeImg_movetl.play();
     });
     homeBtn.addEventListener('mouseleave', (e) => {
       homeBtn_bgshapeImg_movetl.pause();
-      homeBtn_bgshapeImg_scaletl.reverse();
+      homeBtn_bgshape_in_tl.reverse();
     });
     homeBtn.addEventListener('mousemove', (e) => {
       let homeBtnX = homeBtn.getBoundingClientRect().left + homeBtn.clientWidth/2;

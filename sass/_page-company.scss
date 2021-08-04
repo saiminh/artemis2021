@@ -1,5 +1,6 @@
 @use 'mq';
 @use 'layout';
+@use 'layout' as vars;
 @use 'type';
 
 .company-hero {
@@ -32,7 +33,7 @@
   @include layout.centered;
   background: url(./img/artemis-bg.png) no-repeat 0% 0%;
   background-size: cover;
-  border-radius: 20px;
+  border-radius: vars.$border-radius;
   box-shadow: 0 0 10px #000;
 }
 .company-manifesto > .wp-block-group__inner-container {

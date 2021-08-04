@@ -25,8 +25,9 @@ barba.init({
       name: 'default-transition',
       leave(data) {
         return gsap.timeline()
-        .to(data.current.container.querySelector('.site-header'), {
+        .to(data.current.container.querySelectorAll('.site-header > *'), {
           yPercent: "-=100",
+          stagger: .1, 
           duration: 1,
           ease: 'expo.out',
         }, 0 )
@@ -40,22 +41,23 @@ barba.init({
           ease: 'expo.out',
         }, 0 )
         .to(data.current.container.querySelector('.site-main'), {
-          xPercent: "-=100",
+          // xPercent: "-=100",
           // y: "+=100",
           // rotationY: 27,
           // rotationX: 27,
-          // transformOrigin: "50% 0%",
-          // scale: .9,
-          //autoAlpha: 0,
+          transformOrigin: "50% 50vh",
+          scale: .95,
+          autoAlpha: 0,
           duration: 1,
           ease: 'expo.out',
         }, 0 );
       },
       enter(data) {
         return gsap.timeline()
-          .from(data.next.container.querySelector('.site-header'), {
+          .from(data.next.container.querySelectorAll('.site-header > *'), {
             yPercent: "-=100",
             duration: 1,
+            stagger: .1,
             ease: "expo.out"
           }, 0 )
           .from(data.next.container.querySelector('.site-footer'), {
@@ -67,12 +69,12 @@ barba.init({
             ease: 'expo.out',
           }, 0 )
           .from(data.next.container.querySelector('.site-main'), {
-            xPercent: "+=100",
-            //autoAlpha: 0,
-            // transformOrigin: "50% 0%",
-            // scale: .9,
-            duration: 1,
-            ease:'expo.out'
+            // xPercent: "+=100",
+            autoAlpha: 0,
+            scale: .95,
+            transformOrigin: "50% 50vh  ",
+            duration: 1.5,
+            ease:'expo.inOut'
           }, 0 )
           ;
       }
