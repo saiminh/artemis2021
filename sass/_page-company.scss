@@ -7,6 +7,7 @@
   color: #FFF;
   margin: 0;
   overflow: auto;
+  padding: 2rem 0 4rem 0 ;
 }
 .company-hero > * {
   @include layout.full;
@@ -32,6 +33,7 @@
   background: url(./img/artemis-bg.png) no-repeat 0% 0%;
   background-size: cover;
   border-radius: 20px;
+  box-shadow: 0 0 10px #000;
 }
 .company-manifesto > .wp-block-group__inner-container {
   @include layout.centered;
