@@ -160,6 +160,16 @@ function artemis2021_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'artemis2021_scripts' );
 
+// Styles for the editor
+function add_gutenberg_css(){
+  add_theme_support( 'editor-styles' ); // if you don't add this line, your stylesheet won't be added
+  add_editor_style( 'style-editor.min.css' ); // tries to include style-editor.css directly from your theme folder
+}
+add_action( 'after_setup_theme', 'add_gutenberg_css' );
+
+// Block Patterns.
+require get_template_directory() . '/inc/block-patterns.php';
+
 /**
  * Implement the Custom Header feature.
  */

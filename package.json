@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx webpack --watch --mode development & sass sass/style.scss style.css --watch",
-    "prod": "npx webpack --mode production && sass sass/style.scss style.css --style compressed"
+    "start": "npx webpack --watch --mode development & sass sass/style.scss style.css --watch & sass sass/editor/base.scss style-editor.min.css --watch",
+    "prod": "npx webpack --mode production && sass sass/style.scss style.css --style compressed && sass sass/editor/base.scss style-editor.min.css --style compressed"
   },
   "author": "",
   "license": "ISC",

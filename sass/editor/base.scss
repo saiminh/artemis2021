@@ -1,0 +1,98 @@
+@mixin blocklabel($blocklabelname) {
+  border: 2px solid #DDD;
+  padding: 16px 10px 10px 10px;
+  border-radius: 5px;
+  &::before {
+    content: $blocklabelname;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #DDD;
+    color: #FFF;
+    padding: 2px 5px;
+    border-radius: 0 0 3px 0;
+    z-index: 4;
+  }
+}
+
+@mixin parentblocklabel($parentblocklabelname) {
+  border: 1px solid #DDD;
+  padding: 16px 10px 10px 10px;
+  border-radius: 5px;
+  &::before {
+    content: $parentblocklabelname;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    position: absolute;
+    top: -18px;
+    right: 0;
+    background-color: #DDD;
+    color: #FFF;
+    padding: 3px 5px;
+    border-radius: 3px 3px 0 0;
+    z-index: 4;
+  }
+}
+
+.triple-headline {
+  @include blocklabel('Artemis Triple Headline');
+}
+
+.home-hero-headline {
+  @include blocklabel('Artemis Home Hero Headline');
+}
+.home-navigation {
+  @include blocklabel('Artemis Home Navigation');
+}
+.home-content {
+  @include blocklabel('Artemis Home Content');
+}
+.company-hero {
+  @include blocklabel('Artemis Company-page Hero');
+}
+.company-manifesto {
+  @include blocklabel('Artemis Company-page Manifesto');
+}
+.company-our-location {
+  @include blocklabel('Artemis Company-page Locations');
+}
+.company-our-location-intro {
+  @include blocklabel('Artemis Company-page Location Intro');
+}
+.portfolio-section {
+  @include parentblocklabel('Artemis Portfolio Section');
+}
+.portfolio-section-hero {
+  @include blocklabel('Artemis Portfolio Section Hero');
+}
+.team-hero {
+  @include parentblocklabel('Artemis Team-page Hero');
+}
+.team-hero-img-columns {
+  @include blocklabel('Artemis Team-page Hero Images');
+}
+.team-hero-title {
+  @include blocklabel('Artemis Team-page Hero Title');
+}
+.team-hero-intro {
+  @include blocklabel('Artemis Team-page Hero Intro');
+}
+.team-howwework {
+  @include blocklabel('Artemis Team-page How We Work');
+}
+.team-ourteam {
+  @include blocklabel('Artemis Team-page Our Team Gallery');
+}
+.team-what-we-look-for {
+  @include blocklabel('Artemis Team-page What We Look For');
+}
+.team-what-we-look-for-title {
+  @include blocklabel('Artemis Team-page What We Look For TITLE');
+}
+.team-what-we-look-for-subtitle {
+  @include blocklabel('Artemis Team-page What We Look For SUBTITLE');
+}
