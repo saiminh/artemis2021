@@ -1106,7 +1106,7 @@ textarea {
 }
 @media (min-width: 900px) {
   .site-header-main-navigation ul {
-    gap: 2.5em;
+    gap: 0;
     height: 100%;
     position: relative;
     flex-direction: row;
@@ -1122,11 +1122,29 @@ textarea {
   color: #FFF;
   text-transform: uppercase;
   font-size: clamp(16px, 10.6vw, 60px);
+  position: relative;
 }
 @media (min-width: 900px) {
   .site-header-main-navigation a, .site-header-main-navigation a:visited {
     font-size: 1em;
+    padding: 8px 20px;
+    mix-blend-mode: difference;
   }
+}
+
+.menu-item .shape-bg-wrap {
+  display: none;
+}
+@media (min-width: 900px) {
+  .menu-item .shape-bg-wrap {
+    display: block;
+    transform: scale(0);
+    transition: 0.3s transform ease-in-out;
+  }
+}
+
+.menu-item:hover .shape-bg-wrap {
+  transform: scale(1);
 }
 
 .current_page_item a {
@@ -1143,10 +1161,47 @@ textarea {
   stroke: #FFF;
 }
 
+.nav-menu-mobile-bg-wrap {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  perspective: 400px;
+  transform: none;
+  transition: 0.3s transform ease-in-out;
+}
+@media (min-width: 900px) {
+  .nav-menu-mobile-bg-wrap {
+    display: none;
+  }
+}
+
+.nav-toggled .nav-menu-mobile-bg-wrap {
+  transform: translateX(-100%);
+}
+
+.nav-menu-mobile-bg {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  right: 10%;
+  bottom: 5%;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.nav-menu-mobile-bg-img {
+  width: 150%;
+  height: 150%;
+  object-fit: cover;
+}
+
 .wp-block-button__link {
   text-transform: uppercase;
   border-radius: 10px;
-  background-color: #000;
+  background-color: transparent;
   line-height: 1.1;
   font-size: 3.2vw;
   margin-top: 0;
@@ -1163,6 +1218,31 @@ textarea {
   .wp-block-button__link {
     font-size: 1.7vw;
   }
+}
+
+.shape-bg-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: 85px;
+}
+
+.shape-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+  border-radius: 5px;
+}
+
+.wp-block-button .shape-bg-wrap {
+  perspective: 150px;
+}
+
+.wp-block-button .shape-bg {
+  background-color: #000;
 }
 
 .latest-news-scroller {
@@ -1480,6 +1560,11 @@ textarea {
   overflow: hidden;
   transform: translateZ(-150px);
 }
+@media (max-width: 599px) {
+  .homeBtn-bgshape {
+    display: none;
+  }
+}
 
 .homeBtn-bgshapeImg {
   position: absolute;
@@ -1650,6 +1735,10 @@ textarea {
   width: calc( 100% - 2rem );
   margin-left: auto;
   margin-right: auto;
+}
+
+.company-our-location .wp-block-column {
+  max-width: 100%;
 }
 
 .company-our-location > .wp-block-group__inner-container {
@@ -2841,6 +2930,7 @@ body {
 
 main {
   background-color: #FFF;
+  overflow: hidden;
 }
 
 .edit-link {

@@ -88,6 +88,9 @@
   border-radius: vars.$border-radius;
   overflow: hidden;
   transform: translateZ(-150px);
+  @include mq.for-phone-only {
+    display: none;
+  }
 }
 .homeBtn-bgshapeImg {
   position: absolute;

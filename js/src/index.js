@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { homeHero } from './home/home-hero.js';
 import { homeButtons } from './home/home-buttons.js';
 import { homeIntro } from './home/home-intro.js';
+import { homeScroll } from './home/home-scroll.js';
 import { companyBefore } from './company/company-before.js';
 import { companyAfter } from './company/company-after.js';
 import { news } from './news.js';
@@ -95,12 +96,12 @@ barba.init({
           .from(next.container.querySelector('.site-header'), {
             yPercent: -100,
             duration: 1,
-            ease: "expo.out"
+            ease: 'expo.out'
           }, 0 )
           .from(next.container.querySelector('.site-main'), {
             autoAlpha: 0,
             duration: .4,
-            ease:'"sin.inOut'
+            ease: 'sin.inOut'
           }, 0 );
         return tl
       }
@@ -109,10 +110,11 @@ barba.init({
   views: [
     {
       namespace: 'home',
-      beforeEnter() {
+      beforeEnter(data) {
         window.scrollTo(0, 0);
         homeIntro();
         homeHero();
+        homeScroll(data.next);
         homeButtons();
       },
       afterEnter() {
@@ -173,6 +175,7 @@ barba.hooks.enter( (data) => {
 barba.hooks.after( (data) => {
   navigation();
   tripleHeadlines();
+  data.next.container.querySelector(".site-main").style.transform = 'none';
 })
 // first page only:
 navigation();

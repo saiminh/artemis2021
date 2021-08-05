@@ -5,9 +5,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 function companyAfter(data) {
   
-  // Need to remove parent transforms after pagetransition to enable scroll animation:
-  data.container.querySelector('.site-main').style.transform = "none";
-  data.container.querySelector('.site-main > article').style.transform = "none";
   let hero = data.container.querySelector('.company-hero');
   let difference;
   if ( hero.offsetHeight >= window.innerHeight ){

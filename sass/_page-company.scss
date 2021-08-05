@@ -96,6 +96,9 @@
 .company-our-location {
   @include layout.full;
 }
+.company-our-location .wp-block-column {
+  max-width: 100%;
+}
 .company-our-location > .wp-block-group__inner-container {
   @include layout.centered;
 }

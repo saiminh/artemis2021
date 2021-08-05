@@ -75,63 +75,106 @@
 .site-header-main-navigation {
   padding: 0 20px;
   right: 0;
-  // left: 40%;
-  // width: 60%;
   display: flex;
   flex-direction: row-reverse;
 }
-  .site-header-main-navigation .menu-toggle {
-    display: block;
-    margin: 0 0 0 2.5em;
-    border: none;
-    background-color: transparent;
-    padding: 20px 0;
-    width: 50px;
+.site-header-main-navigation .menu-toggle {
+  display: block;
+  margin: 0 0 0 2.5em;
+  border: none;
+  background-color: transparent;
+  padding: 20px 0;
+  width: 50px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+.site-header-main-navigation ul {
+  display: flex;
+  gap: 2em;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transition: .5s all ease-in;
+  pointer-events: none;
+  @include mq.for-tablet-landscape-up {
+    gap: 0;
+    height: 100%;
     position: relative;
-    z-index: 2;
-    cursor: pointer;
+    flex-direction: row;
   }
-  .site-header-main-navigation ul {
-    display: flex;
-    gap: 2em;
-    width: 100%;
-    height: 100vh;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    flex-direction: column;
-    justify-content: center;
-    opacity: 0;
-    transition: .5s all ease-in;
-    pointer-events: none;
-    @include mq.for-tablet-landscape-up {
-      gap: 2.5em;
-      height: 100%;
-      position: relative;
-      flex-direction: row;
-    }
+}
+.nav-toggled .site-header-main-navigation ul {
+  pointer-events: all;
+  opacity: 1;
+}
+.site-header-main-navigation a, .site-header-main-navigation a:visited {
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: clamp(16px, 10.6vw, 60px);
+  position: relative;
+  @include mq.for-tablet-landscape-up {
+    font-size: 1em;
+    padding: 8px 20px;
+    mix-blend-mode: difference;
   }
-  .nav-toggled .site-header-main-navigation ul {
-    pointer-events: all;
-    opacity: 1;
+}
+.menu-item .shape-bg-wrap {
+  display: none;
+  @include mq.for-tablet-landscape-up {
+    display: block;
+    transform: scale(0);
+    transition: .3s transform ease-in-out;
   }
-  .site-header-main-navigation a, .site-header-main-navigation a:visited {
-    color: #FFF;
-    text-transform: uppercase;
-    font-size: clamp(16px, 10.6vw, 60px);
-    @include mq.for-tablet-landscape-up {
-      font-size: 1em;
-    }
+}
+.menu-item:hover .shape-bg-wrap {
+  transform: scale(1);
+}
+.current_page_item a {
+  text-decoration: underline;
+}
+.menu-hamburger-icon {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.menu-hamburger-icon line {
+  stroke: #FFF;
+}
+.nav-menu-mobile-bg-wrap {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  perspective: 400px;
+  transform: none;
+  transition: .3s transform ease-in-out;
+  @include mq.for-tablet-landscape-up{
+    display: none;
   }
-  .current_page_item a {
-    text-decoration: underline;
-  }
-  .menu-hamburger-icon {
-    width: 100%;
-    height: auto;
-    overflow: visible;
-  }
-  .menu-hamburger-icon line {
-    stroke: #FFF;
-  }
+}
+.nav-toggled .nav-menu-mobile-bg-wrap {
+  transform: translateX(-100%);
+}
+.nav-menu-mobile-bg {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  right: 10%;
+  bottom: 5%;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 0;
+}
+.nav-menu-mobile-bg-img {
+  width: 150%;
+  height: 150%;
+  object-fit: cover;
+}

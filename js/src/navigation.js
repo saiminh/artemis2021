@@ -138,7 +138,116 @@ function navigation() {
 			}
 			menuItem.classList.toggle( 'focus' );
 		}
-	}
+	};
+
+  let navItems = document.querySelectorAll('.site-header-main-navigation a');
+  navItems.forEach( (element) => {
+    makeShapeButton(element);
+  })
+
+  function makeShapeButton( element ){
+    let shapeWrap = document.createElement('DIV'),
+        shape = document.createElement('DIV'),
+        shapeW = element.offsetWidth,
+        shapeH = element.offsetHeight;
+        shapeWrap.classList.add('shape-bg-wrap');
+        shape.classList.add('shape-bg');
+        // gsap.set( shape, { scaleY: 0 })
+    // element.addEventListener( 'mouseover', (e) => {
+    //   // let shapePos = element.getBoundingClientRect();
+    //   // shapeWrap.style.top = 0;//shapePos.y + "px";
+    //   // shapeWrap.style.left = 0;//shapePos.x + "px";
+    //   // shapeWrap.style.width = shapePos.width + "px";
+    //   // shapeWrap.style.height = shapePos.height + "px";
+    //   gsap.to( shape, {
+    //     scaleY: 1,
+    //     duration: .3,
+    //     ease: 'expo.out'
+    //   })
+    // })
+    element.addEventListener( 'mousemove', (e) => {
+      let elCenterX = element.getBoundingClientRect().left + shapeW/2,
+          elCenterY = element.getBoundingClientRect().top + shapeH/2,
+          mouseX = e.clientX,
+          mouseY = e.clientY,
+          xP = ( elCenterX - mouseX ) * 2 / shapeW,
+          yP = ( elCenterY - mouseY ) * 2 / shapeH;
+      gsap.to( shape, {
+        rotationX: 45 * yP,
+        rotationY: 20 * xP,
+        duration: .3
+      });
+    });
+    // element.addEventListener( 'mouseleave', (e) => {
+    //   gsap.to( shape, {
+    //     scaleY: 0,
+    //     duration: .3,
+    //     ease: 'power3.inOut'
+    //   })
+    // })
+    shapeWrap.appendChild(shape);
+    element.parentElement.insertBefore(shapeWrap, element);
+  }
+
+  document.querySelectorAll('div:not(.home-nav-buttons) > .wp-block-button > .wp-block-button__link').forEach( (element) => {
+    if ( !element.parentElement.style.position || element.parentElement.style.position == 'static' ){
+      element.parentElement.style.position = 'relative';
+    }
+    if ( !element.style.position || element.style.position == 'static' ){
+      element.style.position = 'relative';
+      
+    }
+    makeShapeButton( element );
+  } )
+
+  // mobile nav shape in bg]
+  if ( !document.querySelector('.nav-menu-mobile-bg') ){
+    let mobmenu = document.querySelector('.nav-menu'),
+        imgurl = '/wp-content/themes/artemis2021/img/mobilenav-bg.jpg',
+        menubgimg = document.createElement("img"),
+        menubg = document.createElement("div"),
+        menubgwrap = document.createElement("div");
+    menubgimg.setAttribute('src', imgurl);
+    menubgimg.classList.add('nav-menu-mobile-bg-img');    
+    menubg.classList.add('nav-menu-mobile-bg');
+    menubgwrap.classList.add('nav-menu-mobile-bg-wrap');
+    menubgwrap.appendChild(menubg);
+    menubg.appendChild(menubgimg);
+    document.querySelector('#page').appendChild(menubgwrap);
+    gsap.timeline( { 
+      repeat: -1, 
+      // yoyo: true,
+      defaults: {
+        duration: 5,
+        ease: "none"
+      }
+    } )
+    .to('.nav-menu-mobile-bg', {
+      rotationY: 10,
+      rotationX: -10,
+      rotationZ: 5,
+      yPercent: 10,
+      scale: 0.9,
+      onStart: () => { console.log('palying 1')}
+    })
+    .to('.nav-menu-mobile-bg', {
+      rotationY: -24,
+      rotationX: 20,
+      rotationZ: 3,
+      scale: 0.8,
+      yPercent: -10,
+      onStart: () => { console.log('palying 2')}
+    })
+    .to('.nav-menu-mobile-bg', {
+      rotationY: 0,
+      rotationX: 0,
+      rotationZ: 0,
+      scale: 1,
+      yPercent: 0,
+      onStart: () => { console.log('palying 3')}
+    })
+  }
+
 };
 
 export { navigation };

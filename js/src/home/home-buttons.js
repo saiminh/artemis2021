@@ -52,7 +52,6 @@ function homeButtons(){
       let homeBtnY = homeBtn.getBoundingClientRect().top - window.scrollY + homeBtn.clientHeight/2 +  window.scrollY;
       let mouseX = e.clientX;
       let mouseY = e.clientY;
-      // console.log('homeBtnY: ' + homeBtnY + ' mouseY: ' + mouseY );
       gsap.to(homeBtn_bgshape, {
         rotationY: (homeBtnX - mouseX)/8,
         rotationX: (homeBtnY - mouseY)/2,
