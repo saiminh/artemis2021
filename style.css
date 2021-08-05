@@ -2827,7 +2827,7 @@ textarea {
 .site-footer-nav-col-logo-link,
 .site-footer-nav-col-logo-link:visited {
   display: block;
-  padding: 4px 0;
+  padding: 2px 0;
 }
 
 .site-footer .artemis-logo {
@@ -2853,17 +2853,30 @@ textarea {
 .site-footer-nav-col-social a:visited {
   color: #808B90;
   text-decoration: none;
-  font-size: 12px;
-  display: block;
+  font-size: 2.7vw;
+  display: none;
 }
 @media (min-width: 600px) {
   .site-footer-nav-col-link,
 .site-footer-nav-col-link:visited,
 .site-footer-nav-col-social a,
 .site-footer-nav-col-social a:visited {
-    font-size: 18px;
+    font-size: 1.6vw;
     display: block;
   }
+}
+@media (min-width: 900px) {
+  .site-footer-nav-col-link,
+.site-footer-nav-col-link:visited,
+.site-footer-nav-col-social a,
+.site-footer-nav-col-social a:visited {
+    font-size: 1.25vw;
+  }
+}
+
+.site-footer-nav-col-social a,
+.site-footer-nav-col-social a:visited {
+  display: block;
 }
 
 .site-footer-nav-col-link:hover,
@@ -2879,13 +2892,25 @@ textarea {
   text-transform: uppercase;
   text-decoration: none;
   font-size: 10px;
-  margin-top: 1em;
+  margin-top: 3em;
+  white-space: nowrap;
 }
 @media (min-width: 600px) {
   .site-footer-nav-col-title a,
 .site-footer-nav-col-title a:visited {
     font-size: 20px;
     margin-top: 0;
+    margin-bottom: 1em;
+  }
+}
+
+.site-footer-nav-col-social .site-footer-nav-col-title a,
+.site-footer-nav-col-social .site-footer-nav-col-title a:visited {
+  margin-bottom: 3em;
+}
+@media (min-width: 600px) {
+  .site-footer-nav-col-social .site-footer-nav-col-title a,
+.site-footer-nav-col-social .site-footer-nav-col-title a:visited {
     margin-bottom: 1em;
   }
 }
