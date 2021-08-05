@@ -32,9 +32,8 @@ function navigation() {
 	if ( ! menu.classList.contains( 'nav-menu' ) ) {
 		menu.classList.add( 'nav-menu' );
 	}
-
   
-  let buttonAnimation = gsap.timeline({ paused: true, defaults: { duration: .3} })
+  let hamburgerButtonAnimation = gsap.timeline({ paused: true, defaults: { duration: .3} })
   .set('.menu-hamburger-icon line', {
     transformOrigin: "50% 50%",
   })
@@ -62,29 +61,38 @@ function navigation() {
 
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
-    // document.querySelector('.site-main').style.transform = null;
-    // document.querySelector('.site-main > article').style.transform = null;
 		siteNavigation.classList.toggle( 'toggled' );
     page.classList.toggle( 'nav-toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
-      buttonAnimation.reverse();
+      hamburgerButtonAnimation.reverse();
+      navBgAnimation.reverse();
 		} else {
       button.setAttribute( 'aria-expanded', 'true' );
-      buttonAnimation.play(0);
+      hamburgerButtonAnimation.play(0);
+      navBgAnimation.play(0);
 		}
 	} );
 
+  document.querySelectorAll('.site-header-main-navigation a').forEach( (link) => {
+    link.addEventListener( 'click', () => {
+      navBgAnimation.reverse();
+    })
+  })
+
 	// Remove the .toggled class and set aria-expanded to false when the user clicks outside the navigation.
 	document.addEventListener( 'click', function( event ) {
-		const isClickInside = siteNavigation.contains( event.target );
-
+    // adjusting transformOrigin for site-main for out-transition
+    let y = window.scrollY + window.innerHeight + .3;
+    document.querySelector('.site-main').style.transformOrigin = "50% " + y + "px";
+    //checking if click is inside the nav
+    const isClickInside = siteNavigation.contains( event.target );
 		if ( ! isClickInside ) {
 			siteNavigation.classList.remove( 'toggled' );
       page.classList.remove( 'nav-toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
-      buttonAnimation.reverse();
+      hamburgerButtonAnimation.reverse();
 		}
 	} );
 
@@ -139,67 +147,48 @@ function navigation() {
 			menuItem.classList.toggle( 'focus' );
 		}
 	};
+// Just in case: 
+  // let navItems = document.querySelectorAll('.site-header-main-navigation a');
+  // navItems.forEach( (element) => {
+  //   makeShapeButton(element);
+  // })
 
-  let navItems = document.querySelectorAll('.site-header-main-navigation a');
-  navItems.forEach( (element) => {
-    makeShapeButton(element);
-  })
+  // function makeShapeButton( element ){
+  //   let shapeWrap = document.createElement('DIV'),
+  //       shape = document.createElement('DIV'),
+  //       shapeW = element.offsetWidth,
+  //       shapeH = element.offsetHeight;
+  //       shapeWrap.classList.add('shape-bg-wrap');
+  //       shape.classList.add('shape-bg');
+  //   element.addEventListener( 'mousemove', (e) => {
+  //     let elCenterX = element.getBoundingClientRect().left + shapeW/2,
+  //         elCenterY = element.getBoundingClientRect().top + shapeH/2,
+  //         mouseX = e.clientX,
+  //         mouseY = e.clientY,
+  //         xP = ( elCenterX - mouseX ) * 2 / shapeW,
+  //         yP = ( elCenterY - mouseY ) * 2 / shapeH;
+  //     gsap.to( shape, {
+  //       rotationX: 45 * yP,
+  //       rotationY: 20 * xP,
+  //       duration: .3
+  //     });
+  //   });
+  //   shapeWrap.appendChild(shape);
+  //   element.parentElement.insertBefore(shapeWrap, element);
+  // }
 
-  function makeShapeButton( element ){
-    let shapeWrap = document.createElement('DIV'),
-        shape = document.createElement('DIV'),
-        shapeW = element.offsetWidth,
-        shapeH = element.offsetHeight;
-        shapeWrap.classList.add('shape-bg-wrap');
-        shape.classList.add('shape-bg');
-        // gsap.set( shape, { scaleY: 0 })
-    // element.addEventListener( 'mouseover', (e) => {
-    //   // let shapePos = element.getBoundingClientRect();
-    //   // shapeWrap.style.top = 0;//shapePos.y + "px";
-    //   // shapeWrap.style.left = 0;//shapePos.x + "px";
-    //   // shapeWrap.style.width = shapePos.width + "px";
-    //   // shapeWrap.style.height = shapePos.height + "px";
-    //   gsap.to( shape, {
-    //     scaleY: 1,
-    //     duration: .3,
-    //     ease: 'expo.out'
-    //   })
-    // })
-    element.addEventListener( 'mousemove', (e) => {
-      let elCenterX = element.getBoundingClientRect().left + shapeW/2,
-          elCenterY = element.getBoundingClientRect().top + shapeH/2,
-          mouseX = e.clientX,
-          mouseY = e.clientY,
-          xP = ( elCenterX - mouseX ) * 2 / shapeW,
-          yP = ( elCenterY - mouseY ) * 2 / shapeH;
-      gsap.to( shape, {
-        rotationX: 45 * yP,
-        rotationY: 20 * xP,
-        duration: .3
-      });
-    });
-    // element.addEventListener( 'mouseleave', (e) => {
-    //   gsap.to( shape, {
-    //     scaleY: 0,
-    //     duration: .3,
-    //     ease: 'power3.inOut'
-    //   })
-    // })
-    shapeWrap.appendChild(shape);
-    element.parentElement.insertBefore(shapeWrap, element);
-  }
-
-  document.querySelectorAll('div:not(.home-nav-buttons) > .wp-block-button > .wp-block-button__link').forEach( (element) => {
-    if ( !element.parentElement.style.position || element.parentElement.style.position == 'static' ){
-      element.parentElement.style.position = 'relative';
-    }
-    if ( !element.style.position || element.style.position == 'static' ){
-      element.style.position = 'relative';
+  // document.querySelectorAll('div:not(.home-nav-buttons) > .wp-block-button > .wp-block-button__link').forEach( (element) => {
+  //   if ( !element.parentElement.style.position || element.parentElement.style.position == 'static' ){
+  //     element.parentElement.style.position = 'relative';
+  //   }
+  //   if ( !element.style.position || element.style.position == 'static' ){
+  //     element.style.position = 'relative';
       
-    }
-    makeShapeButton( element );
-  } )
+  //   }
+  //   makeShapeButton( element );
+  // } )
 
+  let navBgAnimation;
   // mobile nav shape in bg]
   if ( !document.querySelector('.nav-menu-mobile-bg') ){
     let mobmenu = document.querySelector('.nav-menu'),
@@ -213,40 +202,44 @@ function navigation() {
     menubgwrap.classList.add('nav-menu-mobile-bg-wrap');
     menubgwrap.appendChild(menubg);
     menubg.appendChild(menubgimg);
+    menubgwrap.style.left = "100%";
     document.querySelector('#page').appendChild(menubgwrap);
     gsap.timeline( { 
       repeat: -1, 
+      repeatRefresh: true,
       // yoyo: true,
       defaults: {
-        duration: 5,
-        ease: "none"
+        duration: 4,
+        ease: "linear"
       }
     } )
     .to('.nav-menu-mobile-bg', {
-      rotationY: 10,
-      rotationX: -10,
-      rotationZ: 5,
-      yPercent: 10,
-      scale: 0.9,
-      onStart: () => { console.log('palying 1')}
+      transformOrigin: "50% 50%",
+      rotationY: "random(-20, 20, 1)",
+      rotationX: "random(-10, 10, 1)",
+      rotationZ: "random(-5, 5, 1)",
+      // yPercent: "random(-5, 5, 1)",
+      scaleY: "random(0.8, 1, 0.01)",
+      repeatRefresh: true,
     })
-    .to('.nav-menu-mobile-bg', {
-      rotationY: -24,
-      rotationX: 20,
-      rotationZ: 3,
-      scale: 0.8,
-      yPercent: -10,
-      onStart: () => { console.log('palying 2')}
+    navBgAnimation = gsap.timeline({ 
+      paused: true, 
+      defaults: {
+        duration: .3,
+        ease: "power3.out"
+      } 
     })
-    .to('.nav-menu-mobile-bg', {
-      rotationY: 0,
-      rotationX: 0,
-      rotationZ: 0,
-      scale: 1,
-      yPercent: 0,
-      onStart: () => { console.log('palying 3')}
+    .fromTo('.nav-menu-mobile-bg-wrap', {
+      xPercent: 0,
+    }, {
+      xPercent: -100,
     })
-  }
+    .from('.nav-menu-mobile-bg', {
+      scaleX: 0
+    }, 0);
+  };
+
+  
 
 };
 

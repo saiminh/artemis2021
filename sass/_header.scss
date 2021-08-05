@@ -27,6 +27,13 @@
     font-size: 1.4vw;
   }
 }
+.nav-toggled .site-header {
+  mix-blend-mode: normal;
+  @include mq.for-tablet-landscape-up {
+    mix-blend-mode: difference;
+  }
+
+}
 .site-header > * {
   position: absolute;
   top: vars.$header-height * .5;
@@ -34,6 +41,14 @@
 }
 .site-header-branding {
   z-index: 2;
+  opacity: 1;
+  transition: .5s opacity ease-in-out;
+}
+.nav-toggled .site-header-branding {
+  opacity: 0;
+  @include mq.for-tablet-landscape-up {
+    opacity: 1;
+  }
 }
 .site-header-branding a {
   display: inline-block;
@@ -115,29 +130,38 @@
   opacity: 1;
 }
 .site-header-main-navigation a, .site-header-main-navigation a:visited {
-  color: #FFF;
+  color: rgba(255, 255, 255, .5);
   text-transform: uppercase;
   font-size: clamp(16px, 10.6vw, 60px);
   position: relative;
   @include mq.for-tablet-landscape-up {
+    color: #FFF;
     font-size: 1em;
     padding: 8px 20px;
     mix-blend-mode: difference;
   }
 }
-.menu-item .shape-bg-wrap {
-  display: none;
+.site-header-main-navigation a:hover {
   @include mq.for-tablet-landscape-up {
-    display: block;
-    transform: scale(0);
-    transition: .3s transform ease-in-out;
+    color: #000;
+    background-color: #FFF;
+    border-radius: vars.$border-radius * .5;
   }
 }
-.menu-item:hover .shape-bg-wrap {
-  transform: scale(1);
-}
+// .menu-item .shape-bg-wrap {
+//   display: none;
+//   @include mq.for-tablet-landscape-up {
+//     display: block;
+//     transform: scale(0);
+//     transition: .3s transform ease-in-out;
+//   }
+// }
+// .menu-item:hover .shape-bg-wrap {
+//   transform: scale(1);
+// }
 .current_page_item a {
   text-decoration: underline;
+  color: #FFF;
 }
 .menu-hamburger-icon {
   width: 100%;
@@ -150,18 +174,14 @@
 .nav-menu-mobile-bg-wrap {
   position: fixed;
   top: 0;
-  left: 100%;
+  left: 0;
   width: 100%;
   height: 100%;
   perspective: 400px;
-  transform: none;
-  transition: .3s transform ease-in-out;
+  background-color: #000;
   @include mq.for-tablet-landscape-up{
     display: none;
   }
-}
-.nav-toggled .nav-menu-mobile-bg-wrap {
-  transform: translateX(-100%);
 }
 .nav-menu-mobile-bg {
   position: absolute;

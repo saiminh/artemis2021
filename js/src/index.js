@@ -42,11 +42,6 @@ barba.init({
           ease: 'expo.out',
         }, 0 )
         .to(data.current.container.querySelector('.site-main'), {
-          // xPercent: "-=100",
-          // y: "+=100",
-          // rotationY: 27,
-          // rotationX: 27,
-          transformOrigin: "50% 50vh",
           scale: .95,
           autoAlpha: 0,
           duration: 1,
@@ -70,10 +65,9 @@ barba.init({
             ease: 'expo.out',
           }, 0 )
           .from(data.next.container.querySelector('.site-main'), {
-            // xPercent: "+=100",
+            transformOrigin: "50% 33vh",
             autoAlpha: 0,
             scale: .95,
-            transformOrigin: "50% 50vh  ",
             duration: 1.5,
             ease:'expo.inOut'
           }, 0 )
