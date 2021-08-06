@@ -1,5 +1,5 @@
 import barba from '@barba/core';
-// import barbaPrefetch from '@barba/prefetch';
+import barbaPrefetch from '@barba/prefetch';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { homeHero } from './home/home-hero.js';
@@ -19,7 +19,7 @@ import { tripleHeadlines } from './tripleheadlines.js';
 import { latestNewsScroller } from './latestNewsScroller.js';
 gsap.registerPlugin(ScrollTrigger);
 
-// barba.use(barbaPrefetch);
+barba.use(barbaPrefetch);
 barba.init({
   debug: true,
   transitions: [
@@ -78,28 +78,60 @@ barba.init({
     }, {
       name: 'home-transition',
       from: { namespace: [ 'home' ] },
-      leave({current}) {
-        return gsap.timeline().to(current.container, {
+      leave(data) {
+        return gsap.timeline()
+        .to('.artemis-preloader-logos', {
+          yPercent: "-=200",
+          duration: .33,
+          ease: 'expo.out',
+        }, 0 )
+        .to(data.current.container.querySelector('.site-footer'), {
+          backgroundColor: "#FFFFFF",
+          duration: .2
+        }, 0)
+        .to(data.current.container.querySelector('.site-footer > *'), {
+          y: 1000,
+          duration: .5,
+          ease: 'expo.out',
+        }, 0 )
+        .to(data.current.container.querySelector('.site-main'), {
+          scale: .95,
           autoAlpha: 0,
           duration: 1,
-          ease: 'expo.out'
-        }, 0 ).to('.artemis-preloader', {
-          autoAlpha: 0
-        }, 0 )
+          ease: 'expo.out',
+        }, 0 );
       },
-      enter({next}) {
-        let tl = gsap.timeline({paused: false})
-          .from(next.container.querySelector('.site-header'), {
-            yPercent: -100,
-            duration: 1,
-            ease: 'expo.out'
-          }, 0 )
-          .from(next.container.querySelector('.site-main'), {
-            autoAlpha: 0,
-            duration: .4,
-            ease: 'sin.inOut'
-          }, 0 );
-        return tl
+      enter(data) {
+        return gsap.timeline()
+        .set('.artemis-preloader svg:nth-child(2) path', {
+          opacity: 0
+        })
+        .set('.artemis-preloader-logos', {
+          scale: 3,
+          yPercent: 0
+        })
+        .from(data.next.container.querySelectorAll('.site-header > *'), {
+          yPercent: "-=100",
+          duration: 1,
+          stagger: .1,
+          ease: "expo.out"
+        }, 0 )
+        .from(data.next.container.querySelector('.site-footer'), {
+          backgroundColor: "#FFFFFF"
+        }, 0)
+        .from(data.next.container.querySelector('.site-footer > *'), {
+          yPercent: "+=100",
+          duration: 1,
+          ease: 'expo.out',
+        }, 0 )
+        .from(data.next.container.querySelector('.site-main'), {
+          transformOrigin: "50% 33vh",
+          autoAlpha: 0,
+          scale: .95,
+          duration: 1.5,
+          ease:'expo.inOut'
+        }, 0 )
+        ;
       }
     }
   ],// end of transitions
@@ -173,7 +205,9 @@ barba.init({
   ]
 })
 barba.hooks.enter( (data) => {
+  //scroll new page to the top before each transition
   window.scrollTo(0, 0);
+  //unhide the page content
     gsap.set('#page', {
       opacity: 1
     })

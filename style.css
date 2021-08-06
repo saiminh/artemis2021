@@ -951,6 +951,7 @@ textarea {
 .artemis-preloader svg {
   width: 100px;
   height: 16px;
+  overflow: visible;
 }
 
 .artemis-preloader svg path {
