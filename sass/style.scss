@@ -15,7 +15,7 @@
 @use 'page-search';
 @use 'footer';
 
-body {
+#page {
   opacity: 0; // To avoid flickering on initial load, js removes this on first window.load
 }
 .site {

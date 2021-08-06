@@ -10,9 +10,11 @@ import { companyBefore } from './company/company-before.js';
 import { companyAfter } from './company/company-after.js';
 import { news } from './news.js';
 import { test } from './test.js';
+import { team } from './team.js';
 import { navigation } from './navigation.js';
 import { portfolioModelViewers } from './portfolio/portfolio-modelViewer.js';
 import { portfolioNav } from './portfolio/portfolio-nav.js';
+import { portfolioLoader } from './portfolio/portfolio-loader.js';
 import { tripleHeadlines } from './tripleheadlines.js';
 import { latestNewsScroller } from './latestNewsScroller.js';
 gsap.registerPlugin(ScrollTrigger);
@@ -126,15 +128,22 @@ barba.init({
     },
     {
       namespace: 'news',
-      afterEnter(data) {
-        news(data.next);        
+      beforeEnter(data) {
+        latestNewsScroller(data.next);     
+        news(data.next);   
+      }
+    },
+    {
+      namespace: 'team',
+      beforeEnter(data) {
+        team(data.next);   
       }
     },
     {
       namespace: 'portfolio',
       beforeEnter(data) {
         portfolioModelViewers(data.next);
-        // portfolioNav();
+        portfolioLoader();
       }
     },
     {
@@ -146,25 +155,28 @@ barba.init({
     {
       namespace: 'single-post',
       beforeEnter(data) {
-        news(data.next);
+        latestNewsScroller(data.next);
       }
     },
     {
       namespace: 'archive',
       beforeEnter(data) {
-        news(data.next);
+        latestNewsScroller(data.next);
       }
     },
     {
       namespace: 'search',
       beforeEnter(data) {
-        news(data.next);
+        latestNewsScroller(data.next);
       }
     },
   ]
 })
 barba.hooks.enter( (data) => {
   window.scrollTo(0, 0);
+    gsap.set('#page', {
+      opacity: 1
+    })
 })
 barba.hooks.after( (data) => {
   navigation();
@@ -175,7 +187,7 @@ barba.hooks.after( (data) => {
 navigation();
 tripleHeadlines();
 window.addEventListener('load', () => {
-  gsap.to('body', {
+  gsap.to('#page', {
     opacity: 1
   })
 })

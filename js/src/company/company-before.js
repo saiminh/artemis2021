@@ -13,16 +13,10 @@ function companyBefore(data){
     element.style.overflow = 'hidden';
   });
   
-  // gsap.set( splitHero.words, {
-  //     transformOrigin: "50% 50%",
-  //     scale: 2
-  // });
   gsap.from( splitHero.words, {
     transformOrigin: "0% 50%",
-    // opacity: 0,
     scale: .9,
     yPercent: 100,
-    // rotationZ: 12,
     duration: 1,
     delay: .5,
     ease: "circ.inOut",
@@ -33,10 +27,8 @@ function companyBefore(data){
   });
   gsap.from( splitHeroP.words, {
     transformOrigin: "0% 50%",
-    // opacity: 0,
     scale: .9,
     yPercent: 100,
-    // rotationZ: 12,
     duration: 1,
     delay: 1,
     ease: "circ.inOut",
