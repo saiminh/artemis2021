@@ -61,6 +61,13 @@ function portfolioModelViewers(data){
     }
     gsap.ticker.add( moveModelViewer );
   };
+  if ( window.matchMedia("(orientation: portrait) and (max-width: 601px)").matches ) {
+    document.querySelectorAll('model-viewer').forEach( element => {
+      element.style.height = null;
+      element.style.height = element.offsetHeight + "px";
+    });
+  };
+ 
 
   function offset(el) {
     var rect = el.getBoundingClientRect(),
