@@ -42,18 +42,12 @@ function portfolioLoader(){
         ease: "power3.inOut",
         duration: 1.25
       })
-      // .to('.artemis-preloader-logos', {
-      //   y: -window.innerHeight/1.75,
-      //   ease: "circ.inOut",
-      //   duration: .75, 
-      // }, 0)
-      .to('.artemis-preloader-logos .artemis-logo:nth-child(2) path', {
-        // yPercent: -100 ,
-        y: -window.innerHeight/1.5,
-        ease: "power3.inOut",
-        duration: .75,
-        stagger: 0.009
-      }, 0);
+      .to('.artemis-preloader-logos', {
+        y: -window.innerHeight/1.75,
+        ease: "circ.inOut",
+        duration: .75, 
+      }, 0)
+      ;
   
     return tl;
   }

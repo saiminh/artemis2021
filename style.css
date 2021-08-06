@@ -1889,6 +1889,7 @@ textarea {
   overflow: hidden;
   transform: translateZ(0);
   cursor: pointer;
+  position: relative;
 }
 
 .portfolio-nav .portfolio-nav-element:not(:first-child) {
