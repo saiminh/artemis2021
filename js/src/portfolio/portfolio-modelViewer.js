@@ -61,12 +61,16 @@ function portfolioModelViewers(data){
     }
     gsap.ticker.add( moveModelViewer );
   };
-  // if ( window.matchMedia("(orientation: portrait) and (max-width: 601px)").matches ) {
-  //   document.querySelectorAll('model-viewer').forEach( element => {
-  //     element.style.height = null;
-  //     element.style.height = element.offsetHeight + "px";
-  //   });
-  // };
+  if ( window.matchMedia("(orientation: portrait) and (max-width: 601px)").matches ) {
+    document.querySelectorAll('model-viewer').forEach( element => {
+      element.style.height = null;
+      element.style.height = element.offsetHeight + "px";
+    });
+    document.querySelectorAll('.portfolio-section-hero').forEach( element => {
+      element.style.height = null;
+      element.style.height = element.offsetHeight + "px";
+    });
+  };
  
 
   function offset(el) {
