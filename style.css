@@ -1892,6 +1892,11 @@ textarea {
   position: relative;
 }
 
+.portfolio-nav-element .wp-block-group__inner-container {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 .portfolio-nav .portfolio-nav-element:not(:first-child) {
   padding-left: 1rem;
 }

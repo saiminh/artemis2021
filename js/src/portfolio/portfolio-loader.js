@@ -46,6 +46,11 @@ function portfolioLoader(){
         y: -window.innerHeight/1.75,
         ease: "circ.inOut",
         duration: .75, 
+        onComplete: () => {
+          gsap.to('.artemis-preloader svg:nth-child(2) path', {
+            opacity: 0
+          })
+        }
       }, 0)
       ;
   
