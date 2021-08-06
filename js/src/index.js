@@ -1,5 +1,5 @@
 import barba from '@barba/core';
-import barbaPrefetch from '@barba/prefetch';
+// import barbaPrefetch from '@barba/prefetch';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { homeHero } from './home/home-hero.js';
@@ -19,7 +19,7 @@ import { tripleHeadlines } from './tripleheadlines.js';
 import { latestNewsScroller } from './latestNewsScroller.js';
 gsap.registerPlugin(ScrollTrigger);
 
-barba.use(barbaPrefetch);
+// barba.use(barbaPrefetch);
 barba.init({
   debug: true,
   transitions: [
