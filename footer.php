@@ -61,12 +61,10 @@
       </div>
       <div class="site-footer-nav-col wp-block-column">
         <h3 class="site-footer-nav-col-title">
-          <a href="/jobs">Jobs</a>
+          <a href="https://artemis-auto.dvinci-hr.com/">Jobs</a>
         </h3>
-        <a class="site-footer-nav-col-link" href="/jobs#why-artemis">Why Artemis</a>
-        <a class="site-footer-nav-col-link" href="/jobs#our-vision">Our Vision</a>
-        <a class="site-footer-nav-col-link" href="/jobs#news">News</a>
-        <a class="site-footer-nav-col-link" href="/jobs#locations">Locations</a>
+        <a class="site-footer-nav-col-link" href="https://artemis-auto.dvinci-hr.com/en/jobs">Why Artemis</a>
+        <a class="site-footer-nav-col-link" href="https://artemis-auto.dvinci-hr.com/en/jobs/19/intro">Our Vision</a>
       </div>
     </div>
     <div class="site-footer-copyright">
