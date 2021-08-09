@@ -10,10 +10,6 @@ function homeScroll(data) {
   });
   gsap.from(splitHomeContent.words, {
     opacity: 0,
-    // transformOrigin: '0% 0%',
-    // rotationZ: -20,
-    // scale: .5,
-    // x: -50,
     yPercent: 100,
     stagger: .05,
     ease: 'power3.out',
@@ -22,10 +18,16 @@ function homeScroll(data) {
       trigger: data.container.querySelector('.home-content'),
       start: 'top 75%',
       toggleActions: 'play complete play reverse',
-      // end: 'top 25%',
-      // markers: true,
-      // scrub: .25
     }
+  });
+  gsap.to( '.home-hero-headline', {
+    scrollTrigger: {
+      trigger: data.container.querySelector('.home-hero'),
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+    },
+    yPercent: 33,
   })
 }
 export { homeScroll }

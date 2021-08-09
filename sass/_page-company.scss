@@ -87,7 +87,6 @@
   @include mq.for-tablet-portrait-up {
     text-align: center;
     font-size: 20px;
-    text-shadow: 0 100% 1px 1px #000;
     & span:last-child {
       display: inherit;
     }

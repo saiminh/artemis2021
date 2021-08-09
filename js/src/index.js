@@ -9,7 +9,7 @@ import { homeScroll } from './home/home-scroll.js';
 import { companyBefore } from './company/company-before.js';
 import { companyAfter } from './company/company-after.js';
 import { news } from './news.js';
-import { test } from './test.js';
+// import { test } from './test.js';
 import { team } from './team.js';
 import { navigation } from './navigation.js';
 import { portfolioModelViewers } from './portfolio/portfolio-modelViewer.js';
@@ -140,10 +140,10 @@ barba.init({
       namespace: 'home',
       beforeEnter(data) {
         window.scrollTo(0, 0);
+        homeButtons();
         homeIntro();
         homeHero();
         homeScroll(data.next);
-        homeButtons();
       },
       afterEnter() {
       }
@@ -178,12 +178,12 @@ barba.init({
         portfolioLoader();
       }
     },
-    {
-      namespace: 'test',
-      beforeEnter(data) {
-        test(data);
-      }
-    },
+    // {
+    //   namespace: 'test',
+    //   beforeEnter(data) {
+    //     test(data);
+    //   }
+    // },
     {
       namespace: 'single-post',
       beforeEnter(data) {
