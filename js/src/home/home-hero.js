@@ -46,7 +46,7 @@ function homeHero() {
   app.renderer.resize(window.innerWidth, window.innerHeight);
 
   // Get the video from the_content, hide it and load it into PIXI canvas
-  var video = document.querySelector(".home-hero-video video");
+  let video = document.querySelector(".home-hero-video video");
   video.style.display = "none";
   video.preload = "auto";
   video.loop = true;
@@ -54,12 +54,13 @@ function homeHero() {
   video.muted = true;  
   // video.src = "./wp-content/themes/artemis2021/assets/testvideo.mp4";
   
-  loader
-    .add(video.src)
-    .load(setup);
-  
   // let sprite;
   let roundBox;
+  
+  loader
+  .load(setup);
+    // .add(video.src)
+  
   
   function setup(){
 
@@ -237,13 +238,6 @@ function homeHero() {
           overwrite: true
         });
       })
-      
-      // roundBox.clear();
-      // roundBox.beginFill(0x000000);
-      // roundBox.lineStyle( { width: 20, join: PIXI.LINE_JOIN.ROUND } );
-      // roundBox.drawPolygon(newPolyPoints);
-      // roundBox.drawPolygon(origPolyPoints);
-      // roundBox.endFill();
     });
   }
 
