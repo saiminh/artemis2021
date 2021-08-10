@@ -59,6 +59,7 @@
 .portfolio-nav .portfolio-nav-element model-viewer{
   width: 100%;
   height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   border-radius: vars.$border-radius;
   overflow: hidden;
   transform: translateZ(0);
@@ -113,6 +114,7 @@
   @include layout.full;
   position: relative;
   height: 60vh;
+  height: calc(var(--vh, 1vh) * 60);
 }
 .portfolio-section-hero model-viewer {
   width: 100%;
@@ -120,11 +122,13 @@
   overflow: hidden;
   border-radius: vars.$border-radius;
   height: 60vh;
+  height: calc(var(--vh, 1vh) * 60);
   position: absolute;
   top: 0;
   left: 0;
   @include mq.for-tablet-portrait-up {
     height: 60vh;
+    height: calc(var(--vh, 1vh) * 60);
   }
   @include mq.for-tablet-landscape-up {
     height: 60vh;

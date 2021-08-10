@@ -1115,6 +1115,7 @@ textarea {
   gap: 2em;
   width: 100%;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   align-items: center;
   position: absolute;
   top: 0;
@@ -1884,6 +1885,7 @@ textarea {
 .portfolio-nav .portfolio-nav-element model-viewer {
   width: 100%;
   height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
   border-radius: 10px;
   overflow: hidden;
   transform: translateZ(0);
@@ -1966,6 +1968,7 @@ textarea {
   margin-right: auto;
   position: relative;
   height: 60vh;
+  height: calc(var(--vh, 1vh) * 60);
 }
 
 .portfolio-section-hero model-viewer {
@@ -1974,6 +1977,7 @@ textarea {
   overflow: hidden;
   border-radius: 10px;
   height: 60vh;
+  height: calc(var(--vh, 1vh) * 60);
   position: absolute;
   top: 0;
   left: 0;
@@ -1981,6 +1985,7 @@ textarea {
 @media (min-width: 600px) {
   .portfolio-section-hero model-viewer {
     height: 60vh;
+    height: calc(var(--vh, 1vh) * 60);
   }
 }
 @media (min-width: 900px) {
@@ -2094,6 +2099,7 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   margin-top: 8vh;
+  margin-top: calc(var(--vh, 1vh) * 8);
   position: relative;
 }
 
@@ -2116,6 +2122,8 @@ textarea {
 
 .team-hero-img-columns .wp-block-image {
   height: 80vh;
+  transform: rotate(45);
+  height: calc(var(--vh, 1vh) * 80);
   overflow: hidden;
 }
 .team-hero-img-columns .wp-block-image img {
@@ -2128,6 +2136,7 @@ textarea {
 .team-hero-title {
   position: absolute;
   top: calc(40vh - 1em);
+  top: calc(var(--vh, 1vh) * 40);
   text-align: center;
   width: 100%;
   margin: 0;
@@ -2610,6 +2619,7 @@ textarea {
 .single-post .entry-header .post-thumbnail {
   width: 100%;
   height: 58vh;
+  height: calc(var(--vh, 1vh) * 58);
 }
 .single-post .entry-header .post-thumbnail img {
   width: 100%;

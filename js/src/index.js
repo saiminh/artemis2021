@@ -17,6 +17,7 @@ import { portfolioNav } from './portfolio/portfolio-nav.js';
 import { portfolioLoader } from './portfolio/portfolio-loader.js';
 import { tripleHeadlines } from './tripleheadlines.js';
 import { latestNewsScroller } from './latestNewsScroller.js';
+import { mobileVhFixer } from './mobileVhFixer.js';
 gsap.registerPlugin(ScrollTrigger);
 
 // barba.use(barbaPrefetch);
@@ -215,11 +216,13 @@ barba.hooks.enter( (data) => {
 barba.hooks.after( (data) => {
   navigation();
   tripleHeadlines();
+  mobileVhFixer();
   data.next.container.querySelector(".site-main").style.transform = 'none';
 })
 // first page only:
 navigation();
 tripleHeadlines();
+mobileVhFixer();
 window.addEventListener('load', () => {
   gsap.to('#page', {
     opacity: 1

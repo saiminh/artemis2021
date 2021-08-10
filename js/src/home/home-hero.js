@@ -45,26 +45,23 @@ function homeHero() {
   app.renderer.autoResize = true;
   app.renderer.resize(window.innerWidth, window.innerHeight);
 
-  // window.addEventListener('resize', () => {
-  //   app.renderer.resize(window.innerWidth, window.innerHeight);
-    
-  // })
+  // Get the video from the_content, hide it and load it into PIXI canvas
+  var video = document.querySelector(".home-hero-video video");
+  video.style.display = "none";
+  video.preload = "auto";
+  video.loop = true;
+  video.autoplay = true;  
+  video.muted = true;  
+  // video.src = "./wp-content/themes/artemis2021/assets/testvideo.mp4";
   
   loader
-    .add("./wp-content/themes/artemis2021/assets/testvideo.mp4")
+    .add(video.src)
     .load(setup);
   
   // let sprite;
   let roundBox;
   
   function setup(){
-
-    var video = document.createElement("video");
-    video.preload = "auto";
-    video.loop = true;              // enable looping
-    video.autoplay = true;  
-    video.muted = true;  
-    video.src = "./wp-content/themes/artemis2021/assets/testvideo.mp4";
 
     let margins = 16;
     let centerX = window.innerWidth * 0.5;
@@ -91,7 +88,7 @@ function homeHero() {
     let roundBoxH = window.innerHeight * .9 - margins;
     roundBox.lineStyle( { width: 20, join: PIXI.LINE_JOIN.ROUND } );
     roundBox.beginFill(0x000000);
-    const origPolyPoints = [
+    let origPolyPoints = [
       { x: margins, y: margins },
       { x: roundBoxW, y: margins },
       { x: roundBoxW, y: roundBoxH },
@@ -206,12 +203,52 @@ function homeHero() {
       roundBox.beginFill(0x000000);
       roundBox.lineStyle( { width: 20, join: PIXI.LINE_JOIN.ROUND } );
       roundBox.drawPolygon(newPolyPoints);
+      roundBox.endFill();
     }
     gsap.ticker.add(drawAnimatePolygon);
+
+    // RESIZE
+    window.addEventListener('resize', () => {
+      app.renderer.resize(window.innerWidth, window.innerHeight);
+      centerX = window.innerWidth * 0.5;
+      centerY = window.innerHeight * 0.45;
+      container.pivot.x = centerX;
+      container.pivot.y = centerY;
+      container.x = centerX + 7;
+      container.y = centerY + 7;
+      videobg.width = window.innerWidth + margins * 2;
+      videobg.height = window.innerHeight * .9 + margins * 2 ;
+      videobg.anchor.set(0.5, 0.5);
+      videobg.position.set(centerX, centerY);
+      roundBoxW = window.innerWidth - margins * 2;
+      roundBoxH = window.innerHeight * .9 - margins;
+      origPolyPoints = [
+        { x: margins, y: margins },
+        { x: roundBoxW, y: margins },
+        { x: roundBoxW, y: roundBoxH },
+        { x: margins, y: roundBoxH }
+      ];
+      
+      newPolyPoints.forEach( (elem, index) => {
+        gsap.to( elem, {
+          x: () => origPolyPoints[index].x,
+          y: () => origPolyPoints[index].y,
+          duration: .5,
+          overwrite: true
+        });
+      })
+      
+      // roundBox.clear();
+      // roundBox.beginFill(0x000000);
+      // roundBox.lineStyle( { width: 20, join: PIXI.LINE_JOIN.ROUND } );
+      // roundBox.drawPolygon(newPolyPoints);
+      // roundBox.drawPolygon(origPolyPoints);
+      // roundBox.endFill();
+    });
   }
-  
-  
+
   document.querySelector('.home-hero').appendChild(app.view);
+  
 }
 export { homeHero };
 

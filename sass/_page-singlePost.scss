@@ -11,6 +11,7 @@
 .single-post .entry-header .post-thumbnail {
   width: 100%;
   height: 58vh;
+  height: calc(var(--vh, 1vh) * 58);
   & img {
     width: 100%;
     height: 100%;
