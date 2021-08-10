@@ -46,13 +46,14 @@ function homeHero() {
   app.renderer.resize(window.innerWidth, window.innerHeight);
 
   // Get the video from the_content, hide it and load it into PIXI canvas
-  let video = document.querySelector(".home-hero-video video");
+  let video = document.createElement("video");
+  video.crossOrigin = "anonymous";  
   video.style.display = "none";
   video.preload = "auto";
   video.loop = true;
   video.autoplay = true;  
   video.muted = true;  
-  // video.src = "./wp-content/themes/artemis2021/assets/testvideo.mp4";
+  video.src = "./wp-content/themes/artemis2021/assets/testvideo.mp4";
   
   // let sprite;
   let roundBox;
