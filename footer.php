@@ -33,7 +33,7 @@
         <a class="site-footer-nav-col-link" href="/company#why-artemis">Why Artemis</a>
         <a class="site-footer-nav-col-link" href="/company#our-vision">Our Vision</a>
         <a class="site-footer-nav-col-link" href="/company#news">News</a>
-        <a class="site-footer-nav-col-link" href="/company#locations">Locations</a>
+        <a class="site-footer-nav-col-link" href="/company#our-locations">Locations</a>
       </div>
       <div class="site-footer-nav-col wp-block-column">
         <h3 class="site-footer-nav-col-title">

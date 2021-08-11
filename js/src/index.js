@@ -18,6 +18,7 @@ import { portfolioLoader } from './portfolio/portfolio-loader.js';
 import { tripleHeadlines } from './tripleheadlines.js';
 import { latestNewsScroller } from './latestNewsScroller.js';
 import { mobileVhFixer } from './mobileVhFixer.js';
+import { hashjump } from './hashjump.js';
 gsap.registerPlugin(ScrollTrigger);
 
 // barba.use(barbaPrefetch);
@@ -215,8 +216,9 @@ barba.hooks.enter( (data) => {
     })
 })
 barba.hooks.after( (data) => {
-  navigation();
+  hashjump();
   tripleHeadlines();
+  navigation();
   mobileVhFixer();
   data.next.container.querySelector(".site-main").style.transform = 'none';
 })
