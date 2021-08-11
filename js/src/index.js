@@ -206,6 +206,7 @@ barba.init({
   ]
 })
 barba.hooks.enter( (data) => {
+  document.querySelector('.artemis-preloader').classList.remove('js-loading');
   //scroll new page to the top before each transition
   window.scrollTo(0, 0);
   //unhide the page content
@@ -220,6 +221,7 @@ barba.hooks.after( (data) => {
   data.next.container.querySelector(".site-main").style.transform = 'none';
 })
 // first page only:
+document.querySelector('.artemis-preloader').classList.remove('js-loading');
 navigation();
 tripleHeadlines();
 mobileVhFixer();

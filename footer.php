@@ -39,19 +39,18 @@
         <h3 class="site-footer-nav-col-title">
           <a href="/portfolio">Portfolio</a>
         </h3>
-        <a class="site-footer-nav-col-link" href="/portfolio#why-artemis">Why Artemis</a>
-        <a class="site-footer-nav-col-link" href="/portfolio#our-vision">Our Vision</a>
-        <a class="site-footer-nav-col-link" href="/portfolio#news">News</a>
-        <a class="site-footer-nav-col-link" href="/portfolio#locations">Locations</a>
+        <a class="site-footer-nav-col-link" href="/portfolio#virtual-simulation">Simulation</a>
+        <a class="site-footer-nav-col-link" href="/portfolio#battery-tech">Battery Technology</a>
+        <a class="site-footer-nav-col-link" href="/portfolio#vehicle-dynamics">Vehicle Dynamics</a>
       </div>
       <div class="site-footer-nav-col wp-block-column">
         <h3 class="site-footer-nav-col-title">
           <a href="/team">Team</a>
         </h3>
-        <a class="site-footer-nav-col-link" href="/team#why-artemis">Why Artemis</a>
-        <a class="site-footer-nav-col-link" href="/team#our-vision">Our Vision</a>
-        <a class="site-footer-nav-col-link" href="/team#news">News</a>
-        <a class="site-footer-nav-col-link" href="/team#locations">Locations</a>
+        <a class="site-footer-nav-col-link" href="/team">What drives us</a>
+        <a class="site-footer-nav-col-link" href="/team#how-we-work">How We Work</a>
+        <a class="site-footer-nav-col-link" href="/team#our-team">Our Team</a>
+        <a class="site-footer-nav-col-link" href="/team#what-we-look-for">What We Look For</a>
       </div>
       <div class="site-footer-nav-col site-footer-nav-col-social wp-block-column">
         <h3 class="site-footer-nav-col-title">

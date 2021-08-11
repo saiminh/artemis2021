@@ -22,20 +22,6 @@ console.log(difference);
     pinSpacing: false,
   });
   
-  // Parallax scroll?
-  // gsap.to(data.container.querySelector('.company-hero h1'), {
-  //   yPercent: -40,
-  //   ease: 'none',
-  //   scrollTrigger: {
-  //     trigger: data.container.querySelector('.company-manifesto'),
-  //     start: "top bottom",
-  //     scrub: .5,
-  //     toggleActions: 'play pause reverse pause'
-  //   },
-  // });
-
-  
-  
 }
 
 export { companyAfter };

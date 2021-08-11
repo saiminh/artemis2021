@@ -20,7 +20,7 @@
 </head>
 
 <body data-barba="wrapper">
-<div class="artemis-preloader">
+<div class="artemis-preloader js-loading">
   <div class="artemis-preloader-logos">
     <svg class="artemis-logo" width="312" height="50" viewBox="0 0 312 50" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path class="artemis-logo-letter-a" d="M43.3349 49.1162H36.882L32.0134 34.5889L11.1863 34.5889L6.4529 49.1162H0L15.6106 0.634216L27.2993 0.634216L43.3349 49.1162ZM30.2359 29.2853L21.4646 3.07465L12.9251 29.3045L30.2359 29.2853Z" fill="white"/>

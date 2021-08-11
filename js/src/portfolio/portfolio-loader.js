@@ -1,7 +1,6 @@
 import { gsap } from 'gsap';
 
 function portfolioLoader(){
-
   gsap.set('.artemis-preloader', {
     autoAlpha: 1,
   });    
