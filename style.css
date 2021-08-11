@@ -1015,6 +1015,10 @@ textarea {
   }
 }
 
+.triple-headline[id], .wp-block-group[id] {
+  padding-top: 72px;
+}
+
 .site-main > *,
 .site-footer {
   transform: none;
