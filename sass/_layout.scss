@@ -51,3 +51,9 @@ $border-radius: 10px;
     margin-bottom: $v-spacing-desktop;
   }
 }
+
+.triple-headline, .wp-block-group {
+  &[id]{
+    padding-top: $header-height * 1.2;
+  }
+}
