@@ -47,12 +47,13 @@ function homeHero() {
 
   // Get the video from the_content, hide it and load it into PIXI canvas
   let video = document.createElement("video");
-  video.crossOrigin = "anonymous";  
   video.style.display = "none";
+  video.crossOrigin = "anonymous";  
   video.preload = "auto";
   video.loop = true;
   video.autoplay = true;  
   video.muted = true;  
+  video.playsInline = true;  
   video.src = "./wp-content/themes/artemis2021/assets/testvideo.mp4";
   
   // let sprite;

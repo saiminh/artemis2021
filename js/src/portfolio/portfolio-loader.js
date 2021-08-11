@@ -17,7 +17,9 @@ function portfolioLoader(){
   let loadingTl = gsap.timeline({
     paused: false, 
     onComplete: ()=>{
-      if(document.readyState === 'complete') {
+      if(
+        document.readyState === 'complete'
+      ) {
         curtainsUp();
       } else {
         loadingTl.play(0);
