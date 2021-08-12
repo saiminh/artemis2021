@@ -389,7 +389,7 @@ select,
 optgroup,
 textarea {
   color: #000000;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: "Klarheit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-size: 1rem;
   line-height: 1.1;
 }
@@ -400,6 +400,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Maxeville";
   clear: both;
   text-transform: uppercase;
   font-weight: 400;
@@ -1106,6 +1107,7 @@ textarea {
 }
 
 .site-header-current-page-title {
+  font-family: "Maxeville";
   text-align: center;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1179,6 +1181,7 @@ textarea {
 }
 
 .site-header-main-navigation a, .site-header-main-navigation a:visited {
+  font-family: "Maxeville";
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   font-size: clamp(16px, 10.6vw, 60px);
@@ -1252,10 +1255,12 @@ textarea {
   text-transform: uppercase;
   border-radius: 10px;
   background-color: #000;
+  font-family: "Klarheit";
   line-height: 1.1;
   font-size: 3.2vw;
   margin-top: 0;
   margin-bottom: 0.75em;
+  font-family: "Maxeville";
   margin-bottom: 0;
   margin-top: 0;
 }
@@ -1325,6 +1330,7 @@ textarea {
 }
 
 .latest-news-item-title {
+  font-family: "Maxeville";
   position: relative;
   font-weight: 400;
   text-transform: uppercase;
@@ -1418,6 +1424,7 @@ textarea {
 }
 
 .page-nav-prev, .page-nav-next, .page-nav-prev:visited, .page-nav-next:visited {
+  font-family: "Maxeville";
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -1495,6 +1502,7 @@ textarea {
 }
 
 .home-hero-headline {
+  font-family: "Maxeville";
   display: inline-block;
   font-size: 12.5vw;
   font-weight: 300;
@@ -1512,6 +1520,7 @@ textarea {
 
 .home-content,
 .home-navigation {
+  font-family: "Maxeville";
   position: relative;
   z-index: 1;
   width: calc( 100% - 2rem );
@@ -1554,6 +1563,7 @@ textarea {
 }
 
 .home-navigation .wp-block-button__link {
+  font-family: "Maxeville";
   counter-increment: homeBtnCounter 1;
   padding: calc(.667em + 2px) calc(1.333em + 2px);
 }
@@ -1617,6 +1627,7 @@ textarea {
 }
 
 .company-hero h1 {
+  font-family: "Maxeville";
   font-weight: 400;
   text-transform: uppercase;
   font-size: 15vw;
@@ -1634,6 +1645,7 @@ textarea {
 }
 
 .company-hero p {
+  font-family: "Klarheit";
   line-height: 1.1;
   font-size: 3.2vw;
   margin-top: 0;
@@ -1651,6 +1663,7 @@ textarea {
 }
 
 .company-manifesto {
+  font-family: "Maxeville";
   position: relative;
   width: calc( 100% - 2rem );
   margin-left: auto;
@@ -2388,6 +2401,7 @@ textarea {
 
 .team-what-we-look-for p {
   margin-bottom: 0.5em;
+  font-family: "Klarheit";
   line-height: 1.1;
   font-size: 3.2vw;
   margin-top: 0;
@@ -2413,6 +2427,7 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   margin-top: 60px;
+  font-family: "Maxeville";
   text-transform: uppercase;
   font-size: 21.3vw;
   line-height: 95%;
@@ -2426,6 +2441,12 @@ textarea {
   .news-headline {
     font-size: 12.1vw;
   }
+}
+.news-headline > div > div:nth-child(3) {
+  margin-left: -0.03em;
+}
+.news-headline > div > div:nth-child(4) {
+  margin-left: -0.075em;
 }
 
 .news-search {
@@ -2495,6 +2516,7 @@ textarea {
 }
 
 .latest-sticky-post-tags {
+  font-family: "Maxeville";
   text-transform: uppercase;
   font-size: 5.3vw;
   line-height: 1.2;
@@ -2536,6 +2558,7 @@ textarea {
 .latest-sticky-post-excerpt a,
 .latest-sticky-post-excerpt a:visited {
   color: #808B90;
+  font-family: "Klarheit";
   line-height: 1.1;
   font-size: 3.2vw;
   margin-top: 0;
@@ -2568,6 +2591,7 @@ textarea {
 }
 
 .news-stay-up-to-date-title {
+  font-family: "Maxeville";
   text-transform: uppercase;
   line-height: 95%;
   font-size: 14.6vw;
@@ -2592,6 +2616,7 @@ textarea {
 
 .news-stay-up-to-date-social a,
 .news-stay-up-to-date-social a:visited {
+  font-family: "Maxeville";
   text-transform: uppercase;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -2656,6 +2681,7 @@ textarea {
 }
 
 .single-post .entry-header .entry-title {
+  font-family: "Maxeville";
   text-transform: uppercase;
   line-height: 95%;
   font-size: 14.6vw;
@@ -2728,6 +2754,7 @@ textarea {
 }
 
 .single-post .entry-content h2 {
+  font-family: "Maxeville";
   text-transform: uppercase;
   line-height: 95%;
   font-size: 6.5vw;
@@ -2744,6 +2771,7 @@ textarea {
 }
 
 .single-post .entry-content p {
+  font-family: "Klarheit";
   line-height: 1.1;
   font-size: 3.2vw;
   margin-top: 0;
@@ -2761,6 +2789,7 @@ textarea {
 }
 
 .single-post .entry-content blockquote p {
+  font-family: "Maxeville";
   text-transform: uppercase;
   line-height: 95%;
   font-size: 10.6vw;
@@ -2785,6 +2814,7 @@ textarea {
 }
 
 .archive .page-title {
+  font-family: "Maxeville";
   text-transform: uppercase;
   line-height: 95%;
   font-size: 14.6vw;
@@ -2808,6 +2838,7 @@ textarea {
 }
 
 .search .page-title {
+  font-family: "Maxeville";
   text-transform: uppercase;
   line-height: 95%;
   font-size: 14.6vw;
@@ -2840,6 +2871,7 @@ textarea {
 }
 
 .no-results p {
+  font-family: "Klarheit";
   line-height: 1.1;
   font-size: 3.2vw;
   margin-top: 0;
@@ -2863,6 +2895,7 @@ textarea {
   margin-top: 72px;
 }
 .error-404 .page-title {
+  font-family: "Maxeville";
   text-transform: uppercase;
   line-height: 95%;
   font-size: 14.6vw;
@@ -2998,6 +3031,16 @@ textarea {
   }
 }
 
+@font-face {
+  font-family: Klarheit;
+  font-weight: normal;
+  src: url("assets/fonts/ESKlarheitKurrent-Regular.woff2") format("woff2"), url("assets/fonts/ESKlarheitKurrent-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: Maxeville;
+  font-weight: normal;
+  src: url("assets/fonts/Maxeville-Regular.woff2") format("woff2"), url("assets/fonts/Maxeville-Regular.woff") format("woff");
+}
 #page {
   opacity: 0;
 }

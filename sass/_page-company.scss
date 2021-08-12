@@ -14,6 +14,7 @@
   @include layout.full;
 }
 .company-hero h1 {
+  font-family: 'Maxeville';
   font-weight: 400;
   text-transform: uppercase;
   font-size: 15vw;
@@ -29,6 +30,7 @@
   @include type.artemis-body;
 }
 .company-manifesto {
+  font-family: 'Maxeville';
   position: relative;
   @include layout.centered;
   perspective: 700px;

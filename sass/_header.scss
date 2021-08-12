@@ -68,6 +68,7 @@
   fill: #FFF;
 }
 .site-header-current-page-title {
+  font-family: 'Maxeville';
   text-align: center;
   left: 50%;
   transform: translate( -50%, -50% );
@@ -131,6 +132,7 @@
   opacity: 1;
 }
 .site-header-main-navigation a, .site-header-main-navigation a:visited {
+  font-family: 'Maxeville';
   color: rgba(255, 255, 255, .5);
   text-transform: uppercase;
   font-size: clamp(16px, 10.6vw, 60px);

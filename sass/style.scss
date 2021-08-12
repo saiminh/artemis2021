@@ -16,6 +16,25 @@
 @use 'page-404';
 @use 'footer';
 
+@font-face {
+  font-family: Klarheit;
+  font-weight: normal;
+  src: url('assets/fonts/ESKlarheitKurrent-Regular.woff2') format('woff2'), 
+       url('assets/fonts/ESKlarheitKurrent-Regular.woff') format('woff');
+}
+// @font-face {
+//   font-family: Klarheit;
+//   font-weight: medium;
+//   src: url('assets/fonts/ESKlarheitKurrent-Medium.woff2') format('woff2'), 
+//        url('assets/fonts/ESKlarheitKurrent-Medium.woff') format('woff');
+// }
+@font-face {
+  font-family: Maxeville;
+  font-weight: normal;
+  src: url('assets/fonts/Maxeville-Regular.woff2') format('woff2'), 
+       url('assets/fonts/Maxeville-Regular.woff') format('woff');
+}
+
 #page {
   opacity: 0; // To avoid flickering on initial load, js removes this on first window.load
 }

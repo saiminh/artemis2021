@@ -7,6 +7,12 @@
   @include layout.full;
   margin-top: vars.$header-height;
   @include type.artemis-h1;
+  & > div > div:nth-child(3) {
+    margin-left: -0.03em;
+  }
+  & > div > div:nth-child(4) {
+    margin-left: -0.075em;
+  }
 }
 .news-search {
   @include layout.full;

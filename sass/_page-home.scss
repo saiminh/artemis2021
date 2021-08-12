@@ -14,6 +14,7 @@
   overflow: hidden;
 }
 .home-hero-headline {
+  font-family: 'Maxeville';
   display: inline-block;
   font-size: 12.5vw;
   font-weight: 300;
@@ -30,6 +31,7 @@
 }
 .home-content,
 .home-navigation {
+  font-family: 'Maxeville';
   position: relative;
   z-index: 1;
   @include layout.full;
@@ -61,6 +63,7 @@
   background-color: #FFF;
 }
 .home-navigation .wp-block-button__link {
+  font-family: 'Maxeville';
   counter-increment: homeBtnCounter 1;
   padding: calc(.667em + 2px) calc(1.333em + 2px);
 }
