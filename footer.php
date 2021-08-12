@@ -62,8 +62,8 @@
         <h3 class="site-footer-nav-col-title">
           <a href="https://artemis-auto.dvinci-hr.com/">Jobs</a>
         </h3>
-        <a class="site-footer-nav-col-link" href="https://artemis-auto.dvinci-hr.com/en/jobs">Why Artemis</a>
-        <a class="site-footer-nav-col-link" href="https://artemis-auto.dvinci-hr.com/en/jobs/19/intro">Our Vision</a>
+        <a class="site-footer-nav-col-link" href="https://artemis-auto.dvinci-hr.com/en/jobs">Openings</a>
+        <a class="site-footer-nav-col-link" href="https://artemis-auto.dvinci-hr.com/en/jobs/19/intro">Submit Resume</a>
       </div>
     </div>
     <div class="site-footer-copyright">
