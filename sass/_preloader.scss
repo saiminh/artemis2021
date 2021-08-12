@@ -29,11 +29,11 @@
 .artemis-logo path {
   fill: #FFF;
 }
-.artemis-logo:nth-child(2) path {
+.artemis-preloader .artemis-logo:nth-child(2) path {
   opacity: 0;
 }
-.artemis-logo:first-child, 
-.artemis-logo:last-child {
+.artemis-preloader .artemis-logo:first-child, 
+.artemis-preloader .artemis-logo:last-child {
   transform: scaleX(-1);
 }
 .js-loading {
