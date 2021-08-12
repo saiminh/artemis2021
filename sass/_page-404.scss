@@ -1,0 +1,15 @@
+@use 'type';
+@use 'layout';
+@use 'layout' as vars;
+
+.error-404 {
+  @include layout.full;
+  margin-top: vars.$header-height * 1.2;
+
+  & .page-title {
+    @include type.artemis-h2;
+  }
+  & .page-content {
+    @include layout.full;
+  }
+}
