@@ -24,7 +24,6 @@ get_header();
         <h1 class="jobs-headline">Our Openings</h1>
 
         <?php //the_content(); 
-          // curl -i -H "Accept: application/json" -H "Dvinci-API-User: Artemis Homepage API" -H "Dvinci-API-Token: 7HQejbv6Uil17jokeIIPmfXWJF8KrIy8jU7o7ZOI" https://artemis-auto.dvinci-hr.com/restApi/jobOpenings/
 
           function callAPI($method, $url, $data){
             $curl = curl_init();
