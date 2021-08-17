@@ -282,7 +282,7 @@ function latest_sticky_post() {
     echo '
       <a href="">Facebook</a> 
       <a href="">Twitter</a> 
-      <a href="">LinkedIn</a> 
+      <a href="https://www.linkedin.com/company/artemis-auto/">LinkedIn</a> 
       <a href="">Xing</a>
     ';
   }
@@ -299,12 +299,9 @@ function latest_sticky_post() {
     return $mime_types;
   }
 
-
-
-
-  // function wp_maintenance_mode() {
-  //   if ( !is_user_logged_in() ) {
-  //   wp_die('<h1>Under Maintenance</h1><br />Website under planned maintenance. Please check back later.');
-  //   }
-  // }
-  // add_action('get_header', 'wp_maintenance_mode');
+  function wp_maintenance_mode() {
+    if ( !is_user_logged_in() ) {
+    wp_die('<h1>Under Maintenance</h1><br />Website under planned maintenance. Please check back later.');
+    }
+  }
+  add_action('get_header', 'wp_maintenance_mode');

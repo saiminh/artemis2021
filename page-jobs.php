@@ -16,15 +16,10 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-    
-
     <article>
-
       <div class="entry-content">
         <h1 class="jobs-headline">Our Openings</h1>
-
-        <?php //the_content(); 
-
+        <?php 
           function callAPI($method, $url, $data){
             $curl = curl_init();
             switch ($method){
@@ -86,7 +81,6 @@ get_header();
               $key = array_search( $location, array_column( $jobLocations, 'id' ) );
               array_push( $locnames, $jobLocations[$key]['name'] );
             }
-            // echo '<a href="https://artemis-auto.dvinci-hr.com/en/jobs/'.$jobLinkNumber.'">link</a>';
             echo '
             <a href="https://artemis-auto.dvinci-hr.com/en/jobs/'.$jobLinkNumber.'" target="blank" class="jobs-entry">
               <div class="jobs-entry-jobtitle">'
@@ -99,7 +93,6 @@ get_header();
             echo '</div>
             </a>
             ';
-
            }
          }
 
