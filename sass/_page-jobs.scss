@@ -1,0 +1,53 @@
+@use 'layout';
+@use 'type';
+@use 'mq';
+
+.jobs-headline {
+  @include layout.full;
+  @include type.artemis-h2;
+  padding: 1em 0;
+}
+.jobs-entry, .jobs-entry:visited {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  @include layout.full;
+  @include type.artemis-subhead2;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  padding: 2em 0;
+  position: relative;
+}
+.jobs-entry:after {
+  content: '';
+  background: url(./img/artemis-ui-jobs-arrow-right.svg) no-repeat 100% 100%;
+  background-size: contain;
+  mix-blend-mode: difference;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0%, -50%);
+  transition: transform .2s ease-in-out;
+  @include mq.for-tablet-portrait-up {
+    width: 30px;
+    height: 30px;
+  }
+  @include mq.for-tablet-landscape-up {
+    width: 48px;
+    height: 48px;
+  }
+}
+.jobs-entry:hover:after {
+  transform: translate(-50%, -50%);
+}
+.jobs-entry-joblocation-name {
+  color: rgba(0,0,0,0.5);
+  display: inline-block;
+}
+.jobs-entry-joblocation-name:not(:last-child) {
+  margin-right: .3em;
+  &:after{
+    content: ',';
+  }
+}

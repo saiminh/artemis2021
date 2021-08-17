@@ -1,5 +1,4 @@
 import barba from '@barba/core';
-// import barbaPrefetch from '@barba/prefetch';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { homeHero } from './home/home-hero.js';
@@ -9,11 +8,10 @@ import { homeScroll } from './home/home-scroll.js';
 import { companyBefore } from './company/company-before.js';
 import { companyAfter } from './company/company-after.js';
 import { news } from './news.js';
-// import { test } from './test.js';
 import { team } from './team.js';
 import { navigation } from './navigation.js';
 import { portfolioModelViewers } from './portfolio/portfolio-modelViewer.js';
-import { portfolioNav } from './portfolio/portfolio-nav.js';
+// import { portfolioNav } from './portfolio/portfolio-nav.js';
 import { portfolioLoader } from './portfolio/portfolio-loader.js';
 import { tripleHeadlines } from './tripleheadlines.js';
 import { latestNewsScroller } from './latestNewsScroller.js';
@@ -21,7 +19,6 @@ import { mobileVhFixer } from './mobileVhFixer.js';
 import { hashjump } from './hashjump.js';
 gsap.registerPlugin(ScrollTrigger);
 
-// barba.use(barbaPrefetch);
 barba.init({
   debug: true,
   transitions: [

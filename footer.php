@@ -60,9 +60,9 @@
       </div>
       <div class="site-footer-nav-col wp-block-column">
         <h3 class="site-footer-nav-col-title">
-          <a href="https://artemis-auto.dvinci-hr.com/">Jobs</a>
+          <a href="/jobs">Jobs</a>
         </h3>
-        <a class="site-footer-nav-col-link" href="https://artemis-auto.dvinci-hr.com/en/jobs">Openings</a>
+        <a class="site-footer-nav-col-link" href="/jobs">Openings</a>
         <a class="site-footer-nav-col-link" href="https://artemis-auto.dvinci-hr.com/en/jobs/19/intro">Submit Resume</a>
       </div>
     </div>
