@@ -1,18 +1,13 @@
 import barba from '@barba/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { homeHero } from './home/home-hero.js';
-import { homeButtons } from './home/home-buttons.js';
-import { homeIntro } from './home/home-intro.js';
-import { homeScroll } from './home/home-scroll.js';
+import { home } from './home.js';
 import { companyBefore } from './company/company-before.js';
 import { companyAfter } from './company/company-after.js';
 import { news } from './news.js';
 import { team } from './team.js';
 import { navigation } from './navigation.js';
-import { portfolioModelViewers } from './portfolio/portfolio-modelViewer.js';
-// import { portfolioNav } from './portfolio/portfolio-nav.js';
-import { portfolioLoader } from './portfolio/portfolio-loader.js';
+import { portfolio } from './portfolio.js';
 import { tripleHeadlines } from './tripleheadlines.js';
 import { latestNewsScroller } from './latestNewsScroller.js';
 import { mobileVhFixer } from './mobileVhFixer.js';
@@ -139,10 +134,7 @@ barba.init({
       namespace: 'home',
       beforeEnter(data) {
         window.scrollTo(0, 0);
-        homeButtons();
-        homeIntro();
-        homeHero();
-        homeScroll(data.next);
+        home(data.next);
       },
       afterEnter() {
       }
@@ -173,16 +165,9 @@ barba.init({
     {
       namespace: 'portfolio',
       beforeEnter(data) {
-        portfolioModelViewers(data.next);
-        portfolioLoader();
+        portfolio(data.next);
       }
     },
-    // {
-    //   namespace: 'test',
-    //   beforeEnter(data) {
-    //     test(data);
-    //   }
-    // },
     {
       namespace: 'single-post',
       beforeEnter(data) {

@@ -1,7 +1,7 @@
 import { gsap } from "gsap";
 
 function homeIntro(){
-
+  console.log('hey');
   function disableScroll() {
     document.body.style.overflow = 'hidden';
     document.body.style.height = '100%';

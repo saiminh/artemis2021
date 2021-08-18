@@ -15,4 +15,5 @@ function news(data){
     ease: "circ.out"
   });
 }
+
 export { news };
