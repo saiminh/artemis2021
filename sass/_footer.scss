@@ -9,6 +9,11 @@
     padding-top: 6em;
   }
 }
+.site-footer-nav-col {
+  @include mq.for-tablet-portrait-up {
+    margin-bottom: 1.5em;
+  }
+}
 .site-footer-nav-col-logo-link,
 .site-footer-nav-col-logo-link:visited {
   display: block;
@@ -79,7 +84,7 @@
   color: #808B90;
   margin: 5em 0 1em 0;
   @include mq.for-tablet-portrait-up {
-    margin-top: 8em;
+    margin-top: 7em;
     text-align: center;
   }
 }

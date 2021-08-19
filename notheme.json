@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "settings": {
+    "color": {
+      "custom": "false"
+    },
+    "layout": {
+      "contentSize": "840px",
+      "wideSize": "1100px"
+    }
+  },
+  "styles": {
+    "blocks": {
+    }
+  }
+}
