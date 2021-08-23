@@ -299,9 +299,9 @@ function latest_sticky_post() {
     return $mime_types;
   }
 
-  function wp_maintenance_mode() {
-    if ( !is_user_logged_in() ) {
-    wp_die('<h1>Under Maintenance</h1><br />Website under planned maintenance. Please check back later.');
-    }
-  }
-  add_action('get_header', 'wp_maintenance_mode');
+  // function wp_maintenance_mode() {
+  //   if ( !is_user_logged_in() ) {
+  //   wp_die('<h1>Under Maintenance</h1><br />Website under planned maintenance. Please check back later.');
+  //   }
+  // }
+  // add_action('get_header', 'wp_maintenance_mode');
