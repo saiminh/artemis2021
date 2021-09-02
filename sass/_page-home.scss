@@ -3,15 +3,17 @@
 @use 'layout' as vars;
 
 .site.home .site-header{
-  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 .home-canvas {
   top: 0;
   z-index: 0;
 }
-.home-hero {
+.home .entry-content > .home-hero {
   width: 100%;
   overflow: hidden;
+  @include layout.v-space-after-half;
 }
 .home-hero-headline {
   font-family: 'Maxeville';
@@ -28,6 +30,7 @@
   max-width: none;
   position: relative;
   z-index: 1;
+  user-select: none;
 }
 .home-content,
 .home-navigation {
@@ -59,27 +62,28 @@
 .home-navigation .wp-block-buttons .wp-block-button {
   flex-basis: calc(50% - .5em);
   position: relative;
-  perspective: 750px;
+  perspective: 1000px;
   background-color: #FFF;
 }
 .home-navigation .wp-block-button__link {
   font-family: 'Maxeville';
-  counter-increment: homeBtnCounter 1;
+  font-size: 1em;
   padding: calc(.667em + 2px) calc(1.333em + 2px);
+  background-color: transparent;
+  color: #fff;
+  mix-blend-mode: difference;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  z-index: 2;
+  counter-increment: homeBtnCounter 1;
 }
 .home-navigation .wp-block-button__link:after,
 .home-navigation .wp-block-button__link-clone:after {
   content: "0" counter(homeBtnCounter) ;
   font-size: .5em;
   margin-left: .125em;
-}
-.home-navigation .wp-block-button__link {
-  background-color: transparent;
-  color: #fff;
-  mix-blend-mode: difference;
-  position: relative;
-  z-index: 2;
-  font-size: 1em;
 }
 .homeBtn-bgshape {
   position: absolute;

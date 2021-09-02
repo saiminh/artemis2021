@@ -42,13 +42,13 @@ function homeButtons(){
       let mouseX = e.clientX;
       let mouseY = e.clientY;
       gsap.to(homeBtn_bgshape, {
-        rotationY: (homeBtnX - mouseX)/8,
-        rotationX: (homeBtnY - mouseY)/2,
+        rotationY: (homeBtnX - mouseX)/12,
+        rotationX: (homeBtnY - mouseY)/4,
         duration: .3
       });
       gsap.to(homeBtn_bgshapeImg, {
-        x: (homeBtnX - mouseX),
-        y: (homeBtnY - mouseY)
+        x: (homeBtnX - mouseX) * 0.5,
+        y: (homeBtnY - mouseY) * 0.5
       });
     })
   })

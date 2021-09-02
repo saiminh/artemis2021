@@ -110,95 +110,107 @@ function homeHero() {
 
     const newPolyPoints = origPolyPoints.map(obj => ({...obj}));
     let scrollTop = 0;
+
+    // check which quarter the mouse is in
+    function quadpos(x, y){
+      if ( x <= centerX && y <= centerY ) {
+        return "topleft";
+      } else if ( x > centerX && y <= centerY ) {
+        return "topright";
+      } else if ( x > centerX && y > centerY ) {
+        return "bottomright";
+      } else {
+        return "bottomleft";
+      }
+    }
+
     document.body.addEventListener( 'scroll', () => {
       scrollTop = window.scrollY;
     })
     document.body.addEventListener( 'mousemove', (e) => {
       let mouseX = e.clientX;
       let mouseY = e.clientY;
-      //mouse in in upper left corner
-      if ( mouseX <= centerX && mouseY <= centerY ) {
-        gsap.to(newPolyPoints[2], {
-          x: () => origPolyPoints[2].x - (roundBoxW - mouseX) * 0.4,
-          y: () => origPolyPoints[2].y - (roundBoxH - mouseY) * 0.36,
-          ease: "power2.out",
-          duration: 1,
-          overwrite: true
-        })
-        gsap.to( videobg, {
-          x: centerX + margins,
-          y: centerY + margins,
-          duration: 1
-        } )
-      } else {
-        gsap.to( newPolyPoints[2], {
-          x: origPolyPoints[2].x,
-          y: origPolyPoints[2].y,
-          duration: 1,
-        } )
-      }
-      //mouse in in upper right corner
-      if ( mouseX > centerX && mouseY <= centerY ) {
-        gsap.to(newPolyPoints[3], {
-          x: () => origPolyPoints[3].x + mouseX * 0.4,
-          y: () => origPolyPoints[3].y - (roundBoxH - mouseY) * 0.36,
-          ease: "power2.out",
-          overwrite: true,
-          duration: 1
-        })
-        gsap.to( videobg, {
-          x: centerX - margins,
-          y: centerY + margins,
-          duration: 1
-        } )
-      } else {
-        gsap.to( newPolyPoints[3], {
-          x: origPolyPoints[3].x,
-          y: origPolyPoints[3].y,
-          duration: 1,
-        } )
-      }
-      //mouse in in lower right corner
-      if ( mouseX > centerX && mouseY > centerY ) {
-        gsap.to(newPolyPoints[0], {
-          x: () => origPolyPoints[0].x +  mouseX * 0.4,
-          y: () => origPolyPoints[0].y + mouseY * 0.36,
-          ease: "power2.out",
-          overwrite: true
-        })
-        gsap.to( videobg, {
-          x: centerX - margins,
-          y: centerY - margins,
-          duration: 1
-        } )
-      } else {
-        gsap.to( newPolyPoints[0], {
-          x: origPolyPoints[0].x,
-          y: origPolyPoints[0].y,
-          duration: 1,
-        } )
-      }
-      //mouse in in lower left corner
-      if ( mouseX <= centerX && mouseY > centerY ) {
-        gsap.to(newPolyPoints[1], {
-          x: () => origPolyPoints[1].x  - (roundBoxW - mouseX) * 0.4,
-          y: () => origPolyPoints[1].y + mouseY * 0.36,
-          ease: "power2.out",
-          overwrite: true,
-          duration: 1
-        })
-        gsap.to( videobg, {
-          x: centerX + margins,
-          y: centerY - margins,
-          duration: 1
-        } )
-      } else {
-        gsap.to( newPolyPoints[1], {
-          x: origPolyPoints[1].x,
-          y: origPolyPoints[1].y,
-          duration: 1,
-        } )
-      }
+
+      gsap.to(newPolyPoints[0], {
+        x: () => {
+          if ( quadpos(mouseX, mouseY) == "topright" ){
+            return origPolyPoints[0].x + ( mouseX * 0.25 ) ;
+          } else if ( quadpos(mouseX, mouseY) == "bottomright" ) {
+            return origPolyPoints[0].x + ( mouseX * 0.5 );
+          } else {
+            return origPolyPoints[0].x
+          }
+        },
+        y: () => {
+          if ( quadpos(mouseX, mouseY) == "bottomright" ){
+            return origPolyPoints[0].y + ( mouseY * 0.5 );
+          } else if ( quadpos(mouseX, mouseY) == "bottomleft" ){
+            return origPolyPoints[0].y + ( mouseY * 0.25 );
+          } else {
+            return origPolyPoints[0].y
+          }
+        }
+      })
+      gsap.to(newPolyPoints[1], {
+        x: () => {
+          if ( quadpos(mouseX, mouseY) == "topleft" ){
+            return origPolyPoints[1].x - ( roundBoxW - mouseX ) * 0.25  ;
+          } else if ( quadpos(mouseX, mouseY) == "bottomleft" ) {
+            return origPolyPoints[1].x - ( roundBoxW - mouseX ) * 0.5 ;
+          } else {
+            return origPolyPoints[1].x
+          }
+        },
+        y: () => {
+          if ( quadpos(mouseX, mouseY) == "bottomright" ){
+            return origPolyPoints[1].y + ( mouseY * 0.25 );
+          } else if ( quadpos(mouseX, mouseY) == "bottomleft" ){
+            return origPolyPoints[1].y + ( mouseY * 0.5 );
+          } else {
+            return origPolyPoints[1].y
+          }
+        }
+      })
+      gsap.to(newPolyPoints[2], {
+        x: () => {
+          if ( quadpos(mouseX, mouseY) == "topleft" ){
+            return origPolyPoints[2].x - ( roundBoxW - mouseX ) * 0.5 ;
+          } else if ( quadpos(mouseX, mouseY) == "bottomleft" ) {
+            return origPolyPoints[2].x - ( roundBoxW - mouseX ) * 0.25 ;
+          } else {
+            return origPolyPoints[2].x
+          }
+        },
+        y: () => {
+          if ( quadpos(mouseX, mouseY) == "topright" ){
+            return origPolyPoints[2].y - ( roundBoxH - mouseY ) * 0.25 ;
+          } else if ( quadpos(mouseX, mouseY) == "topleft" ){
+            return origPolyPoints[2].y - ( roundBoxH - mouseY ) * 0.5 ;
+          } else {
+            return origPolyPoints[2].y
+          }
+        }
+      })
+      gsap.to(newPolyPoints[3], {
+        x: () => {
+          if ( quadpos(mouseX, mouseY) == "bottomright" ){
+            return origPolyPoints[3].x + ( mouseX * 0.25 ) ;
+          } else if ( quadpos(mouseX, mouseY) == "topright" ) {
+            return origPolyPoints[3].x + ( mouseX * 0.5 );
+          } else {
+            return origPolyPoints[3].x
+          }
+        },
+        y: () => {
+          if ( quadpos(mouseX, mouseY) == "topright" ){
+            return origPolyPoints[3].y - ( roundBoxH -  mouseY ) * 0.5 ;
+          } else if ( quadpos(mouseX, mouseY) == "topleft" ){
+            return origPolyPoints[3].y - ( roundBoxH -  mouseY ) * 0.25 ;
+          } else {
+            return origPolyPoints[3].y
+          }
+        }
+      })
     })
 
     function drawAnimatePolygon(){

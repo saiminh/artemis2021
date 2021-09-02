@@ -1,18 +1,27 @@
 import { gsap } from "gsap";
 
 function homeIntro(){
-  console.log('hey');
-  function disableScroll() {
+  
+  function disableScrolling() {
     document.body.style.overflow = 'hidden';
     document.body.style.height = '100%';
   }
   
-  function enableScroll() {
+  function enableScrolling() {
     document.body.style.overflow = 'auto';
     document.body.style.height = 'auto';
   }
   
-  disableScroll();
+  disableScrolling();
+  
+  function afterIntro(){
+    enableScrolling();
+    window.addEventListener('mousemove', (e) => {
+      gsap.to('.artemis-preloader-logos', {
+        x: () => (window.innerWidth * 0.5 - e.clientX) * 0.05 
+      })
+    })
+  }
 
   //resetting elements
   gsap.set('.home-hero-headline', {
@@ -57,7 +66,7 @@ function homeIntro(){
   function curtainsUp() {
     let tl = gsap.timeline({
       onComplete: () => {
-        enableScroll();
+        afterIntro();
       }
     })
       .to('.artemis-preloader-logos', {
