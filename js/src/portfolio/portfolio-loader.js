@@ -37,24 +37,24 @@ function portfolioLoader(){
   });
   // curtainsup animation
   function curtainsUp() {
-    let tl = gsap.timeline()      
-      .to('.site-main', {
-        autoAlpha: 1,
-        ease: "power3.inOut",
-        duration: 1.25
-      })
+    let tl = gsap.timeline()            
       .to('.artemis-preloader-logos', {
-        y: -window.innerHeight/1.75,
+        // y: -window.innerHeight/1.75,
         ease: "circ.inOut",
         duration: .75, 
         onComplete: () => {
           gsap.to('.artemis-preloader svg:nth-child(2) path', {
-            opacity: 0
+            autoAlpha: 0
           })
         }
       }, 0)
-      ;
-  
+      .fromTo('.site-main', {
+        autoAlpha: 0
+      }, {
+        autoAlpha: 1,
+        ease: "power3.inOut",
+        duration: 1.25
+      })
     return tl;
   }
 }

@@ -10,7 +10,7 @@ function homeScroll(data) {
     element.style.overflow = 'hidden';
   });
   gsap.from(splitHomeContent.words, {
-    opacity: 0,
+    autoAlpha: 0,
     yPercent: 100,
     stagger: .05,
     ease: 'power3.out',
@@ -35,7 +35,6 @@ function homeScroll(data) {
       trigger: data.container.querySelector('.home-hero'),
       start: '90% top'
     },
-    autoAlpha: 0,
     y: -300,
     duration: 1,
     ease: 'power3.in'

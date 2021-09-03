@@ -44,17 +44,16 @@ function navigation() {
     attr: { x1: 16, y1: 15, x2: 33, y2: 0 }
   }, 0)
   .from('.site-header-main-navigation li', {
-    opacity: 0,
+    autoAlpha: 0,
     xPercent: 100,
     stagger: .025
   }, 0)
-  .fromTo('.site-header-current-page-title', {
-    xPercent: "-=0",
-    opacity: 1
-  }, {
-    xPercent: "-=150",
-    opacity: 0
-  }, 0)
+  // .fromTo('.site-header-current-page-title', {
+  //   opacity: 1
+  // }, {
+  //   opacity: 0,
+  //   duration: .0001
+  // }, 0)
   .to('.menu-hamburger-icon line:nth-child(2)', {
     attr: { x1: 26, y1: 8, x2: 26, y2: 8 }
   }, 0.3);
@@ -68,8 +67,10 @@ function navigation() {
 			button.setAttribute( 'aria-expanded', 'false' );
       hamburgerButtonAnimation.reverse();
       navBgAnimation.reverse();
+      gsap.to('.site-header-current-page-title', { autoAlpha: 1, duration: .3, delay: .4 });
 		} else {
       button.setAttribute( 'aria-expanded', 'true' );
+      gsap.to('.site-header-current-page-title', { autoAlpha: 0, duration: .01 });
       hamburgerButtonAnimation.play(0);
       navBgAnimation.play(0);
 		}
@@ -108,7 +109,7 @@ function navigation() {
 		link.addEventListener( 'blur', toggleFocus, true );
     link.addEventListener( 'click', () => {
       gsap.to('.site-header-main-navigation li', {
-        opacity: 0,
+        autoAlpha: 0,
         yPercent: -100,
         stagger: .1
       })

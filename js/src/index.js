@@ -14,118 +14,173 @@ import { mobileVhFixer } from './mobileVhFixer.js';
 import { hashjump } from './hashjump.js';
 gsap.registerPlugin(ScrollTrigger);
 
+function logoMover() {
+  let e =  window.event;
+  gsap.to('.artemis-preloader-logos', {
+    x: () => (window.innerWidth * 0.5 - e.clientX) * 0.05
+  })
+}
+function logosMoveWithMouse(switcher){
+  if ( switcher == "on"){
+    console.log('on');
+    window.addEventListener('mousemove', logoMover );
+  } else if (switcher == "off") {
+    window.removeEventListener('mousemove', logoMover );
+    gsap.to('.artemis-preloader-logos', { x: 0 } );
+  }
+};
+function regularInTransition(data){
+  let tl = gsap.timeline()
+  .from(data.next.container.querySelectorAll('.site-header > *'), {
+    yPercent: '-=100',
+    duration: 1,
+    stagger: .1,
+    ease: 'expo.out'
+  }, 0 )
+  .from(data.next.container.querySelector('.site-footer'), {
+    backgroundColor: '#FFFFFF'
+  }, 0)
+  .from(data.next.container.querySelector('.site-footer > *'), {
+    yPercent: '+=100',
+    duration: 1,
+    ease: 'expo.out'
+  }, 0 )
+  .from(data.next.container.querySelector('.site-main'), {
+    transformOrigin: '50% 33vh',
+    autoAlpha: 0,
+    duration: 1.5,
+    ease:'expo.inOut'
+  }, 0 )
+  .to('.artemis-preloader svg:nth-child(2) path', { 
+    autoAlpha: 0, 
+    stagger: .1 
+  }, 0);
+  return tl;
+};
+function regularOutTransition(data){
+  let tl = gsap.timeline()
+  .to(data.current.container.querySelectorAll('.site-header > *'), {
+    yPercent: '-=100',
+    stagger: .1, 
+    duration: 1,
+    ease: 'expo.out'
+  }, 0 )
+  .to(data.current.container.querySelector('.site-footer'), {
+    backgroundColor: '#FFFFFF',
+    duration: .2
+  }, 0)
+  .to(data.current.container.querySelector('.site-footer > *'), {
+    y: 1000,
+    duration: .5,
+    ease: 'expo.out'
+  }, 0 )
+  .to(data.current.container.querySelector('.site-main'), {
+    autoAlpha: 0,
+    duration: 1,
+    ease: 'expo.out'
+  }, 0 )
+  .to('.artemis-preloader svg:nth-child(2) path', { 
+    autoAlpha: 1, 
+    stagger: .1 
+  }, 0);
+  return tl;
+}
+
+
 barba.init({
   debug: true,
   transitions: [
     {
-      // sync: true,
       name: 'default-transition',
-      leave(data) {
-        return gsap.timeline()
-        .to(data.current.container.querySelectorAll('.site-header > *'), {
-          yPercent: "-=100",
-          stagger: .1, 
-          duration: 1,
-          ease: 'expo.out',
-        }, 0 )
-        .to(data.current.container.querySelector('.site-footer'), {
-          backgroundColor: "#FFFFFF",
-          duration: .2
-        }, 0)
-        .to(data.current.container.querySelector('.site-footer > *'), {
-          y: 1000,
-          duration: .5,
-          ease: 'expo.out',
-        }, 0 )
-        .to(data.current.container.querySelector('.site-main'), {
-          scale: .95,
-          autoAlpha: 0,
-          duration: 1,
-          ease: 'expo.out',
-        }, 0 );
+      leave(data) {        
+        return regularOutTransition(data);
       },
       enter(data) {
-        return gsap.timeline()
-          .from(data.next.container.querySelectorAll('.site-header > *'), {
-            yPercent: "-=100",
-            duration: 1,
-            stagger: .1,
-            ease: "expo.out"
-          }, 0 )
-          .from(data.next.container.querySelector('.site-footer'), {
-            backgroundColor: "#FFFFFF"
-          }, 0)
-          .from(data.next.container.querySelector('.site-footer > *'), {
-            yPercent: "+=100",
-            duration: 1,
-            ease: 'expo.out',
-          }, 0 )
-          .from(data.next.container.querySelector('.site-main'), {
-            transformOrigin: "50% 33vh",
-            autoAlpha: 0,
-            scale: .95,
-            duration: 1.5,
-            ease:'expo.inOut'
-          }, 0 )
-          ;
+        return regularInTransition(data);
       }
-    }, {
-      name: 'home-transition',
-      from: { namespace: [ 'home' ] },
-      leave(data) {
-        return gsap.timeline()
-        .to('.artemis-preloader-logos', {
-          yPercent: "-=200",
-          duration: .33,
-          ease: 'expo.out',
-        }, 0 )
-        .to(data.current.container.querySelector('.site-footer'), {
-          backgroundColor: "#FFFFFF",
-          duration: .2
-        }, 0)
-        .to(data.current.container.querySelector('.site-footer > *'), {
-          y: 1000,
-          duration: .5,
-          ease: 'expo.out',
-        }, 0 )
-        .to(data.current.container.querySelector('.site-main'), {
-          scale: .95,
-          autoAlpha: 0,
-          duration: 1,
-          ease: 'expo.out',
-        }, 0 );
-      },
+    },
+    {
+      name: 'home-in-transition',
+      to: { namespace: [ 'home', 'portfolio' ] },
       enter(data) {
-        return gsap.timeline()
-        .set('.artemis-preloader svg:nth-child(2) path', {
-          opacity: 0
-        })
-        .set('.artemis-preloader-logos', {
-          scale: 3,
-          yPercent: 0
-        })
+        let tl = gsap.timeline()
+        .set('.artemis-preloader', {
+          y: 0,
+          duration: 2
+        }, 0)
+        .set ('.artemis-preloader-logos', {
+          scale: 3
+        }, 0)
+        .set ('.artemis-preloader-logos .artemis-logo', {
+          y: 0
+        }, 0)
+        .set(data.next.container.querySelector('.site-main'), {
+          autoAlpha: 0
+        }, 0)
         .from(data.next.container.querySelectorAll('.site-header > *'), {
-          yPercent: "-=100",
+          yPercent: '-=100',
           duration: 1,
           stagger: .1,
-          ease: "expo.out"
+          ease: 'expo.out'
         }, 0 )
         .from(data.next.container.querySelector('.site-footer'), {
-          backgroundColor: "#FFFFFF"
+          backgroundColor: '#FFFFFF'
         }, 0)
         .from(data.next.container.querySelector('.site-footer > *'), {
-          yPercent: "+=100",
+          yPercent: '+=100',
           duration: 1,
-          ease: 'expo.out',
+          ease: 'expo.out'
         }, 0 )
-        .from(data.next.container.querySelector('.site-main'), {
-          transformOrigin: "50% 33vh",
+        return tl;
+      },
+      leave(data) {
+        return regularOutTransition(data);
+      }
+    },
+    {
+      name: 'home-out-transition',
+      from: { namespace: [ 'home' ] },
+      leave(data) {        
+        return gsap.timeline()
+        .set('.artemis-preloader', {
+          y: 0,
+          duration: 2
+        }, 0)
+        .set ('.artemis-preloader-logos', {
+          scale: 3
+        }, 0)
+        .set ('.artemis-preloader-logos .artemis-logo', {
+          y: 0
+        }, 0)
+        .to(data.current.container.querySelectorAll('.site-header > *'), {
+          yPercent: '-=100',
+          stagger: .1, 
+          duration: 1,
+          ease: 'expo.out'
+        }, 0 )
+        .to(data.current.container.querySelector('.site-footer'), {
+          backgroundColor: '#FFFFFF',
+          duration: .2
+        }, 0)
+        .to(data.current.container.querySelector('.site-footer > *'), {
+          y: 1000,
+          duration: .5,
+          ease: 'expo.out'
+        }, 0 )
+        .to(data.current.container.querySelector('.site-main'), {
           autoAlpha: 0,
-          scale: .95,
-          duration: 1.5,
-          ease:'expo.inOut'
-        }, 0 )
-        ;
+          duration: 1,
+          ease: 'expo.out'
+        }, 0 )        
+        .fromTo('.artemis-preloader svg:nth-child(2) path', { 
+          autoAlpha: 0
+        }, {
+          autoAlpha: 1, 
+          stagger: .1
+        }, 0);
+      },
+      enter(data) {
+        return regularInTransition(data);
       }
     }
   ],// end of transitions
@@ -133,10 +188,12 @@ barba.init({
     {
       namespace: 'home',
       beforeEnter(data) {
+        logosMoveWithMouse('on');
         window.scrollTo(0, 0);
         home(data.next);
       },
-      afterEnter() {
+      afterLeave() {
+        logosMoveWithMouse('off');
       }
     },
     {
@@ -189,13 +246,14 @@ barba.init({
   ]
 })
 barba.hooks.enter( (data) => {
+  // resetting the logos from transitions on home
+  gsap.set('.artemis-preloader-logos .artemis-logo', { y: 0 });
+  //remove js-loading class
   document.querySelector('.artemis-preloader').classList.remove('js-loading');
   //scroll new page to the top before each transition
   window.scrollTo(0, 0);
   //unhide the page content
-    gsap.set('#page', {
-      opacity: 1
-    })
+  gsap.set('#page', { autoAlpha: 1 });
 })
 barba.hooks.after( (data) => {
   hashjump();
@@ -211,6 +269,6 @@ tripleHeadlines();
 mobileVhFixer();
 window.addEventListener('load', () => {
   gsap.to('#page', {
-    opacity: 1
+    autoAlpha: 1
   })
 })

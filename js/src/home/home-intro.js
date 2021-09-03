@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 
 function homeIntro(){
+
+  window.scrollY = 0;
   
   function disableScrolling() {
     document.body.style.overflow = 'hidden';
@@ -16,11 +18,6 @@ function homeIntro(){
   
   function afterIntro(){
     enableScrolling();
-    window.addEventListener('mousemove', (e) => {
-      gsap.to('.artemis-preloader-logos', {
-        x: () => (window.innerWidth * 0.5 - e.clientX) * 0.05 
-      })
-    })
   }
 
   //resetting elements
@@ -43,9 +40,9 @@ function homeIntro(){
   });    
   //Loading animation
   let loadingTl = gsap.timeline({
-    paused: false, 
+    // paused: false, 
     onComplete: ()=>{
-      if(document.readyState === 'complete') {
+      if( document.readyState === 'complete' ) {
         curtainsUp();
       } else {
         loadingTl.play(0);
@@ -53,9 +50,9 @@ function homeIntro(){
     } 
   });
   loadingTl.fromTo('.artemis-preloader svg:nth-child(2) path', {
-    opacity: 0
+    autoAlpha: 0
   },{ 
-    opacity: 1,
+    autoAlpha: 1,
     duration: .5,
     stagger: {
       amount: 1.5,
@@ -69,6 +66,9 @@ function homeIntro(){
         afterIntro();
       }
     })
+      .set('.site-main', {
+        autoAlpha: 1
+      }, 0)
       .to('.artemis-preloader-logos', {
         scale: 1,
         ease: "expo.out",
@@ -79,7 +79,7 @@ function homeIntro(){
         duration: 1, 
         ease: "expo.out"
       }, 1.1)
-      .to('.artemis-preloader-logos', {
+      .to('.artemis-preloader-logos .artemis-logo', {
         y: -window.innerHeight/2 + 40,
         ease: "expo.out",
         duration: 1, 
@@ -93,6 +93,12 @@ function homeIntro(){
         duration: 1, 
       }, 0);
     }
+
+    window.addEventListener('resize', () => {
+      gsap.set('.artemis-preloader-logos .artemis-logo', {
+        y: -window.innerHeight/2 + 40
+      })
+    });
 
     return tl;
   }
