@@ -4,8 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsapCore from "gsap/gsap-core";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-function homeScroll(data) {
-  let splitHomeContent = new SplitText(data.container.querySelectorAll('.home-content p'), { type: "words, lines" });
+function homeScroll() {
+  let splitHomeContent = new SplitText(document.querySelectorAll('.home-content p'), { type: "words, lines" });
   splitHomeContent.lines.forEach( (element) => {
     element.style.overflow = 'hidden';
   });
@@ -16,14 +16,16 @@ function homeScroll(data) {
     ease: 'power3.out',
     duration: .3,
     scrollTrigger: {
-      trigger: data.container.querySelector('.home-content'),
+      trigger: document.querySelector('.home-content'),
       start: 'top 75%',
-      // toggleActions: 'play complete play reverse',
+      end: 'bottom 75%',
+      toggleActions: 'play play pause pause',
+      // markers: true,
     }
   });
   gsap.to( '.home-hero-headline', {
     scrollTrigger: {
-      trigger: data.container.querySelector('.home-hero'),
+      trigger: document.querySelector('.home-hero'),
       start: 'top top',
       end: 'bottom top',
       scrub: true,
@@ -32,7 +34,7 @@ function homeScroll(data) {
   });
   gsap.to( '.artemis-preloader', {
     scrollTrigger: {
-      trigger: data.container.querySelector('.home-hero'),
+      trigger: document.querySelector('.home-hero'),
       start: '90% top'
     },
     y: -300,
@@ -44,7 +46,7 @@ function homeScroll(data) {
     autoAlpha: 0
   },{
     scrollTrigger: {
-      trigger: data.container.querySelector('.home-hero'),
+      trigger: document.querySelector('.home-hero'),
       start: '90% top'
     },
     y: 0,

@@ -18,6 +18,9 @@ function homeIntro(){
   
   function afterIntro(){
     enableScrolling();
+    import('./home-scroll.js').then( homeScroll => {
+      homeScroll.homeScroll();
+    })
   }
 
   //resetting elements
