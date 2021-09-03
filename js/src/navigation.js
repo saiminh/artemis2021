@@ -33,7 +33,7 @@ function navigation() {
 		menu.classList.add( 'nav-menu' );
 	}
   
-  let hamburgerButtonAnimation = gsap.timeline({ paused: true, defaults: { duration: .3} })
+  let hamburgerButtonAnimation = gsap.timeline({ paused: true, defaults: { duration: .15} })
   .set('.menu-hamburger-icon line', {
     transformOrigin: "50% 50%",
   })
@@ -48,12 +48,6 @@ function navigation() {
     xPercent: 100,
     stagger: .025
   }, 0)
-  // .fromTo('.site-header-current-page-title', {
-  //   opacity: 1
-  // }, {
-  //   opacity: 0,
-  //   duration: .0001
-  // }, 0)
   .to('.menu-hamburger-icon line:nth-child(2)', {
     attr: { x1: 26, y1: 8, x2: 26, y2: 8 }
   }, 0.3);
