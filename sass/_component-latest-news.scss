@@ -72,7 +72,7 @@
 .latest-news-item-taglist {
   position: relative;
   text-align: right;
-  mix-blend-mode: difference;
+  // mix-blend-mode: difference;
 }
 .latest-news-item-taglist a,
 .latest-news-item-taglist a:visited {
@@ -97,9 +97,19 @@
     border: none;
     background-color: transparent;
     overflow: hidden;
-    text-indent: 55px;
-    background: url('./img/artemis-ui-btn-arrowright.svg') no-repeat 0 0;
-    mix-blend-mode: difference;
+    // mix-blend-mode: difference;
+    position: relative;
+    cursor: pointer;
+    & svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 55px;
+      height: 55px;
+    }
+    &:hover svg rect{
+      fill: #808B90;
+    }
   }
 }
 .latest-news-scroller-nav-scrollPrev {

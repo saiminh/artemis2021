@@ -6,6 +6,10 @@
   visibility: hidden;
   opacity: 0;
 }
+.site.home .site-main {
+  opacity: 0;
+  visibility: hidden;
+}
 .home-canvas {
   top: 0;
   z-index: 0;

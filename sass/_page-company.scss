@@ -8,12 +8,13 @@
   color: #FFF;
   margin: 0;
   overflow: auto;
-  padding: 2rem 0 4rem 0 ;
+  padding: 0 ;
 }
 .company-hero > * {
   @include layout.full;
 }
 .company-hero h1 {
+  margin-top: 0;
   font-family: 'Maxeville';
   font-weight: 400;
   text-transform: uppercase;
@@ -136,20 +137,7 @@
   }
 }
 .company-our-location p {
-  color: #808B90;
-  font-size: 4.8vw;
-  line-height: 1.1;
-  & a:link, & a:visited, & strong {
-    color: #000;
-    font-weight: 400;
-    text-decoration: none;
-  }
-  @include mq.for-tablet-portrait-up {
-    font-size: 2.6vw;
-  }
-  @include mq.for-tablet-landscape-up {
-    font-size: 1.7vw;
-  }
+  @include type.artemis-body-small;
 }
 .company-our-location .wp-block-columns {
   flex-direction: column-reverse;

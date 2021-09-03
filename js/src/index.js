@@ -38,13 +38,8 @@ function regularInTransition(data){
     ease: 'expo.out'
   }, 0 )
   .from(data.next.container.querySelector('.site-footer'), {
-    backgroundColor: '#FFFFFF'
+    autoAlpha: 0
   }, 0)
-  .from(data.next.container.querySelector('.site-footer > *'), {
-    yPercent: '+=100',
-    duration: 1,
-    ease: 'expo.out'
-  }, 0 )
   .from(data.next.container.querySelector('.site-main'), {
     transformOrigin: '50% 33vh',
     autoAlpha: 0,
@@ -66,14 +61,9 @@ function regularOutTransition(data){
     ease: 'expo.out'
   }, 0 )
   .to(data.current.container.querySelector('.site-footer'), {
-    backgroundColor: '#FFFFFF',
+    autoAlpha: 0,
     duration: .2
   }, 0)
-  .to(data.current.container.querySelector('.site-footer > *'), {
-    y: 1000,
-    duration: .5,
-    ease: 'expo.out'
-  }, 0 )
   .to(data.current.container.querySelector('.site-main'), {
     autoAlpha: 0,
     duration: 1,
@@ -124,13 +114,8 @@ barba.init({
           ease: 'expo.out'
         }, 0 )
         .from(data.next.container.querySelector('.site-footer'), {
-          backgroundColor: '#FFFFFF'
+          autoAlpha: 0
         }, 0)
-        .from(data.next.container.querySelector('.site-footer > *'), {
-          yPercent: '+=100',
-          duration: 1,
-          ease: 'expo.out'
-        }, 0 )
         return tl;
       },
       leave(data) {
@@ -159,14 +144,9 @@ barba.init({
           ease: 'expo.out'
         }, 0 )
         .to(data.current.container.querySelector('.site-footer'), {
-          backgroundColor: '#FFFFFF',
+          autoAlpha: 0,
           duration: .2
         }, 0)
-        .to(data.current.container.querySelector('.site-footer > *'), {
-          y: 1000,
-          duration: .5,
-          ease: 'expo.out'
-        }, 0 )
         .to(data.current.container.querySelector('.site-main'), {
           autoAlpha: 0,
           duration: 1,

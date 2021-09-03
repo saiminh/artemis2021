@@ -2,6 +2,22 @@
 @use 'layout';
 @use 'layout' as vars;
 
+// header spacing
+.site-main {
+  padding-top: 90px;
+  @include mq.for-tablet-landscape-up {
+    padding-top: vars.$header-height;
+  }
+}
+.site.company .site-main {
+  padding-top: 0;
+  & .company-hero {
+    padding-top: vars.$header-height;
+    padding-top: 90px;
+  }
+}
+// End header spacing
+
 .site-main > * ,
 .site-footer{
   transform: none;
@@ -14,17 +30,20 @@
     transform: none;
   }
 }
-
 .site-header {
   position: fixed;
-  top: 0;
+  top: 12px;
   width: 100vw;
   height: vars.$header-height;
   z-index: 4;
   mix-blend-mode: difference;
   font-size: 2.3vw;
+  @include mq.for-tablet-portrait-up {
+    top: 30px;
+  }
   @include mq.for-tablet-landscape-up {
     font-size: 1.4vw;
+    top: 0;
   }
 }
 .nav-toggled .site-header {
@@ -52,12 +71,12 @@
 }
 .site-header-branding a {
   display: inline-block;
-  padding: 20px;
+  padding: 1rem;
 }
 .site-header-branding svg{
   width: auto;
   height: 12px;
-  @include mq.for-tablet-landscape-up {
+  @include mq.for-tablet-portrait-up {
     height: 1.5vw;
   }
   @include mq.for-tablet-landscape-up {
@@ -89,7 +108,7 @@
    opacity: 0;
 }
 .site-header-main-navigation {
-  padding: 0 20px;
+  padding: 0 1rem;
   right: 0;
   display: flex;
   flex-direction: row-reverse;

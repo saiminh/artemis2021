@@ -5,7 +5,7 @@
   text-transform: uppercase;
   border-radius: vars.$border-radius;
   background-color: #000;
-  @include type.artemis-body;
+  @include type.artemis-body-small;
   font-family: 'Maxeville';
   margin-bottom: 0;
   margin-top: 0;

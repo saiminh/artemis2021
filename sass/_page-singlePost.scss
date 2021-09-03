@@ -6,7 +6,7 @@
 .single-post .entry-header {
   @include layout.full;
   @include layout.v-space-after-half;
-  margin-top: vars.$header-height; 
+  // margin-top: vars.$header-height; 
 }
 .single-post .entry-header .post-thumbnail {
   width: 100%;

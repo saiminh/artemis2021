@@ -90,6 +90,8 @@
           echo 'Archive';
         } elseif ( is_search() ) {
           echo 'Search Results';
+        } elseif ( is_single() ) {
+          echo 'News';
         } else {
           echo $thetitle; 
         } 

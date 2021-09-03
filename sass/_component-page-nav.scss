@@ -15,6 +15,9 @@
 .page-nav .artemis-logo path {
   fill: #000;
 }
+.page-nav > a:hover .artemis-logo path {
+  fill: #808B90;
+}
 .page-nav-prev, .page-nav-next, .page-nav-prev:visited, .page-nav-next:visited {
   font-family: 'Maxeville';
   display: flex;
@@ -29,6 +32,12 @@
   }
   @include mq.for-tablet-landscape-up {
     font-size: 3.8vw;
+  }
+  &:hover {
+    color: #808B90;
+    & rect {
+      fill: #808B90;
+    }
   }
 }
 .page-nav-btn {

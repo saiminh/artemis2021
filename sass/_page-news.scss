@@ -5,7 +5,7 @@
 
 .news-headline {
   @include layout.full;
-  margin-top: vars.$header-height;
+  margin-top: 0;
   @include type.artemis-h1;
   & > div > div:nth-child(3) {
     margin-left: -0.03em;

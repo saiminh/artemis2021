@@ -3,11 +3,17 @@
 @use 'type';
 @use 'layout' as vars;
 
+.site.portfolio .site-main {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .portfolio-nav  {
   @include layout.full;
   display: flex;
   flex-wrap: nowrap;
   margin-bottom: 5rem;
+  // margin-top: vars.$header-height;
   @include mq.for-phone-only {
     width: 100vw;
     overflow-x: scroll;
@@ -18,7 +24,6 @@
 }
 .portfolio-nav .portfolio-nav-element {
   position: relative;
-  margin-top: vars.$header-height;
   position: relative;
   @include mq.for-phone-only {
     flex-basis: 66%!important;
@@ -43,7 +48,7 @@
   margin: 0;
   line-height: 1;
   pointer-events: none;
-  mix-blend-mode: difference;
+  // mix-blend-mode: difference;
   @include mq.for-tablet-portrait-up {
     font-size: 4vw;
   }
@@ -132,11 +137,12 @@
   }
   @include mq.for-tablet-landscape-up {
     height: 60vh;
+    height: calc(var(--vh, 1vh) * 60);
   }
 }
 .portfolio-section-hero h2 {
   color: #FFF;
-  mix-blend-mode: difference;
+  // mix-blend-mode: difference;
   position: absolute;
   bottom: 1rem;
   left: 1rem;
@@ -168,7 +174,8 @@
     font-size: 1.4vw;
   }
 }
-.portfolio-section p {
+.portfolio-section p,
+.portfolio-section .wp-block-button__link {
   @include type.artemis-body-small;
 }
 

@@ -41,10 +41,10 @@ echo '<div class="latest-news-item">
 echo '</div>';
 echo '<div class="latest-news-scroller-nav">
       <button aria-label="back" class="latest-news-scroller-nav-scrollPrev">
-        Back
+        <svg width="55" height="55" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="55" height="55" rx="10" fill="#000"/><path d="M28.218 25.697L16 25.661v2.642l12.218-.037 8.368-.073L28.253 37h3.142L41 26.982 31.395 17h-3.107l8.333 8.77-8.404-.073z" fill="#FFF"/></svg>
       </button>
       <button aria-label="next" class="latest-news-scroller-nav-scrollNext">
-        Next
+        <svg width="55" height="55" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="55" height="55" rx="10" fill="#000"/><path d="M28.218 25.697L16 25.661v2.642l12.218-.037 8.368-.073L28.253 37h3.142L41 26.982 31.395 17h-3.107l8.333 8.77-8.404-.073z" fill="#FFF"/></svg>
       </button>
     </div>';
 
