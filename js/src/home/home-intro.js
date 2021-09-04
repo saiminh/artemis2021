@@ -1,9 +1,10 @@
 import { gsap } from "gsap";
 
 function homeIntro(){
+  window.addEventListener('beforeunload', () => {
+    window.scrollTo(0, 0);
+  })
 
-  window.scrollY = 0;
-  
   function disableScrolling() {
     document.body.style.overflow = 'hidden';
     document.body.style.height = '100%';
@@ -66,7 +67,7 @@ function homeIntro(){
       }
     })
       .set('.site-main', {
-        autoAlpha: 1
+        autoAlpha: 1,
       }, 0)
       .to('.artemis-preloader-logos', {
         scale: 1,

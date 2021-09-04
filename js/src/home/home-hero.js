@@ -225,33 +225,35 @@ function homeHero() {
     // RESIZE
     window.addEventListener('resize', () => {
       app.renderer.resize(window.innerWidth, window.innerHeight);
-      centerX = window.innerWidth * 0.5;
-      centerY = window.innerHeight * 0.45;
-      container.pivot.x = centerX;
-      container.pivot.y = centerY;
-      container.x = centerX + 7;
-      container.y = centerY + 7;
-      videobg.width = window.innerWidth + margins * 2;
-      videobg.height = window.innerHeight * .9 + margins * 2 ;
-      videobg.anchor.set(0.5, 0.5);
-      videobg.position.set(centerX, centerY);
-      roundBoxW = window.innerWidth - margins * 2;
-      roundBoxH = window.innerHeight * .9 - margins;
-      origPolyPoints = [
-        { x: margins, y: margins },
-        { x: roundBoxW, y: margins },
-        { x: roundBoxW, y: roundBoxH },
-        { x: margins, y: roundBoxH }
-      ];
-      
-      newPolyPoints.forEach( (elem, index) => {
-        gsap.to( elem, {
-          x: () => origPolyPoints[index].x,
-          y: () => origPolyPoints[index].y,
-          duration: .5,
-          overwrite: true
-        });
-      })
+      if ( window.matchMedia("(min-width: 600px)").matches ) {
+        centerX = window.innerWidth * 0.5;
+        centerY = window.innerHeight * 0.45;
+        container.pivot.x = centerX;
+        container.pivot.y = centerY;
+        container.x = centerX + 7;
+        container.y = centerY + 7;
+        videobg.width = window.innerWidth + margins * 2;
+        videobg.height = window.innerHeight * .9 + margins * 2 ;
+        videobg.anchor.set(0.5, 0.5);
+        videobg.position.set(centerX, centerY);
+        roundBoxW = window.innerWidth - margins * 2;
+        roundBoxH = window.innerHeight * .9 - margins;
+        origPolyPoints = [
+          { x: margins, y: margins },
+          { x: roundBoxW, y: margins },
+          { x: roundBoxW, y: roundBoxH },
+          { x: margins, y: roundBoxH }
+        ];
+        
+        newPolyPoints.forEach( (elem, index) => {
+          gsap.to( elem, {
+            x: () => origPolyPoints[index].x,
+            y: () => origPolyPoints[index].y,
+            duration: .5,
+            overwrite: true
+          });
+        })
+      }
     });
   }
 

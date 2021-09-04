@@ -17,7 +17,10 @@
 .home .entry-content > .home-hero {
   width: 100%;
   overflow: hidden;
-  @include layout.v-space-after-half;
+  margin-bottom: 0;
+  @include mq.for-tablet-portrait-up {
+    @include layout.v-space-after-half;
+  }
 }
 .home-hero-headline {
   font-family: 'Maxeville';
@@ -34,6 +37,7 @@
   max-width: none;
   position: relative;
   z-index: 1;
+  -webkit-user-select: none;
   user-select: none;
 }
 .home-content,
@@ -57,6 +61,9 @@
     letter-spacing: 0;
     max-width: 22em;
   }
+}
+.home-content p:first-child {
+  margin-top: 0;
 }
 .home-navigation {
   counter-reset: homeBtnCounter 0;

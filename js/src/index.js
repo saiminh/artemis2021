@@ -242,9 +242,9 @@ barba.init({
 })
 barba.hooks.afterLeave( (data) => {
   //scroll new page to the top before each transition
-  window.scrollTo(0, 0);
 })
 barba.hooks.enter( (data) => {
+  window.scrollTo(0, 0);
   // resetting the logos from transitions on home
   gsap.set('.artemis-preloader-logos .artemis-logo', { y: 0 });
   //remove js-loading class

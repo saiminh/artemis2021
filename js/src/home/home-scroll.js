@@ -17,8 +17,8 @@ function homeScroll() {
     duration: .3,
     scrollTrigger: {
       trigger: document.querySelector('.home-content'),
-      start: 'top 75%',
-      end: 'bottom 75%',
+      start: 'top 85%',
+      end: 'bottom 85%',
       toggleActions: 'play play pause pause',
       // markers: true,
     }

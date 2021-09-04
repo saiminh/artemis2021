@@ -1546,14 +1546,19 @@ textarea {
 .home .entry-content > .home-hero {
   width: 100%;
   overflow: hidden;
-  margin-bottom: 32.5px;
+  margin-bottom: 0;
 }
 @media (min-width: 600px) {
+  .home .entry-content > .home-hero {
+    margin-bottom: 32.5px;
+  }
+}
+@media (min-width: 600px) and (min-width: 600px) {
   .home .entry-content > .home-hero {
     margin-bottom: 47.5px;
   }
 }
-@media (min-width: 900px) {
+@media (min-width: 600px) and (min-width: 900px) {
   .home .entry-content > .home-hero {
     margin-bottom: 80px;
   }
@@ -1574,6 +1579,7 @@ textarea {
   max-width: none;
   position: relative;
   z-index: 1;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1606,6 +1612,10 @@ textarea {
     letter-spacing: 0;
     max-width: 22em;
   }
+}
+
+.home-content p:first-child {
+  margin-top: 0;
 }
 
 .home-navigation {
