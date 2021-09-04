@@ -29,11 +29,7 @@ function portfolioLoader(){
     autoAlpha: 0
   },{ 
     autoAlpha: 1,
-    duration: .5,
-    stagger: {
-      amount: 1.5,
-      from: "start"
-    }
+    stagger: 0.1
   });
   // curtainsup animation
   function curtainsUp() {

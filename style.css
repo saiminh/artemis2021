@@ -1027,18 +1027,15 @@ textarea {
   padding-top: 80.4px;
 }
 
-.site-main {
+.site:not(.company, .home) .site-main {
   padding-top: 90px;
 }
 @media (min-width: 900px) {
-  .site-main {
+  .site:not(.company, .home) .site-main {
     padding-top: 67px;
   }
 }
 
-.site.company .site-main {
-  padding-top: 0;
-}
 .site.company .site-main .company-hero {
   padding-top: 67px;
   padding-top: 90px;
@@ -1185,7 +1182,6 @@ textarea {
   gap: 2em;
   width: 100%;
   height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
   align-items: center;
   position: absolute;
   top: 0;
@@ -1678,6 +1674,7 @@ textarea {
   margin: 0;
   overflow: auto;
   padding: 0;
+  min-height: 100vh;
 }
 
 .company-hero > * {
@@ -2234,8 +2231,9 @@ textarea {
 
 .team-hero-title {
   position: absolute;
-  top: calc(40vh - 1em);
+  top: calc(40vh);
   top: calc(var(--vh, 1vh) * 40);
+  transform: translateY(-50%);
   text-align: center;
   width: 100%;
   margin: 0;

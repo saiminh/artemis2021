@@ -34,8 +34,9 @@
 }
 .team-hero-title {
   position: absolute;
-  top: calc(40vh - 1em);
+  top: calc(40vh);
   top: calc(var(--vh, 1vh) * 40);
+  transform: translateY(-50%);
   text-align: center;
   width: 100%;
   margin: 0;

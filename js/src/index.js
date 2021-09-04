@@ -32,20 +32,21 @@ function logosMoveWithMouse(switcher){
 function regularInTransition(data){
   let tl = gsap.timeline()
   .from(data.next.container.querySelectorAll('.site-header > *'), {
-    yPercent: '-=100',
+    yPercent: '-=150',
+    autoAlpha: 0,
     duration: 1,
     stagger: .1,
     ease: 'expo.out'
-  }, 0 )
+  }, 0.25 )
   .from(data.next.container.querySelector('.site-footer'), {
     autoAlpha: 0
-  }, 0)
+  }, 0.25)
   .from(data.next.container.querySelector('.site-main'), {
     transformOrigin: '50% 33vh',
     autoAlpha: 0,
     duration: 1.5,
     ease:'expo.inOut'
-  }, 0 )
+  }, 0.25 )
   .to('.artemis-preloader svg:nth-child(2) path', { 
     autoAlpha: 0, 
     stagger: .1 
@@ -54,10 +55,24 @@ function regularInTransition(data){
 };
 function regularOutTransition(data){
   let tl = gsap.timeline()
+  .set('.artemis-preloader', {
+    y: 0,
+    duration: 2
+  }, 0)
+  .set('.artemis-preloader-logos', {
+    scale: 3
+  }, 0)
+  .set('.artemis-preloader-logos .artemis-logo', {
+    y: 0
+  }, 0)
+  .set('.artemis-preloader svg:nth-child(2) path', { 
+    autoAlpha: 0
+  }, 0)
   .to(data.current.container.querySelectorAll('.site-header > *'), {
-    yPercent: '-=100',
-    stagger: .1, 
+    yPercent: '-=150',
+    autoAlpha: 0,
     duration: 1,
+    stagger: .1, 
     ease: 'expo.out'
   }, 0 )
   .to(data.current.container.querySelector('.site-footer'), {
@@ -72,7 +87,7 @@ function regularOutTransition(data){
   .to('.artemis-preloader svg:nth-child(2) path', { 
     autoAlpha: 1, 
     stagger: .1 
-  }, 0);
+  }, .25);
   return tl;
 }
 
@@ -108,7 +123,7 @@ barba.init({
           autoAlpha: 0
         }, 0)
         .from(data.next.container.querySelectorAll('.site-header > *'), {
-          yPercent: '-=100',
+          yPercent: '-=150',
           duration: 1,
           stagger: .1,
           ease: 'expo.out'
@@ -138,7 +153,7 @@ barba.init({
           y: 0
         }, 0)
         .to(data.current.container.querySelectorAll('.site-header > *'), {
-          yPercent: '-=100',
+          yPercent: '-=150',
           stagger: .1, 
           duration: 1,
           ease: 'expo.out'
