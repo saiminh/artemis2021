@@ -1061,7 +1061,7 @@ textarea {
 .site-header {
   position: fixed;
   top: 12px;
-  width: 100vw;
+  width: 100%;
   height: 67px;
   z-index: 4;
   mix-blend-mode: difference;
@@ -1540,6 +1540,8 @@ textarea {
 
 .home-canvas {
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 0;
 }
 
@@ -1930,7 +1932,7 @@ textarea {
 }
 @media (max-width: 599px) {
   .portfolio-nav {
-    width: 100vw;
+    width: 100%;
     overflow-x: scroll;
     display: flex;
     flex-wrap: nowrap;

@@ -15,7 +15,7 @@
   margin-bottom: 5rem;
   // margin-top: vars.$header-height;
   @include mq.for-phone-only {
-    width: 100vw;
+    width: 100%;
     overflow-x: scroll;
     display: flex;
     flex-wrap: nowrap;
