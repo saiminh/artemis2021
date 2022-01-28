@@ -154,8 +154,6 @@ function artemis2021_scripts() {
 	// if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 	// 	wp_enqueue_script( 'comment-reply' );
 	// }
-  // Maybe for the future dequeue the default styles?
-  //wp_dequeue_style( 'wp-block-library' );
 
 }
 add_action( 'wp_enqueue_scripts', 'artemis2021_scripts' );
