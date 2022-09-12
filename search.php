@@ -24,7 +24,7 @@ get_header();
 			</header><!-- .page-header -->
 
       <?php
-    echo '<div class="latest-news">
+    echo '<div class="test-news latest-news">
     <div class="latest-news-scroller">';
   /* Start the Loop */
   while ( have_posts() ) :
